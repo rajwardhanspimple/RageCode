@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "Fail",
   "desktop.menu.edit": "Sunting",
   "desktop.menu.view": "Paparan",
@@ -677,7 +677,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} yang lain",
   "settings.about.firstPublished": "Pertama kali diterbitkan di Missouri, Amerika Syarikat",
   "settings.about.firstIllustrated": "Pertama digambarkan di London, England",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode, ejen pengekodan sumber terbuka",
   "settings.about.trademark": "OpenCode ialah tanda dagangan berdaftar Anomaly Innovations, Inc.",
   "settings.about.typeset": "Set taip dalam Inter dan IBM Plex Mono",

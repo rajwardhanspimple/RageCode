@@ -25,12 +25,8 @@ import * as Registry from "./engine-registry"
  * Anything at all going wrong leaves the bundled engine in place. That is the whole design.
  */
 
-/** The desktop channel maps to how far a channel is allowed to follow upstream. */
-export function channelFor(channel: "local" | "dev" | "beta" | "prod"): Channel {
-  if (channel === "prod") return "latest"
-  if (channel === "beta") return "minor"
-
-  // `dev` and `local` run from the source tree; an engine fetched from npm is not what they test.
+/** Ragestar ships pinned engines only: every channel stays on its bundled engine. */
+export function channelFor(_channel: "local" | "dev" | "beta" | "prod"): Channel {
   return "bundled"
 }
 
@@ -133,7 +129,7 @@ let running = false
  */
 export async function refresh(input: RefreshInput): Promise<Outcome> {
   if (input.channel === "bundled") return { status: "skipped", reason: "channel does not adopt engines" }
-  if (process.env.OLIVIACODE_ENGINE_UPDATE === "off") return { status: "skipped", reason: "updates disabled" }
+  if (process.env.RAGESTAR_ENGINE_UPDATE === "off") return { status: "skipped", reason: "updates disabled" }
   if (running) return { status: "skipped", reason: "refresh already running" }
 
   running = true

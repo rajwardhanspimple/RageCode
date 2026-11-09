@@ -4,7 +4,7 @@ import type { UpdateStatus } from "../shared/ipc-rpc/updates"
 import type { ElectronAPI } from "./api-types"
 
 /** The fork's release page; the same feed the packaged app updates from. */
-const RELEASES = "https://github.com/9562295450/Oliviacode/releases/latest"
+const RELEASES = "https://github.com/ragestar/ragestar/releases/latest"
 
 /**
  * The shell updater's only face. It shows the version the installed app already has, announces a release

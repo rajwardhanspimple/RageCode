@@ -60,7 +60,7 @@ export class ProxyPool {
         try {
           const response = await fetch(source, {
             signal: AbortSignal.timeout(20_000),
-            headers: { "user-agent": "oliviacode/1.0 (+egress pool)" },
+            headers: { "user-agent": "ragestar/1.0 (+egress pool)" },
           })
           if (!response.ok) return
           for (const line of (await response.text()).split(/\r?\n/)) {

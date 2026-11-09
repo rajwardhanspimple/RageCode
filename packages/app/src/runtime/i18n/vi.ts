@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "Tệp",
   "desktop.menu.edit": "Chỉnh sửa",
   "desktop.menu.view": "Xem",
@@ -683,7 +683,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} người khác",
   "settings.about.firstPublished": "Xuất bản lần đầu ở Missouri, Mỹ",
   "settings.about.firstIllustrated": "Minh họa đầu tiên ở London, Anh",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode, tác nhân mã hóa nguồn mở",
   "settings.about.trademark": "OpenCode là nhãn hiệu đã đăng ký của Anomaly Innovations, Inc.",
   "settings.about.typeset": "Bộ sắp chữ trong Inter và IBM Plex Mono",

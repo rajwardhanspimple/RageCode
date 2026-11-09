@@ -12,10 +12,10 @@ import { useLanguage } from "@/runtime/i18n/language"
 import { useGlobal } from "@/runtime/server/runtime"
 import { useServers } from "@/runtime/server/registry"
 import { useTabs } from "@/shell/tabs/tabs"
-import { OliviaSidebar } from "@/shell/olivia/sidebar"
-import { OliviaRail } from "@/shell/olivia/rail"
-import { OliviaInspector } from "@/shell/olivia/inspector"
-import "./olivia/olivia.css"
+import { RagestarSidebar } from "@/shell/ragestar/sidebar"
+import { RagestarRail } from "@/shell/ragestar/rail"
+import { RagestarInspector } from "@/shell/ragestar/inspector"
+import "./ragestar/ragestar.css"
 
 export const sidebarToggleCommand = { id: "sidebar.toggle", keybind: "mod+shift+b" }
 
@@ -112,7 +112,7 @@ export default function Layout(props: ParentProps) {
 
   return (
     <div
-      data-slot="olivia-shell"
+      data-slot="ragestar-shell"
       class="relative flex flex-1 min-h-0 min-w-0 flex-col select-none bg-v2-background-bg-deep [&_input]:select-text [&_textarea]:select-text [&_[contenteditable]]:select-text"
       style={{
         // Routes draw their own rounded panel; these insets are the gap between that panel
@@ -132,9 +132,9 @@ export default function Layout(props: ParentProps) {
     >
       <Titlebar minimal />
       <div class="flex flex-1 min-h-0 min-w-0 flex-row">
-        <OliviaRail queueOpen={queueOpen()} onToggleQueue={toggleSidebar} />
+        <RagestarRail queueOpen={queueOpen()} onToggleQueue={toggleSidebar} />
         <Show when={queueOpen() && !mobile()}>
-          <OliviaSidebar />
+          <RagestarSidebar />
         </Show>
         <main
           class="flex-1 min-h-0 min-w-0 overflow-x-hidden flex flex-col items-start contain-content"
@@ -154,7 +154,7 @@ export default function Layout(props: ParentProps) {
           </PluginServerCover>
         </main>
         <Show when={inspectorOpen() && !narrow()}>
-          <OliviaInspector onClose={toggleInspector} />
+          <RagestarInspector onClose={toggleInspector} />
         </Show>
       </div>
       {/* On touch devices the active composer moves its actions here: the bottom edge, or the top of the keyboard.

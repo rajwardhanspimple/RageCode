@@ -41,8 +41,6 @@ const HISTORY_LIMIT = 40
 const RECENT_EXITS = 8
 /** A reconnect that has not answered by now is left running; the next request still lands. */
 const RESUME_TIMEOUT_MS = 20_000
-/** This build's version, compared against OpenCode's CLI releases. */
-const __OLIVIACODE_VERSION__ = "0.1.0"
 
 /** Limit wording that describes the network rather than the account. */
 const LIMIT_PATTERNS: readonly RegExp[] = [
@@ -130,10 +128,6 @@ export class InfiniteEngine extends EventEmitter {
   #rotating: Promise<RotateResult> | null = null
   #recentHits = new Map<string, number>()
   #disposed = false
-  /** CLI update check: last-checked version and whether a newer CLI release exists. */
-  #updateChecked = 0
-  #updateAvailable = false
-  #updateVersion = ""
 
   get settings() {
     return this.#settings
@@ -162,7 +156,7 @@ export class InfiniteEngine extends EventEmitter {
       const raw = JSON.parse(readFileSync(this.#file(), "utf8")) as Record<string, unknown>
       const stored = (raw.settings ?? {}) as Record<string, unknown>
       // A save written before this feature has no `quotaRotates`. That install kept
-      // recovery behind a manual Arm, and the limit Olivia is chasing is the one it kept
+      // recovery behind a manual Arm, and the limit Ragestar is chasing is the one it kept
       // missing — so the upgrade arms it once, and the sidebar can disarm it again.
       const legacy = typeof stored !== "object" || !("quotaRotates" in stored)
 
@@ -237,8 +231,9 @@ export class InfiniteEngine extends EventEmitter {
       health: this.#health,
       watch: this.#watch,
       provider: this.#provider,
-      updateAvailable: this.#updateAvailable,
-      updateVersion: this.#updateVersion,
+      // Ragestar ships pinned engines only: no release feed is consulted, so these stay dark.
+      updateAvailable: false,
+      updateVersion: "",
     }
   }
 
@@ -650,94 +645,6 @@ export class InfiniteEngine extends EventEmitter {
     this.#watch = text
     this.#watchAt = now
     this.#emit()
-  }
-
-  /**
-   * Check whether the bundled CLI engine has a newer release on OpenCode's GitHub.
-   * Only the CLI engine is checked — the Olivia UI is never updated by this path.
-   * Results are cached for 10 minutes; a missed check leaves the button hidden.
-   */
-  async checkUpdate(): Promise<{ available: boolean; version: string }> {
-    const now = Date.now()
-    if (now - this.#updateChecked < 600_000) {
-      return { available: this.#updateAvailable, version: this.#updateVersion }
-    }
-    this.#updateChecked = now
-
-    try {
-      const controller = new AbortController()
-      const timer = setTimeout(() => controller.abort(), 10_000)
-      const response = await fetch(
-        "https://api.github.com/repos/anomalyco/opencode/releases/latest",
-        { signal: controller.signal, cache: "no-store", headers: { Accept: "application/vnd.github+json" } },
-      )
-      clearTimeout(timer)
-      const json = (await response.json()) as { tag_name?: string; assets?: Array<{ name: string; browser_download_url: string }> }
-      const latest = json.tag_name?.replace(/^v/, "") || ""
-      if (latest) {
-        this.#updateVersion = latest
-        this.#updateAvailable = this.#newerThan(latest)
-      }
-    } catch {
-      // Silent: a missed check leaves the button hidden, which is the safe default.
-    }
-
-    return { available: this.#updateAvailable, version: this.#updateVersion }
-  }
-
-  /**
-   * Download and replace the bundled CLI engine with the latest release from OpenCode's
-   * GitHub. Only the CLI binary is replaced — the Olivia UI is never touched.
-   */
-  async applyUpdate(): Promise<{ ok: boolean; error?: string }> {
-    if (!this.#updateAvailable || !this.#updateVersion) {
-      return { ok: false, error: "no update available" }
-    }
-
-    try {
-      const controller = new AbortController()
-      const timer = setTimeout(() => controller.abort(), 60_000)
-      const response = await fetch(
-        "https://api.github.com/repos/anomalyco/opencode/releases/latest",
-        { signal: controller.signal, cache: "no-store", headers: { Accept: "application/vnd.github+json" } },
-      )
-      clearTimeout(timer)
-      const json = (await response.json()) as {
-        tag_name?: string
-        assets?: Array<{ name: string; browser_download_url: string }>
-      }
-      const cliAsset = json.assets?.find((a) => a.name.includes("cli") && a.name.endsWith(".exe"))
-      if (!cliAsset) {
-        return { ok: false, error: "no CLI asset found in release" }
-      }
-
-      const dl = await fetch(cliAsset.browser_download_url, { signal: controller.signal })
-      const buffer = await dl.arrayBuffer()
-
-      const fs = await import("node:fs/promises")
-      const cliPath = await import("node:path").then((p) => p.join(process.resourcesPath, "cli", "opencode-cli.exe"))
-      await fs.writeFile(cliPath, Buffer.from(buffer))
-
-      this.#updateAvailable = false
-      this.#updateVersion = ""
-      this.#emit()
-      return { ok: true }
-    } catch (error) {
-      return { ok: false, error: error instanceof Error ? error.message : String(error) }
-    }
-  }
-
-  #newerThan(candidate: string): boolean {
-    const parts = (s: string) => s.split(".").map((p) => Number(p) || 0)
-    const here = parts(__OLIVIACODE_VERSION__)
-    const there = parts(candidate)
-    for (let i = 0; i < Math.max(here.length, there.length); i += 1) {
-      const a = here[i] ?? 0
-      const b = there[i] ?? 0
-      if (b > a) return true
-      if (a > b) return false
-    }
-    return false
   }
 
   /** Probe every lane that is installed, and fill the health column. */

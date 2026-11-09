@@ -73,7 +73,7 @@ export function LoadingSplash(props: {
       >
         <div class="relative size-full">
           <div class="first-launch-brand">
-            <span class="first-launch-brand-word">oliviacode</span>
+            <span class="first-launch-brand-word">Ragestar</span>
             <span class="first-launch-brand-rule" />
           </div>
         </div>

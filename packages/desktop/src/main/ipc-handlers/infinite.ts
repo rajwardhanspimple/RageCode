@@ -53,10 +53,10 @@ export const infiniteHandlers = InfiniteRpcs.toLayer(
         }),
       InfiniteCheckLanes: () => Effect.tryPromise(() => engine.checkLanes()).pipe(Effect.orDie),
       InfiniteObserve: ({ line }) => Effect.sync(() => engine.observe(line)),
-      InfiniteCheckUpdate: () =>
-        Effect.tryPromise(() => engine.checkUpdate()).pipe(Effect.orDie),
-      InfiniteApplyUpdate: () =>
-        Effect.tryPromise(() => engine.applyUpdate()).pipe(Effect.orDie),
+      // Ragestar ships pinned engines only: the update RPCs answer "nothing to do" and the
+      // engine's GitHub-based check/replace path is gone.
+      InfiniteCheckUpdate: () => Effect.sync(() => ({ available: false, version: "" })),
+      InfiniteApplyUpdate: () => Effect.sync(() => ({ ok: false, error: "updates are disabled in this build" })),
     })
   }),
 )

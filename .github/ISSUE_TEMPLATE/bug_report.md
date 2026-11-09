@@ -16,10 +16,10 @@ A clear description of the failure.
 3.
 
 **Environment**
-- Oliviacode version (status bar or `Help → About`):
+- Ragestar version (status bar or `Help → About`):
 - OS and version:
 - Installer or package used (`.exe`, `.dmg`, `.AppImage`, `.deb`, `.rpm`):
-- Engine version, if you changed `OLIVIACODE_CLI_VERSION`:
+- Engine version, if you changed `RAGESTAR_CLI_VERSION`:
 - Egress lane in use (Direct / WARP / Tor / proxy):
 
 **Logs**

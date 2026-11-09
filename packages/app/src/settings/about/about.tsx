@@ -171,7 +171,7 @@ export function SettingsAbout(props: { active: boolean }) {
       </p>
 
       <p class="settings-about-faint">
-        <span>oliviacode is a fork of </span>
+        <span>Ragestar is a fork of </span>
         <ExternalLink href="https://github.com/anomalyco/opencode">
           <bdi dir="ltr">OpenCode</bdi>
         </ExternalLink>

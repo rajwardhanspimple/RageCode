@@ -14,7 +14,7 @@
 - Provider entries are community data, not endorsements. A template that works for you is a
   contribution; a service that forbids a client is a matter between you and that service, and an
   entry here does not change it.
-- No "is this the official app" threads. Oliviacode is independent and MIT; that is not going to
+- No "is this the official app" threads. Ragestar is independent and MIT; that is not going to
   change.
 
 ## What gets merged

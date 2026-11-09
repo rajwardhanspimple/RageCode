@@ -20,7 +20,7 @@ type RailItem = {
  * queue toggle, and the exit reading. It never collapses, so the window always has a
  * fixed left edge and the queue beside it is free to close.
  */
-export function OliviaRail(props: { queueOpen: boolean; onToggleQueue: () => void }) {
+export function RagestarRail(props: { queueOpen: boolean; onToggleQueue: () => void }) {
   const command = useCommand()
   const route = useCurrentRoute()
   const platform = usePlatform()
@@ -52,24 +52,24 @@ export function OliviaRail(props: { queueOpen: boolean; onToggleQueue: () => voi
   const phase = () => platform.egress?.state()?.phase ?? "idle"
 
   return (
-    <nav data-slot="olivia-rail" aria-label="Primary">
+    <nav data-slot="ragestar-rail" aria-label="Primary">
       <button
         type="button"
-        data-slot="olivia-rail-brand"
-        title="oliviacode"
-        aria-label="oliviacode"
+        data-slot="ragestar-rail-brand"
+        title="Ragestar"
+        aria-label="Ragestar"
         onClick={() => navigate("/")}
       >
         <OwlMark size={22} />
       </button>
 
-      <span data-slot="olivia-rail-rule" aria-hidden="true" />
+      <span data-slot="ragestar-rail-rule" aria-hidden="true" />
 
       <For each={items()}>
         {(item) => (
           <button
             type="button"
-            data-slot="olivia-rail-item"
+            data-slot="ragestar-rail-item"
             data-active={item.active?.() ? "" : undefined}
             title={item.label}
             aria-label={item.label}
@@ -83,7 +83,7 @@ export function OliviaRail(props: { queueOpen: boolean; onToggleQueue: () => voi
 
       <button
         type="button"
-        data-slot="olivia-rail-item"
+        data-slot="ragestar-rail-item"
         data-active={props.queueOpen ? "" : undefined}
         data-rail-toggle=""
         title={props.queueOpen ? "Hide queue" : "Show queue"}
@@ -94,11 +94,11 @@ export function OliviaRail(props: { queueOpen: boolean; onToggleQueue: () => voi
         <Icon name="sidebar" />
       </button>
 
-      <div data-slot="olivia-rail-spacer" />
+      <div data-slot="ragestar-rail-spacer" />
 
       <Show when={platform.egress}>
         <span
-          data-slot="olivia-rail-phase"
+          data-slot="ragestar-rail-phase"
           data-phase={phase()}
           title={`Egress ${phase()}`}
           aria-hidden="true"
@@ -107,7 +107,7 @@ export function OliviaRail(props: { queueOpen: boolean; onToggleQueue: () => voi
 
       <button
         type="button"
-        data-slot="olivia-rail-item"
+        data-slot="ragestar-rail-item"
         title="Settings"
         aria-label="Settings"
         onClick={() => openSettings()}

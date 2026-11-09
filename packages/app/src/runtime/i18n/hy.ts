@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "Ֆայլ",
   "desktop.menu.edit": "Խմբագրել",
   "desktop.menu.view": "Դիտել",
@@ -673,7 +673,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} այլ",
   "settings.about.firstPublished": "Առաջին անգամ հրատարակվել է Միսուրիում, ԱՄՆ",
   "settings.about.firstIllustrated": "Առաջին անգամ նկարազարդվել է Լոնդոնում, Անգլիա",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode՝ բաց կոդով կոդավորման գործակալ",
   "settings.about.trademark": "OpenCode-ը Anomaly Innovations, Inc.-ի գրանցված ապրանքային նշանն է։",
   "settings.about.typeset": "Շարված է Inter և IBM Plex Mono տառատեսակներով",

@@ -1,7 +1,7 @@
 {
   "_readme": [
     "LOCAL PROVIDER TEMPLATE. EMPTY BY DEFAULT.",
-    "Oliviacode ships no provider endpoints. This file exists only so a user can keep local",
+    "Ragestar ships no provider endpoints. This file exists only so a user can keep local",
     "addon entries without editing anything else. Add entries here yourself, or load a",
     "community registry by URL from the provider picker.",
     "Nothing in this file is required for the app to work. Delete it and the addon block",

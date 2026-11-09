@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "oliviacode",
+  "name": "ragestar",
   "description": "Desktop AI client with multi-lane egress and session isolation",
   "version": "2.2.8",
   "private": true,
@@ -135,11 +135,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/9562295450/Oliviacode"
+    "url": "https://github.com/ragestar/ragestar"
   },
-  "homepage": "https://github.com/9562295450/Oliviacode",
+  "homepage": "https://github.com/ragestar/ragestar",
   "author": {
-    "name": "oliviacode contributors"
+    "name": "ragestar"
   },
   "license": "MIT",
   "prettier": {

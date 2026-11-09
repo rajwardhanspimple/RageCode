@@ -5,11 +5,11 @@
  * user, and their endpoints live in the community add-on registry, never in this file.
  */
 export const BRAND = {
-  name: "Oliviacode",
-  repo: "https://github.com/9562295450/Oliviacode",
-  issues: "https://github.com/9562295450/Oliviacode/issues",
-  discussions: "https://github.com/9562295450/Oliviacode/discussions",
-  docs: "https://github.com/9562295450/Oliviacode/blob/main/README.md",
-  addons: "https://github.com/9562295450/Oliviacode/blob/main/PRESETS.md",
-  security: "https://github.com/9562295450/Oliviacode/blob/main/docs/security/virustotal.md",
+  name: "Ragestar",
+  repo: "https://github.com/ragestar/Ragestar",
+  issues: "https://github.com/ragestar/Ragestar/issues",
+  discussions: "https://github.com/ragestar/Ragestar/discussions",
+  docs: "https://github.com/ragestar/Ragestar/blob/main/README.md",
+  addons: "https://github.com/ragestar/Ragestar/blob/main/PRESETS.md",
+  security: "https://github.com/ragestar/Ragestar/blob/main/docs/security/virustotal.md",
 } as const

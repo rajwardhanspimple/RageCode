@@ -37,7 +37,7 @@ export type ProviderOptions = {
   readonly key: string
 }
 
-const AGENT = "oliviacode/1.0 (+egress provider probe)"
+const AGENT = "ragestar/1.0 (+egress provider probe)"
 /** One token is enough to be told a limit applies. */
 const MAX_TOKENS = 1
 /** A body longer than this is truncated; only the error type at the front matters. */

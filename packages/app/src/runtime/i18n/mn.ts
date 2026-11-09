@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "Файл",
   "desktop.menu.edit": "Засварлах",
   "desktop.menu.view": "Харах",
@@ -677,7 +677,7 @@ export const dict = {
   "settings.about.otherContributor.other": "өөр {{count}}",
   "settings.about.firstPublished": "Анх АНУ-ын Миссури мужид хэвлэгдсэн",
   "settings.about.firstIllustrated": "Анх Английн Лондон хотод зурагласан",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode, нээлттэй эхийн кодчиллын агент",
   "settings.about.trademark": "OpenCode нь Anomaly Innovations, Inc.-ийн бүртгэлтэй барааны тэмдэг юм.",
   "settings.about.typeset": "Inter болон IBM Plex Mono үсгийн хэвээр өрсөн",

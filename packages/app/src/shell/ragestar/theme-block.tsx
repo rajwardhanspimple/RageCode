@@ -15,7 +15,7 @@ const schemes: { id: ColorScheme; label: string }[] = [
  * click, and the three color schemes. The full catalogue stays one click away so the strip
  * can stay short enough to read.
  */
-export function OliviaTheme() {
+export function RagestarTheme() {
   const theme = useTheme()
   const openAppearance = useSettingsDialog("appearance")
 
@@ -35,18 +35,18 @@ export function OliviaTheme() {
   }
 
   return (
-    <section data-slot="olivia-theme">
-      <header data-slot="olivia-block-head">
-        <span data-slot="olivia-theme-glyph" aria-hidden="true">
+    <section data-slot="ragestar-theme">
+      <header data-slot="ragestar-block-head">
+        <span data-slot="ragestar-theme-glyph" aria-hidden="true">
           <Icon name="edit" />
         </span>
         <span>Theme</span>
-        <span data-slot="olivia-block-note" data-truncate="" title={theme.name(theme.themeId())}>
+        <span data-slot="ragestar-block-note" data-truncate="" title={theme.name(theme.themeId())}>
           {theme.name(theme.themeId())}
         </span>
         <button
           type="button"
-          data-slot="olivia-icon"
+          data-slot="ragestar-icon"
           data-push=""
           title="Open the theme settings"
           aria-label="Open the theme settings"
@@ -56,30 +56,30 @@ export function OliviaTheme() {
         </button>
       </header>
 
-      <div data-slot="olivia-swatches" role="listbox" aria-label="Theme">
+      <div data-slot="ragestar-swatches" role="listbox" aria-label="Theme">
         <For each={theme.ids()}>
           {(id) => (
             <button
               type="button"
-              data-slot="olivia-swatch"
+              data-slot="ragestar-swatch"
               data-active={id === theme.themeId() ? "" : undefined}
               role="option"
               aria-selected={id === theme.themeId()}
               aria-label={theme.name(id)}
               title={theme.name(id)}
-              style={{ "--olivia-swatch": swatch(id) }}
+              style={{ "--ragestar-swatch": swatch(id) }}
               onClick={() => theme.setTheme(id)}
             />
           )}
         </For>
       </div>
 
-      <div data-slot="olivia-schemes" role="group" aria-label="Color scheme">
+      <div data-slot="ragestar-schemes" role="group" aria-label="Color scheme">
         <For each={schemes}>
           {(scheme) => (
             <button
               type="button"
-              data-slot="olivia-scheme"
+              data-slot="ragestar-scheme"
               data-active={theme.colorScheme() === scheme.id ? "" : undefined}
               aria-pressed={theme.colorScheme() === scheme.id}
               onClick={() => theme.setColorScheme(scheme.id)}

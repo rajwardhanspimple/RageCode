@@ -3,7 +3,7 @@ import { Rpc, RpcGroup } from "effect/rpc"
 
 /**
  * The shell updater's state. `unsupported` is a build without a release feed: a dev checkout, or an app
- * packaged without OLIVIACODE_UPDATE_REPO. Every app version below 2.2.6 was packaged without one.
+ * packaged without RAGESTAR_UPDATE_REPO. Every app version below 2.2.6 was packaged without one.
  */
 export const UpdateStatus = Schema.Struct({
   state: Schema.Literals([

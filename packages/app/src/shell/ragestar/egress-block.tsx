@@ -13,7 +13,7 @@ import { EgressPanel } from "@/shell/egress/panel"
  * Everything with a table in it stays in the panel. This block is a readout and three
  * controls, sized to the sidebar, so a rotation never needs a settings screen.
  */
-export function OliviaEgress() {
+export function RagestarEgress() {
   const platform = usePlatform()
   const dialog = useDialog()
   const [busy, setBusy] = createSignal(false)
@@ -69,17 +69,17 @@ export function OliviaEgress() {
 
   return (
     <Show when={platform.egress}>
-      <section data-slot="olivia-egress" data-phase={state()?.phase ?? "idle"}>
-        <header data-slot="olivia-block-head">
-          <span data-slot="olivia-phase-dot" data-phase={state()?.phase ?? "idle"} aria-hidden="true" />
+      <section data-slot="ragestar-egress" data-phase={state()?.phase ?? "idle"}>
+        <header data-slot="ragestar-block-head">
+          <span data-slot="ragestar-phase-dot" data-phase={state()?.phase ?? "idle"} aria-hidden="true" />
           <span>Egress</span>
-          <span data-slot="olivia-block-note" data-truncate="">
+          <span data-slot="ragestar-block-note" data-truncate="">
             {state() ? phaseLabel(state()!) : "loading"}
             {working() && elapsed() > 0 ? ` ${elapsed()}s` : ""}
           </span>
           <button
             type="button"
-            data-slot="olivia-icon"
+            data-slot="ragestar-icon"
             data-push=""
             title="Open the egress panel"
             aria-label="Open the egress panel"
@@ -89,46 +89,46 @@ export function OliviaEgress() {
           </button>
         </header>
 
-        <div data-slot="olivia-egress-trace">
+        <div data-slot="ragestar-egress-trace">
           <Show
             when={state()?.trace}
-            fallback={<span data-slot="olivia-egress-ip" data-muted="">no route yet</span>}
+            fallback={<span data-slot="ragestar-egress-ip" data-muted="">no route yet</span>}
           >
             {(trace) => (
               <>
-                <span data-slot="olivia-egress-ip" title={trace().ip}>
+                <span data-slot="ragestar-egress-ip" title={trace().ip}>
                   {trace().ip}
                 </span>
                 <Show when={trace().loc}>
-                  <span data-slot="olivia-egress-loc">{trace().loc}</span>
+                  <span data-slot="ragestar-egress-loc">{trace().loc}</span>
                 </Show>
               </>
             )}
           </Show>
         </div>
 
-        <div data-slot="olivia-lanes" role="group" aria-label="Egress lane">
+        <div data-slot="ragestar-lanes" role="group" aria-label="Egress lane">
           <For each={infiniteLanes}>
             {(target) => (
               <button
                 type="button"
-                data-slot="olivia-lane"
+                data-slot="ragestar-lane"
                 data-active={target === lane() ? "" : undefined}
                 aria-pressed={target === lane()}
                 title={`Route through ${laneLabel(target)}`}
                 onClick={() => void engine()?.setLane(target)}
               >
-                <span data-slot="olivia-live-dot" data-state={dot(target)} aria-hidden="true" />
+                <span data-slot="ragestar-live-dot" data-state={dot(target)} aria-hidden="true" />
                 {laneLabel(target)}
               </button>
             )}
           </For>
         </div>
 
-        <div data-slot="olivia-egress-actions">
+        <div data-slot="ragestar-egress-actions">
           <button
             type="button"
-            data-slot="olivia-rotate"
+            data-slot="ragestar-rotate"
             disabled={busy() || working() || !state()}
             title="Get a new exit address on this lane"
             onClick={() => void rotate()}
@@ -140,7 +140,7 @@ export function OliviaEgress() {
           </button>
           <button
             type="button"
-            data-slot="olivia-arm"
+            data-slot="ragestar-arm"
             data-armed={state()?.armed ? "" : undefined}
             aria-pressed={state()?.armed ?? false}
             title="Rotate automatically when the sidecar reports a limit"
@@ -152,13 +152,13 @@ export function OliviaEgress() {
         </div>
 
         <Show when={state()?.watch}>
-          <p data-slot="olivia-egress-watch" title={state()!.watch}>
+          <p data-slot="ragestar-egress-watch" title={state()!.watch}>
             {state()!.watch}
           </p>
         </Show>
 
         <Show when={state()?.phase === "error" && state()?.lastError}>
-          <p data-slot="olivia-egress-error" title={state()!.lastError}>
+          <p data-slot="ragestar-egress-error" title={state()!.lastError}>
             {state()!.lastError}
           </p>
         </Show>

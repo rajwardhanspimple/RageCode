@@ -493,7 +493,7 @@ export const dict = {
 
   "command.logs.export": "로그 내보내기",
 
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "파일",
   "desktop.menu.edit": "편집",
   "desktop.menu.view": "보기",
@@ -687,7 +687,7 @@ export const dict = {
   "settings.about.otherContributor.other": "기타 {{count}}명",
   "settings.about.firstPublished": "미국 미주리 주에서 처음 출판됨",
   "settings.about.firstIllustrated": "영국 런던에서 처음으로 그림이 그려졌습니다.",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "오픈소스 코딩 에이전트 OpenCode",
   "settings.about.trademark": "OpenCode는 Anomaly Innovations, Inc.의 등록 상표입니다.",
   "settings.about.typeset": "Inter 및 IBM Plex Mono의 조판",

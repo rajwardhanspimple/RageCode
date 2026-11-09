@@ -1,4 +1,4 @@
-# oliviacode — visual system
+# ragestar — visual system
 
 A desktop coding agent with its own face. Two references for structure and texture, one
 mark, one palette, and nothing else borrowed. The owl is the anchor: everything here is
@@ -160,13 +160,13 @@ Visible remains of the previous identity, and where they live. Internal package 
 
 | what a user sees | where | action |
 | --- | --- | --- |
-| `desktop.menu.app` = `OpenCode` | every `packages/app/src/runtime/i18n/*.ts` | → `oliviacode` |
-| app menu heading `OpenCode` | `packages/app/src/shell/titlebar/windows-menu.tsx:127` | → `oliviacode` |
-| voice persona "You are OpenCode's…" | `packages/app/src/voice/spec.ts:5,16` | → `oliviacode` |
-| window title / product name | `packages/desktop` builder config | already `oliviacode`; verify titlebar string |
+| `desktop.menu.app` = `OpenCode` | every `packages/app/src/runtime/i18n/*.ts` | → `ragestar` |
+| app menu heading `OpenCode` | `packages/app/src/shell/titlebar/windows-menu.tsx:127` | → `ragestar` |
+| voice persona "You are OpenCode's…" | `packages/app/src/voice/spec.ts:5,16` | → `ragestar` |
+| window title / product name | `packages/desktop` builder config | already `ragestar`; verify titlebar string |
 | favicon, apple-touch, manifest | `resources/icons/**`, `site.webmanifest` | owl set (new geometry) |
 | home wordmark | `packages/app/src/new-session/wordmark.tsx` | replace with `OwlLockup` + owl grid |
-| About fork line | About panel | `oliviacode — a fork of opencode (MIT)` (licence credit stays; it is not branding) |
+| About fork line | About panel | `ragestar — a fork of opencode (MIT)` (licence credit stays; it is not branding) |
 | provider label `OpenCode` | provider picker, `providers/opencode-logo.tsx` | **keep** — it names the upstream provider, not the app |
 
 Anything that reads as the old product's *voice* — "open code", the bracket-and-slash

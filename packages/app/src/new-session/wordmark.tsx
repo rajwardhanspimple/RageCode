@@ -18,64 +18,52 @@ import "./wordmark.css"
 // Each letter in the 234×42 logo viewBox, with its counter shadow, stem, and bottom-centre pivot.
 const LETTERS = [
   {
-    cx: 9,
-    weak: "M6 12H12V30H6Z",
-    fill: "var(--icon-base)",
-    stem: "M0 6H18V12H0Z M0 12H6V30H0Z M12 12H18V30H12Z M0 30H18V36H0Z",
-  },
-  {
     cx: 33,
-    weak: "",
+    weak: "M30 12H36V18H30Z",
     fill: "var(--icon-base)",
-    stem: "M24 6H30V30H24Z M24 30H42V36H24Z",
+    stem: "M24 6H42V12H24Z M24 12H30V36H24Z M36 12H42V18H36Z M24 18H42V24H24Z M36 24H42V36H36Z",
   },
   {
     cx: 57,
-    weak: "",
+    weak: "M54 15H60V21H54Z",
     fill: "var(--icon-base)",
-    stem: "M48 6H66V12H48Z M54 12H60V30H54Z M48 30H66V36H48Z",
+    stem: "M54 6H60V9H54Z M51 9H63V15H51Z M48 15H54V21H48Z M60 15H66V21H60Z M48 21H66V27H48Z M48 27H54V36H48Z M60 27H66V36H60Z",
   },
   {
     cx: 81,
-    weak: "",
+    weak: "M78 12H84V27H78Z",
     fill: "var(--icon-base)",
-    stem: "M72 6H78L84 36H78Z M90 6H84L78 36H84Z",
+    stem: "M72 6H90V12H72Z M72 12H78V30H72Z M84 12H90V36H84Z M72 30H84V36H72Z",
   },
   {
     cx: 105,
     weak: "",
     fill: "var(--icon-base)",
-    stem: "M96 6H114V12H96Z M102 12H108V30H102Z M96 30H114V36H96Z",
+    stem: "M96 6H114V12H96Z M96 12H102V18H96Z M96 18H114V24H96Z M96 24H102V30H96Z M96 30H114V36H96Z",
   },
   {
     cx: 129,
-    weak: "M126 15H132V21H126Z",
-    fill: "var(--icon-base)",
-    stem: "M126 6H132V9H126Z M123 9H135V15H123Z M120 15H126V21H120Z M132 15H138V21H132Z M120 21H138V27H120Z M120 27H126V36H120Z M132 27H138V36H132Z",
+    weak: "",
+    fill: "var(--icon-strong-base)",
+    stem: "M120 6H138V12H120Z M120 12H126V18H120Z M120 18H138V24H120Z M132 24H138V30H132Z M120 30H138V36H120Z",
   },
   {
     cx: 153,
     weak: "",
     fill: "var(--icon-strong-base)",
-    stem: "M144 6H162V12H144Z M144 12H150V30H144Z M144 30H162V36H144Z",
+    stem: "M144 6H162V12H144Z M150 12H156V36H150Z",
   },
   {
     cx: 177,
-    weak: "M174 12H180V30H174Z",
+    weak: "M174 15H180V21H174Z",
     fill: "var(--icon-strong-base)",
-    stem: "M168 6H186V12H168Z M168 12H174V30H168Z M180 12H186V30H180Z M168 30H186V36H168Z",
+    stem: "M174 6H180V9H174Z M171 9H183V15H171Z M168 15H174V21H168Z M180 15H186V21H180Z M168 21H186V27H168Z M168 27H174V36H168Z M180 27H186V36H180Z",
   },
   {
     cx: 201,
-    weak: "M198 12H204V30H198Z",
+    weak: "M198 12H204V18H198Z",
     fill: "var(--icon-strong-base)",
-    stem: "M192 6H207V9H192Z M192 9H210V12H192Z M192 12H198V30H192Z M204 12H210V30H204Z M192 30H210V33H192Z M192 33H207V36H192Z",
-  },
-  {
-    cx: 225,
-    weak: "",
-    fill: "var(--icon-strong-base)",
-    stem: "M216 6H234V12H216Z M216 12H222V18H216Z M216 18H234V24H216Z M216 24H222V30H216Z M216 30H234V36H216Z",
+    stem: "M192 6H210V12H192Z M192 12H198V36H192Z M204 12H210V18H204Z M192 18H210V24H192Z M204 24H210V36H204Z",
   },
 ] as const
 
@@ -84,7 +72,7 @@ const W = 234
 
 const H = 42
 
-const HOLE = { x: 222, y: 15 }
+const HOLE = { x: 198, y: 15 }
 
 const REST = { x: 222, y: 21 }
 
@@ -252,10 +240,10 @@ function WordmarkLodger(props: {
                   <path d={item.weak} fill="var(--icon-weak-base)" />
                   <path d={item.stem} fill={item.fill} />
                 </g>
-                <Show when={i() === 9}>
+                <Show when={i() === LETTERS.length - 1}>
                   <rect
                     ref={notch}
-                    x="224.8"
+                    x="200.8"
                     y="8.4"
                     width="3.2"
                     height="3.2"

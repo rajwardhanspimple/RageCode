@@ -3,7 +3,7 @@
 import { createMemo, createSignal, onCleanup, onMount, untrack } from "solid-js"
 import { makeEventListener } from "@solid-primitives/event-listener"
 import { createSimpleContext } from "../context/helper"
-import owlThemeJson from "./themes/owl.json"
+import ragestarThemeJson from "./themes/ragestar.json"
 import { resolveThemeVariant, themeToCss } from "./resolve"
 import { resolveThemeVariantV2, themeV2ToCss } from "./v2/resolve"
 import type { DesktopTheme } from "./types"
@@ -92,7 +92,7 @@ const names = new Map(
     onedarkpro: "One Dark Pro",
     orng: "Orng",
     "osaka-jade": "Osaka Jade",
-    owl: "Owl",
+    ragestar: "Ragestar",
     palenight: "Palenight",
     rosepine: "Rose Pine",
     shadesofpurple: "Shades of Purple",
@@ -105,9 +105,9 @@ const names = new Map(
   }),
 )
 
-// SAFETY: owl.json follows desktop-theme.schema.json; JSON modules only widen its colors to `string`, and
+// SAFETY: ragestar.json follows desktop-theme.schema.json; JSON modules only widen its colors to `string`, and
 // v2/resolve.test.ts resolves a bundled theme the same way.
-const owlTheme = owlThemeJson as DesktopTheme
+const ragestarTheme = ragestarThemeJson as DesktopTheme
 
 // Storage access throws where localStorage is missing or blocked; every caller treats that as no stored value.
 function read(key: string) {
@@ -200,7 +200,7 @@ export const { use: useTheme, provider: ThemeProvider } = createSimpleContext({
       themeId: read(STORAGE_KEYS.THEME_ID) || props.defaultTheme || DEFAULT_THEME_ID,
       scheme: parseColorScheme(read(STORAGE_KEYS.COLOR_SCHEME)),
       systemMode: getSystemMode(),
-      defaultTheme: owlTheme,
+      defaultTheme: ragestarTheme,
       bundled: knownThemes(),
     })
 

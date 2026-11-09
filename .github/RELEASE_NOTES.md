@@ -1,4 +1,4 @@
-## Oliviacode 2.2.8
+## Ragestar 2.2.8
 
 **Engine updates now have a bouncer.** The app can adopt a newer CLI engine without shipping a
 new desktop build, but only after the candidate proves it still serves every route the window
@@ -11,10 +11,10 @@ endpoint in the code, no credential. You connect an account, or you don't.
 ### Downloads
 | Platform | File |
 | --- | --- |
-| Windows 10/11 x64 | `Oliviacode-Setup-2.2.8.exe` |
-| macOS Apple Silicon (arm64) | `Oliviacode-2.2.8-arm64.dmg` |
-| macOS Intel (x64) | `Oliviacode-2.2.8-x64.dmg` |
-| Linux x64 | `Oliviacode-2.2.8-x64.AppImage`, `Oliviacode-2.2.8-x64.deb`, `Oliviacode-2.2.8-x64.rpm` |
+| Windows 10/11 x64 | `Ragestar-Setup-2.2.8.exe` |
+| macOS Apple Silicon (arm64) | `Ragestar-2.2.8-arm64.dmg` |
+| macOS Intel (x64) | `Ragestar-2.2.8-x64.dmg` |
+| Linux x64 | `Ragestar-2.2.8-x64.AppImage`, `Ragestar-2.2.8-x64.deb`, `Ragestar-2.2.8-x64.rpm` |
 
 macOS and Linux packages are built by the release workflow on native runners. They are unsigned;
 see the platform notes below.
@@ -32,7 +32,7 @@ see the platform notes below.
 - **The pinned engine is gated at build time.** `bun run build` now boots the engine it is about
   to package and refuses the build if that engine has lost a required route.
 - **Forward moves only.** Same major, no prereleases, and a `0.x` engine is limited to patch
-  moves. `OLIVIACODE_ENGINE_UPDATE=off` disables the check.
+  moves. `RAGESTAR_ENGINE_UPDATE=off` disables the check.
 
 ### Verify before you run
 - `SHA256SUMS.txt` carries the SHA-256 for the Windows installer, `latest.yml` and the blockmap.
@@ -40,7 +40,7 @@ see the platform notes below.
   `f554941e2437a0d8643488d543ec082322091e3c9dd054748a806d00f1f41934` (257,956,222 bytes).
 - The 2.2.7 installer was scanned at VirusTotal with **0/50 detections** and the application
   binary with **0/68**; those reports are on the
-  [checksums page](https://9562295450.github.io/Oliviacode/checksums.html). The 2.2.8 installer
+  [checksums page](https://rajwardhanspimple.github.io/RageCode/checksums.html). The 2.2.8 installer
   is pending its first scan.
 - The Windows installer is unsigned. SmartScreen asks you to confirm the publisher; check the
   hash against this release before you do.
@@ -56,11 +56,11 @@ see the platform notes below.
 ### Platform notes
 - **macOS:** the app is not notarized. First launch: right-click the app, choose **Open**, then
   confirm. Drag it to Applications from the dmg.
-- **Linux AppImage:** `chmod +x Oliviacode-2.2.8-x64.AppImage` then run it. The deb and rpm
+- **Linux AppImage:** `chmod +x Ragestar-2.2.8-x64.AppImage` then run it. The deb and rpm
   packages install the same app for your package manager.
 - **Windows:** the installer is per-user and does not require an administrator.
 
 ### Notes
-- Oliviacode is not affiliated with OpenCode. See `NOTICE.md` and `PRESETS.md`.
+- Ragestar is not affiliated with OpenCode. See `NOTICE.md` and `PRESETS.md`.
 - The engine is downloaded from npm at build time; the version shipped is listed in the release
   assets.

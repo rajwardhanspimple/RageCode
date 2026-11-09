@@ -11,9 +11,9 @@ const packageDir = path.dirname(fileURLToPath(import.meta.url))
 
 // A hidden launcher kept alongside the generated one so GNOME/KDE pins made
 // against the pre-rename app id still resolve to the same binary and icon.
-const legacyDesktopEntry = path.join(packageDir, "resources", "linux", "oliviacode-desktop.desktop")
+const legacyDesktopEntry = path.join(packageDir, "resources", "linux", "ragestar-desktop.desktop")
 
-const legacyDesktopEntryFpm = `${legacyDesktopEntry}=/usr/share/applications/oliviacode-desktop.desktop`
+const legacyDesktopEntryFpm = `${legacyDesktopEntry}=/usr/share/applications/ragestar-desktop.desktop`
 
 // rpmbuild adds /usr/lib/.build-id links for every ELF file. The bundled Electron
 // binaries are byte-identical across apps on the same Electron version, so those
@@ -40,23 +40,23 @@ function resolveChannel() {
 }
 
 const APP_IDS = {
-  dev: "ai.oliviacode.desktop.dev",
-  beta: "ai.oliviacode.desktop.beta",
-  prod: "ai.oliviacode.desktop",
+  dev: "ai.ragestar.desktop.dev",
+  beta: "ai.ragestar.desktop.beta",
+  prod: "ai.ragestar.desktop",
 } as const
 
 // Auto-update is opt-in and can only ever read this project's own releases.
 // Unset, `publish` is null, `pack.ts` writes no app-update.yml, and electron-updater
 // stays quiet — a fresh clone never contacts any update server.
 function resolvePublish(): Configuration["publish"] {
-  const repo = process.env.OLIVIACODE_UPDATE_REPO?.trim()
+  const repo = process.env.RAGESTAR_UPDATE_REPO?.trim()
 
   if (!repo || !/^[\w.-]+\/[\w.-]+$/.test(repo)) return null
 
   return {
     provider: "generic",
     url: `https://github.com/${repo}/releases/latest/download`,
-    channel: process.env.OLIVIACODE_UPDATE_CHANNEL ?? "latest",
+    channel: process.env.RAGESTAR_UPDATE_CHANNEL ?? "latest",
   }
 }
 
@@ -78,7 +78,7 @@ const getBase = (appId: string): Configuration => {
   const desktopName = `${appId}.desktop`
 
   return {
-    artifactName: "oliviacode-desktop-${os}-${arch}.${ext}",
+    artifactName: "ragestar-desktop-${os}-${arch}.${ext}",
     publish: resolvePublish(),
     directories: {
       output: "dist",
@@ -189,7 +189,7 @@ const getBase = (appId: string): Configuration => {
       category: "public.app-category.developer-tools",
       icon: `resources/icons/icon.icns`,
       // Both architectures are released side by side, so the arch has to be in the file name.
-      artifactName: "Oliviacode-${version}-${arch}.${ext}",
+      artifactName: "Ragestar-${version}-${arch}.${ext}",
       extendInfo: {
         NSMicrophoneUsageDescription: DESKTOP_NATIVE_ENGLISH["desktop.microphoneUsage"],
         // The CLI server and its terminals run as children of the app, so macOS asks for their access to
@@ -204,7 +204,7 @@ const getBase = (appId: string): Configuration => {
       target: ["dmg", "zip"],
     },
     protocols: {
-      name: "oliviacode",
+      name: "ragestar",
       schemes: ["opencode"],
     },
     win: {
@@ -224,7 +224,7 @@ const getBase = (appId: string): Configuration => {
       // the app is never left without a way in from the desktop.
       createDesktopShortcut: "always",
       createStartMenuShortcut: true,
-      shortcutName: "Oliviacode",
+      shortcutName: "Ragestar",
       runAfterFinish: true,
       deleteAppDataOnUninstall: false,
       installerIcon: `resources/icons/icon.ico`,
@@ -233,14 +233,14 @@ const getBase = (appId: string): Configuration => {
       installerSidebar: path.join(packageDir, "resources", "windows", "installerSidebar.bmp"),
       uninstallerSidebar: path.join(packageDir, "resources", "windows", "installerSidebar.bmp"),
       license: path.join(packageDir, "resources", "license.txt"),
-      artifactName: "Oliviacode-Setup-${version}.${ext}",
+      artifactName: "Ragestar-Setup-${version}.${ext}",
     },
     linux: {
       icon: `resources/icons`,
       category: "Development",
       // The workflow publishes x64 Linux only. electron-builder expands ${arch} to x86_64/amd64 for
       // AppImage and deb, while the release notes and workflow use x64, so pin the label.
-      artifactName: "Oliviacode-${version}-x64.${ext}",
+      artifactName: "Ragestar-${version}-x64.${ext}",
       executableName: linuxExecutableName(appId),
       // Derive the installed `.desktop` filename from `desktopName`
       // (`ai.opencode.desktop.desktop` for prod) instead of `executableName`,
@@ -268,10 +268,10 @@ export function getConfig() {
       return {
         ...base,
         appId,
-        productName: "oliviacode Dev",
+        productName: "Ragestar Dev",
         deb: { fpm: [...previewCompressionFpm("deb"), metainfoFpm(appId)] },
         rpm: {
-          packageName: "oliviacode-dev",
+          packageName: "ragestar-dev",
           fpm: [rpmNoBuildIdLinksFpm, ...previewCompressionFpm("rpm"), metainfoFpm(appId)],
         },
       }
@@ -281,11 +281,11 @@ export function getConfig() {
       return {
         ...base,
         appId,
-        productName: "oliviacode Beta",
-        protocols: { name: "oliviacode Beta", schemes: ["opencode"] },
+        productName: "Ragestar Beta",
+        protocols: { name: "Ragestar Beta", schemes: ["opencode"] },
         deb: { fpm: [...previewCompressionFpm("deb"), metainfoFpm(appId)] },
         rpm: {
-          packageName: "oliviacode-beta",
+          packageName: "ragestar-beta",
           fpm: [rpmNoBuildIdLinksFpm, ...previewCompressionFpm("rpm"), metainfoFpm(appId)],
         },
       }
@@ -295,8 +295,8 @@ export function getConfig() {
       return {
         ...base,
         appId,
-        productName: "Oliviacode",
-        protocols: { name: "oliviacode", schemes: ["opencode"] },
+        productName: "Ragestar",
+        protocols: { name: "ragestar", schemes: ["opencode"] },
         // An Icon Composer package compiles to Assets.car, which macOS 26 and later draw the app icon from
         // (Dock, Finder, system dialogs and the system icon styles). Older macOS keeps using the ICNS.
         // The compiler is actool 26, which the Intel runner does not have, so only the arm64 build uses it.
@@ -307,7 +307,7 @@ export function getConfig() {
         // The DMG volume icon would otherwise use the same actool-generated ICNS.
         dmg: { icon: "resources/icons/icon.icns" },
         deb: { fpm: [metainfoFpm(appId), legacyDesktopEntryFpm] },
-        rpm: { packageName: "oliviacode", fpm: [rpmNoBuildIdLinksFpm, metainfoFpm(appId), legacyDesktopEntryFpm] },
+        rpm: { packageName: "ragestar", fpm: [rpmNoBuildIdLinksFpm, metainfoFpm(appId), legacyDesktopEntryFpm] },
       }
     }
   }

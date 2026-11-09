@@ -1,17 +1,17 @@
-# Oliviacode
+# Ragestar
 
-[![Oliviacode — a provider-agnostic desktop AI client](docs/og.png)](https://9562295450.github.io/Oliviacode/)
+[![Ragestar — a provider-agnostic desktop AI client](docs/og.png)](https://rajwardhanspimple.github.io/RageCode/)
 
 **A provider-agnostic desktop AI client.** An open-source AI client for developers: nothing
 preconfigured, with multi-lane egress and isolated sessions built into the UI instead of bolted on.
 
-[**Download**](https://github.com/9562295450/Oliviacode/releases/tag/v2.2.8) ·
-[Windows](https://github.com/9562295450/Oliviacode/releases/download/v2.2.8/Oliviacode-Setup-2.2.8.exe) ·
-[macOS arm64](https://github.com/9562295450/Oliviacode/releases/download/v2.2.8/Oliviacode-2.2.8-arm64.dmg) ·
-[macOS x64](https://github.com/9562295450/Oliviacode/releases/download/v2.2.8/Oliviacode-2.2.8-x64.dmg) ·
-[Linux AppImage](https://github.com/9562295450/Oliviacode/releases/download/v2.2.8/Oliviacode-2.2.8-x64.AppImage) ·
-[deb](https://github.com/9562295450/Oliviacode/releases/download/v2.2.8/Oliviacode-2.2.8-x64.deb) ·
-[rpm](https://github.com/9562295450/Oliviacode/releases/download/v2.2.8/Oliviacode-2.2.8-x64.rpm)
+[**Download**](https://github.com/rajwardhanspimple/RageCode/releases/tag/v2.2.8) ·
+[Windows](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-Setup-2.2.8.exe) ·
+[macOS arm64](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-2.2.8-arm64.dmg) ·
+[macOS x64](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-2.2.8-x64.dmg) ·
+[Linux AppImage](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-2.2.8-x64.AppImage) ·
+[deb](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-2.2.8-x64.deb) ·
+[rpm](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-2.2.8-x64.rpm)
 
 - **Multi-lane egress** — Direct, WARP, Tor and proxy lanes, each with health, latency and
   rotation. Rotate on demand, or arm a lane and let it rotate.
@@ -29,13 +29,13 @@ preconfigured, with multi-lane egress and isolated sessions built into the UI in
 |---|---|
 | Installer (2.2.7 scan) | [VirusTotal **0/50**](https://www.virustotal.com/gui/file/4fe3199ec3090b91454d2d3822b0b907bcb90f4ba106b4b983c6aa3631db0d6a) · SHA-256 `4fe3199e…` |
 | App binary (2.2.7 scan) | [VirusTotal **0/68**](https://www.virustotal.com/gui/file/3dda8e6a3d82634e5f7c749238ca5701cd3cb7b60f9ee85e122295c55d93bb1d) · SHA-256 `3dda8e6a…` |
-| License | MIT · [checksums and scans](https://9562295450.github.io/Oliviacode/checksums.html) |
+| License | MIT · [checksums and scans](https://rajwardhanspimple.github.io/RageCode/checksums.html) |
 
-![The Oliviacode session view, with the egress lanes and theme picker in the inspector](docs/screenshots/hero.png)
+![The Ragestar session view, with the egress lanes and theme picker in the inspector](docs/screenshots/hero.png)
 
 ## Is this the official OpenCode app?
 
-No. Oliviacode is an independent client, not affiliated with, endorsed by or operated by
+No. Ragestar is an independent client, not affiliated with, endorsed by or operated by
 OpenCode or its maintainers. The shell is an independent rewrite with its own identity, theme
 engine and egress manager, and the engine still runs underneath as a sidecar. See
 [NOTICE.md](./NOTICE.md) for upstream attribution and the list of changes.
@@ -48,11 +48,11 @@ engine and egress manager, and the engine still runs underneath as a sidecar. Se
 
 ## Install
 
-Grab the installer from [Releases](https://github.com/9562295450/Oliviacode/releases):
+Grab the installer from [Releases](https://github.com/rajwardhanspimple/RageCode/releases):
 
-- **Windows** - `Oliviacode-Setup-<version>.exe`. Assisted installer: accept the license,
+- **Windows** - `Ragestar-Setup-<version>.exe`. Assisted installer: accept the license,
   press Install. A desktop shortcut and Start menu entry are created for the current user.
-- **macOS / Linux** — `Oliviacode-<version>-arm64.dmg` and `-x64.dmg` for Apple Silicon and
+- **macOS / Linux** — `Ragestar-<version>-arm64.dmg` and `-x64.dmg` for Apple Silicon and
   Intel, and `.AppImage`, `.deb` and `.rpm` for x64 Linux, attached to the same release. You can
   still build from source with the commands below.
 
@@ -74,7 +74,7 @@ The dev build downloads the engine binary into `packages/desktop/resources/` on 
 
 ```bash
 # pin the engine version so the build is reproducible
-OLIVIACODE_CLI_VERSION=2.2.6 bun run --cwd packages/desktop build
+RAGESTAR_CLI_VERSION=2.2.6 bun run --cwd packages/desktop build
 
 # Windows: unpacked app first, then the NSIS installer around it
 bun run --cwd packages/desktop pack
@@ -82,7 +82,7 @@ OPENCODE_DESKTOP_APP="$PWD/dist/desktop/app" bun run --cwd packages/desktop pack
 ```
 
 Artifacts land in `dist/desktop` at the repository root, next to `SHA256SUMS.txt`. The Windows
-installer is assisted: licence page, one progress page, then Finish with **Run Oliviacode**
+installer is assisted: licence page, one progress page, then Finish with **Run Ragestar**
 ticked. It creates a desktop shortcut and a Start menu entry for the current user, and
 recreates the desktop shortcut on update if it was removed.
 
@@ -94,7 +94,7 @@ including the one-time token route, is in [docs/RELEASING.md](./docs/RELEASING.m
 
 ## Connect a provider
 
-Oliviacode is a generic client: nothing is connected on first run and no provider endpoint is
+Ragestar is a generic client: nothing is connected on first run and no provider endpoint is
 compiled into the app. Open the provider picker from the model chip in the composer. You can pick
 a provider from the engine's catalogue and supply your own credential, or apply a community
 template, which fills in a base URL for you.
@@ -148,18 +148,18 @@ rotation is never retried behind your back.
 ## Updates
 
 Release builds from 2.2.6 on ship an update feed that points at **this repository's own
-releases** and nothing else: `https://github.com/9562295450/Oliviacode/releases/latest/download`.
+releases** and nothing else: `https://github.com/rajwardhanspimple/RageCode/releases/latest/download`.
 `electron-updater` reads it from `resources/app-update.yml`, checks five seconds after launch and
 every four hours after that, and shows you the version before anything is fetched.
 `autoDownload` is off, so a check never installs on its own; a version you download and defer
 installs on the next quit.
 
-Builds packaged without `OLIVIACODE_UPDATE_REPO` write no `app-update.yml` and stay silent: that
+Builds packaged without `RAGESTAR_UPDATE_REPO` write no `app-update.yml` and stay silent: that
 covers every release before 2.2.6, dev checkouts, and forks. The release workflow sets the
 variable; to point a fork at its own releases:
 
 ```bash
-OLIVIACODE_UPDATE_REPO=owner/repo bun run --cwd packages/desktop pack
+RAGESTAR_UPDATE_REPO=owner/repo bun run --cwd packages/desktop pack
 ```
 
 No upstream release feed is ever consulted. Removing `app-update.yml` from an installed build
@@ -185,17 +185,17 @@ adoption becomes permanent only once its sidecar connects. If it does not, the f
 reverts to the bundled engine and remembers the rejection, so a broken engine is never retried.
 
 Only a forward move inside the same major is considered; prereleases and major jumps are ignored,
-and a `0.x` engine is limited to patch moves. `OLIVIACODE_ENGINE_UPDATE=off` disables the check
+and a `0.x` engine is limited to patch moves. `RAGESTAR_ENGINE_UPDATE=off` disables the check
 entirely. The same contract is verified at build time against the pinned engine
 (`bun run script/engine-contract.ts`, wired into `bun run build`), so a release cannot ship a
 bundled engine that already lost a route the window needs.
 
 ## Privacy
 
-Oliviacode runs locally. It contacts the provider endpoints you configure, and the registry URL
+Ragestar runs locally. It contacts the provider endpoints you configure, and the registry URL
 you explicitly load, and nothing else. Requests go wherever your provider's base URL points —
 including through the egress lane you select. Credentials are stored by the engine on your
-machine, not uploaded to any Oliviacode-operated service. There is no Oliviacode telemetry
+machine, not uploaded to any Ragestar-operated service. There is no Ragestar telemetry
 endpoint.
 
 ## Security
@@ -203,21 +203,21 @@ endpoint.
 [![VirusTotal report](./docs/security/virustotal-badge.svg)](https://www.virustotal.com/gui/file/4fe3199ec3090b91454d2d3822b0b907bcb90f4ba106b4b983c6aa3631db0d6a)
 
 - Every release publishes `SHA256SUMS.txt`; check a download with
-  `Get-FileHash .\Oliviacode-Setup-*.exe -Algorithm SHA256` (PowerShell) or
-  `sha256sum Oliviacode-*.AppImage`.
+  `Get-FileHash .\Ragestar-Setup-*.exe -Algorithm SHA256` (PowerShell) or
+  `sha256sum Ragestar-*.AppImage`.
 - The 2.2.7 installer was scanned on VirusTotal with 0/50 detections, and the application binary
   inside it with 0/68. Both reports and hashes are in
   [docs/security/virustotal.md](./docs/security/virustotal.md).
 - The engine binary is fetched from the npm registry at build time and its version is pinned
-  with `OLIVIACODE_CLI_VERSION`.
+  with `RAGESTAR_CLI_VERSION`.
 
 ## Disclaimer
 
-Oliviacode is an open-source network client. It is not affiliated with OpenCode. The default
+Ragestar is an open-source network client. It is not affiliated with OpenCode. The default
 presets are community-provided and users are responsible for complying with the Terms of Service
 of any API they connect to.
 
-Oliviacode is not affiliated with, endorsed by, sponsored by, or operated by OpenCode, its
+Ragestar is not affiliated with, endorsed by, sponsored by, or operated by OpenCode, its
 maintainers, or any provider named in a preset or community registry. It ships no credentials,
 no account, and no endpoint in its source. Everything the app talks to is something a user
 configured. Provider entries are community data files (`presets.json` locally,

@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "ဖိုင်",
   "desktop.menu.edit": "တည်းဖြတ်ပါ။",
   "desktop.menu.view": "ကြည့်ရန်",
@@ -684,7 +684,7 @@ export const dict = {
   "settings.about.otherContributor.other": "အခြား {{count}} ခု",
   "settings.about.firstPublished": "အမေရိကန်နိုင်ငံ၊ Missouri တွင် ပထမဆုံးထုတ်ဝေသည်။",
   "settings.about.firstIllustrated": "အင်္ဂလန်နိုင်ငံ လန်ဒန်မြို့မှာ ပထမဆုံး သရုပ်ဖော်ခဲ့ပါတယ်။",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode၊ ပွင့်လင်းရင်းမြစ် ကုဒ်နံပါတ် အေးဂျင့်",
   "settings.about.trademark": "OpenCode သည် Anomaly Innovations, Inc ၏ မှတ်ပုံတင်ထားသော ကုန်အမှတ်တံဆိပ်တစ်ခုဖြစ်သည်။",
   "settings.about.typeset": "Inter နှင့် IBM Plex Mono တွင် အမျိုးအစားအစုံ",

@@ -39,9 +39,9 @@ if (app) {
   // The installer uses the channel's icons; the rest of the app is already built and signed.
   await $`bun ./script/copy-icons.ts ${resolveChannel()}`
   await $`bunx electron-builder ${flags} --prepackaged ${app}`
-  const setup = (await readdir("dist")).find((file) => /^Oliviacode-Setup-.*\.exe$/.test(file))
+  const setup = (await readdir("dist")).find((file) => /^Ragestar-Setup-.*\.exe$/.test(file))
 
-  if (!setup) throw new Error("electron-builder produced no Oliviacode-Setup-*.exe")
+  if (!setup) throw new Error("electron-builder produced no Ragestar-Setup-*.exe")
   await cp(path.join("dist", setup), path.join(out, setup))
   // The blockmap serves differential downloads; the feed carries the installer and latest.yml.
   const blockmap = `${setup}.blockmap`

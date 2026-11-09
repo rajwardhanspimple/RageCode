@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "फ़ाइल",
   "desktop.menu.edit": "संपादित करें",
   "desktop.menu.view": "दृश्य",
@@ -677,7 +677,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} अन्य",
   "settings.about.firstPublished": "पहली बार मिसौरी, अमेरिका में प्रकाशित",
   "settings.about.firstIllustrated": "पहली बार लंदन, इंग्लैंड में चित्रित",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode, ओपन-सोर्स कोडिंग एजेंट",
   "settings.about.trademark": "OpenCode, Anomaly Innovations, Inc. का पंजीकृत ट्रेडमार्क है।",
   "settings.about.typeset": "Inter और IBM Plex Mono में अक्षर-संयोजन",

@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "ފައިލް",
   "desktop.menu.edit": "ބަދަލު ގެނައުން",
   "desktop.menu.view": "މަންޒަރު",
@@ -690,7 +690,7 @@ export const dict = {
   "settings.about.otherContributor.other": "އެހެން \u2068{{count}}\u2069",
   "settings.about.firstPublished": "ފުރަތަމަ ޗާޕުކުރީ އެމެރިކާގެ މިޒޫރީގައެވެ",
   "settings.about.firstIllustrated": "ފުރަތަމަ ކުރެހީ އިނގިރޭސިވިލާތުގެ ލަންޑަންގައެވެ",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode، އޯޕަން ސޯސް ކޯޑިންގ އޭޖެންޓް",
   "settings.about.trademark": "OpenCode އަކީ Anomaly Innovations, Inc. ގެ ރަޖިސްޓަރޑް ޓްރޭޑްމާކެވެ.",
   "settings.about.typeset": "Inter އަދި IBM Plex Mono އިން ޓައިޕްސެޓްކޮށްފައި",

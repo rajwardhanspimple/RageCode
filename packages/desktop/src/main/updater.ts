@@ -17,7 +17,7 @@ const { autoUpdater } = updater
 // OpenCode on its own schedule: this feed carries packages/desktop only, never the engine.
 //
 // electron-updater reads its feed from resources/app-update.yml, which pack.ts writes only when
-// OLIVIACODE_UPDATE_REPO names a repository. No file, no updater: a dev checkout or a fork that never set
+// RAGESTAR_UPDATE_REPO names a repository. No file, no updater: a dev checkout or a fork that never set
 // the variable stays silent instead of polling someone else's release page.
 const POLL_MS = 4 * 60 * 60 * 1000
 const FIRST_CHECK_MS = 5_000

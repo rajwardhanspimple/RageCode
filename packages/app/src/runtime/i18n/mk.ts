@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "Датотека",
   "desktop.menu.edit": "Уреди",
   "desktop.menu.view": "Прикажи",
@@ -675,7 +675,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} други",
   "settings.about.firstPublished": "Прво објавено во Мисури, САД",
   "settings.about.firstIllustrated": "Прво илустрирано во Лондон, Англија",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode, агент за кодирање со отворен код",
   "settings.about.trademark": "OpenCode е регистрирана трговска марка на Anomaly Innovations, Inc.",
   "settings.about.typeset": "Типови во Inter и IBM Plex Mono",

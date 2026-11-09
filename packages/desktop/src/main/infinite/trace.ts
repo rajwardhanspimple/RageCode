@@ -32,7 +32,7 @@ async function fetchTrace(url: string, timeoutMs: number, proxy: string): Promis
   try {
     const response = await fetch(url, {
       signal: controller.signal,
-      headers: { "user-agent": "oliviacode/1.0 (+egress probe)", accept: "*/*" },
+      headers: { "user-agent": "ragestar/1.0 (+egress probe)", accept: "*/*" },
       // A proxy would defeat the whole point of a direct probe.
       cache: "no-store",
     })
@@ -63,7 +63,7 @@ async function fetchViaCurl(url: string, timeoutMs: number, proxy: string): Prom
       "--proxy",
       proxy,
       "--user-agent",
-      "oliviacode/1.0 (+egress probe)",
+      "ragestar/1.0 (+egress probe)",
       url,
     ],
     { timeoutMs: timeoutMs + 2_000 },

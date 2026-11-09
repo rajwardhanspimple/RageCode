@@ -17,7 +17,7 @@ failing instead of retrying on its own". `autoRecover` is off by default — say
 it on.
 
 **Environment**
-- Oliviacode version:
+- Ragestar version:
 - OS and version:
 - WARP client version, if relevant:
 - Proxy URL scheme (`http`, `https`, `socks5`), if relevant — no credentials:

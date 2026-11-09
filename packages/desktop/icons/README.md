@@ -8,7 +8,7 @@ anything edited directly in `resources/icons` is overwritten.
 
 The whole set — `icon.ico`, `icon.icns`, the flat PNGs and the Windows Store
 logos — is drawn from one geometry in `tools/pack-icons.ps1`
-(`C:\Users\MARL\AppData\Local\Temp\oliviacode-dev\pack-icons.ps1` on the build
+(`C:\Users\MARL\AppData\Local\Temp\ragestar-dev\pack-icons.ps1` on the build
 machine) and written to all three channel folders at once:
 
 ```
@@ -19,7 +19,7 @@ Edit the eye positions and radii in `New-IconBitmap` there, not in the PNGs.
 
 Frames are authored on a 1024-unit grid: a 896-unit rounded tile at 64,64 with
 a 200-unit corner radius and a violet hairline rim, carrying the owl mark from
-`packages/app/src/shell/olivia/owl.tsx` (silhouette `#1a1333`, facets `#241a4d`
+`packages/app/src/shell/ragestar/owl.tsx` (silhouette `#1a1333`, facets `#241a4d`
 and `#150f28`, a `#9a6bff`→`#5b2bd9` brow, a `#8b63ff` beak and `#f4f1ff` eyes)
 over an `#0b0a10` tile. At 24px and below the facets are dropped and only the
 two eye chevrons are drawn, because the full mark turns to mush at that size.

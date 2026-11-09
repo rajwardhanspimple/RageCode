@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "Faýl",
   "desktop.menu.edit": "Redaktirläň",
   "desktop.menu.view": "Gör",
@@ -671,7 +671,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} başga",
   "settings.about.firstPublished": "Ilkinji gezek Missuri, ABŞ-da neşir edildi",
   "settings.about.firstIllustrated": "Ilkinji gezek London, Angliýada suratlandyryldy",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode, açyk çeşmeli kodlaşdyrma agenti",
   "settings.about.trademark": "OpenCode Anomaly Innovations, Inc. kompaniýasynyň bellige alnan söwda nyşanydyr.",
   "settings.about.typeset": "Inter we IBM Plex Mono bilen düzüldi",

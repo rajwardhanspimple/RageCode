@@ -1,4 +1,3 @@
-import { useDialog } from "@opencode/ui/context/dialog"
 import { Tooltip } from "@opencode/ui/tooltip"
 import { Icon } from "@opencode/ui/icon"
 import { Slash } from "@opencode/ui/slash"
@@ -16,7 +15,6 @@ import {
   ProjectAvatar,
 } from "@opencode/ui/project-avatar"
 import { Schema } from "effect"
-import { createPresence } from "@/runtime/presence"
 import { Composer } from "@/composer/composer"
 import { ComposerDropzone } from "@/composer/dropzone"
 import type { ComposerModel } from "@/composer/model"
@@ -27,8 +25,6 @@ import {
 } from "@/new-session/project/selector"
 import type { useNewSessionLocationDialog } from "@/new-session/location/dialog"
 import { useLanguage } from "@/runtime/i18n/language"
-import { useWorkspaceLocation } from "@/workspaces/location"
-import { useProviders } from "@/providers/catalog/providers"
 import { NEW_SESSION_CONTENT_WIDTH } from "@/new-session/layout"
 import { Persist, persisted } from "@/runtime/persistence/storage"
 import { Persistence } from "@/runtime/persistence/schema"
@@ -46,14 +42,8 @@ import {
   type WordmarkEvent,
 } from "./wordmark-machine"
 
-const providerTipDismissalDuration = 30 * 24 * 60 * 60 * 1000
-
 export const WorkspaceOnboardingSchema = Persistence.struct({
   used: Schema.Boolean,
-})
-
-export const ProviderTipSchema = Persistence.struct({
-  dismissedAt: Schema.Finite,
 })
 
 export function NewSessionView(props: {
@@ -160,115 +150,8 @@ export function NewSessionView(props: {
             />
           )}
         </Show>
-        <NewSessionTips selection={props.composer.model.selection} onDone={props.composer.restoreFocus} />
       </div>
     </div>
-  )
-}
-
-function NewSessionTips(props: { selection: ComposerModel["model"]["selection"]; onDone: () => void }) {
-  const language = useLanguage()
-  const dialog = useDialog()
-  const sdk = useWorkspaceLocation()
-  const providers = useProviders(() => sdk().directory)
-
-  const [providerState, setProviderState, , providerReady] = persisted(
-    Persist.global("new-session.provider-tip"),
-    ProviderTipSchema,
-    { dismissedAt: 0 },
-  )
-
-  const providerVisible = createMemo(
-    () =>
-      providerReady() &&
-      providers.anyConnection() === false &&
-      Date.now() - providerState.dismissedAt >= providerTipDismissalDuration,
-  )
-
-  const tip = providerVisible
-  const [ref, setRef] = createSignal<HTMLDivElement>()
-
-  const presence = createPresence({
-    show: tip,
-    element: () => ref() ?? null,
-  })
-
-  const open = () => {
-    if (!tip()) return
-
-    void import("@/providers/connect/dialog").then(({ DialogConnectProvider }) => {
-      void dialog.show(() => (
-        <DialogConnectProvider directory={sdk().directory} selection={props.selection} onDone={props.onDone} />
-      ))
-    })
-  }
-
-  const openCommunity = () => {
-    if (!tip()) return
-
-    void import("@/providers/connect/community").then(({ DialogCommunityAddons }) => {
-      void dialog.show(() => <DialogCommunityAddons />)
-    })
-  }
-
-  const dismiss = () => {
-    if (!tip()) return
-
-    setProviderState("dismissedAt", Date.now())
-  }
-
-  return (
-    <Show when={presence.present()}>
-      <div class="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center px-10">
-        <div
-          ref={setRef}
-          data-component="new-session-tip"
-          data-visible={tip()}
-          class="group/new-session-tip pointer-events-auto relative flex h-6 max-w-full items-center transition-[opacity,transform] duration-[250ms] ease-[cubic-bezier(0.215,0.61,0.355,1)] motion-reduce:transition-none"
-          classList={{ "data-[visible=false]:animate-out fade-out slide-out-to-bottom-4": true }}
-        >
-          <button
-            type="button"
-            class="flex h-6 min-w-0 items-center rounded-[4px] pl-1.5 text-[13px] leading-text-compact tracking-[-0.04px] text-v2-text-text-faint transition-[background-color,color] duration-150 ease-in-out hover:bg-v2-overlay-simple-overlay-hover hover:text-v2-text-text-muted focus-visible:bg-v2-overlay-simple-overlay-hover focus-visible:text-v2-text-text-muted focus-visible:outline-none"
-            onClick={open}
-          >
-            <span class="truncate">{language.t("home.providerTip")}</span>
-            <span class="flex size-6 shrink-0 items-center justify-center" aria-hidden="true">
-              <Icon name="chevron-down" size="small" class="-rotate-90" />
-            </span>
-          </button>
-          <span class="shrink-0 text-[13px] leading-text-compact text-v2-text-text-faint" aria-hidden="true">
-            ·
-          </span>
-          <button
-            type="button"
-            data-action="new-session-community-addons"
-            class="flex h-6 min-w-0 items-center rounded-[4px] pl-1.5 text-[13px] leading-text-compact tracking-[-0.04px] text-v2-text-text-faint transition-[background-color,color] duration-150 ease-in-out hover:bg-v2-overlay-simple-overlay-hover hover:text-v2-text-text-muted focus-visible:bg-v2-overlay-simple-overlay-hover focus-visible:text-v2-text-text-muted focus-visible:outline-none"
-            onClick={openCommunity}
-          >
-            <span class="truncate">{language.t("home.communityTip")}</span>
-            <span class="flex size-6 shrink-0 items-center justify-center" aria-hidden="true">
-              <Icon name="chevron-down" size="small" class="-rotate-90" />
-            </span>
-          </button>
-          <Tooltip
-            class="hover-reveal absolute left-full top-0 flex h-6 w-7 items-center justify-end delay-0 duration-0 group-hover/new-session-tip:delay-[250ms] group-hover/new-session-tip:duration-150 group-hover/new-session-tip:opacity-100 focus-within:delay-0 focus-within:duration-0 focus-within:opacity-100"
-            placement="top"
-            openDelay={800}
-            value={language.t("common.dismiss")}
-          >
-            <button
-              type="button"
-              class="flex size-6 items-center justify-center rounded-[4px] text-v2-icon-icon-muted transition-[background-color,color] duration-150 ease-in-out hover:bg-v2-overlay-simple-overlay-hover hover:text-v2-icon-icon-base focus-visible:bg-v2-overlay-simple-overlay-hover focus-visible:text-v2-icon-icon-base focus-visible:outline-none"
-              aria-label={language.t("common.dismiss")}
-              onClick={dismiss}
-            >
-              <Icon name="xmark-small" />
-            </button>
-          </Tooltip>
-        </div>
-      </div>
-    </Show>
   )
 }
 

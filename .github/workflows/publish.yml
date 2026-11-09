@@ -25,20 +25,20 @@ permissions:
 
 env:
   CI: "1"
-  # The public installer is the prod channel: appId ai.oliviacode.desktop, productName
-  # Oliviacode, no ".dev" suffix in Add/Remove Programs.
+  # The public installer is the prod channel: appId ai.ragestar.desktop, productName
+  # Ragestar, no ".dev" suffix in Add/Remove Programs.
   OPENCODE_CHANNEL: "prod"
   # Pinned engine: the CLI package published to npm as 2.2.6. The shell version moves on its own.
-  OLIVIACODE_CLI_VERSION: "2.2.6"
+  RAGESTAR_CLI_VERSION: "2.2.6"
   # The shell's release feed: electron-updater reads it from resources/app-update.yml, which
   # pack.ts writes only when this names a repository.
-  OLIVIACODE_UPDATE_REPO: "9562295450/Oliviacode"
+  RAGESTAR_UPDATE_REPO: "rajwardhanspimple/RageCode"
   # electron-builder and gh both read this for the GitHub release.
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   prepare:
-    if: github.repository == '9562295450/Oliviacode'
+    if: github.repository == 'rajwardhanspimple/RageCode'
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.release.outputs.version }}
@@ -61,15 +61,15 @@ jobs:
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
 
           if ! gh release view "$tag" >/dev/null 2>&1; then
-            gh release create "$tag" --title "Oliviacode $version" --notes-file .github/RELEASE_NOTES.md
+            gh release create "$tag" --title "Ragestar $version" --notes-file .github/RELEASE_NOTES.md
           fi
 
           assets="$(gh release view "$tag" --json assets --jq '.assets[].name')"
           has() { grep -qxF "$1" <<< "$assets"; }
 
-          if has "Oliviacode-Setup-$version.exe"; then echo "windows=false" >> "$GITHUB_OUTPUT"; else echo "windows=true" >> "$GITHUB_OUTPUT"; fi
-          if has "Oliviacode-$version-x64.AppImage"; then echo "linux=false" >> "$GITHUB_OUTPUT"; else echo "linux=true" >> "$GITHUB_OUTPUT"; fi
-          if has "Oliviacode-$version-arm64.dmg" && has "Oliviacode-$version-x64.dmg"; then echo "macos=false" >> "$GITHUB_OUTPUT"; else echo "macos=true" >> "$GITHUB_OUTPUT"; fi
+          if has "Ragestar-Setup-$version.exe"; then echo "windows=false" >> "$GITHUB_OUTPUT"; else echo "windows=true" >> "$GITHUB_OUTPUT"; fi
+          if has "Ragestar-$version-x64.AppImage"; then echo "linux=false" >> "$GITHUB_OUTPUT"; else echo "linux=true" >> "$GITHUB_OUTPUT"; fi
+          if has "Ragestar-$version-arm64.dmg" && has "Ragestar-$version-x64.dmg"; then echo "macos=false" >> "$GITHUB_OUTPUT"; else echo "macos=true" >> "$GITHUB_OUTPUT"; fi
 
   windows:
     needs: prepare
@@ -107,7 +107,7 @@ jobs:
         env:
           VERSION: ${{ needs.prepare.outputs.version }}
         run: |
-          $setup = Get-ChildItem "dist/desktop/Oliviacode-Setup-*.exe" | Select-Object -First 1
+          $setup = Get-ChildItem "dist/desktop/Ragestar-Setup-*.exe" | Select-Object -First 1
           if (-not $setup) { throw "no installer produced" }
           if (-not (Test-Path "dist/desktop/latest.yml")) { throw "no latest.yml produced" }
           if (-not (Test-Path "$($setup.FullName).blockmap")) { throw "no blockmap produced" }
@@ -123,7 +123,7 @@ jobs:
         run: |
           gh release view $env:TAG 2>$null
           if ($LASTEXITCODE -ne 0) {
-            gh release create $env:TAG --target main --title "Oliviacode $($env:TAG.TrimStart('v'))" --notes-file .github/RELEASE_NOTES.md
+            gh release create $env:TAG --target main --title "Ragestar $($env:TAG.TrimStart('v'))" --notes-file .github/RELEASE_NOTES.md
           }
           gh release upload $env:TAG "${{ steps.artifact.outputs.setup }}" "dist/desktop/SHA256SUMS.txt" "dist/desktop/latest.yml" "${{ steps.artifact.outputs.setup }}.blockmap" --clobber
 
@@ -160,7 +160,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p release
-          for ext in AppImage deb rpm; do cp "dist/desktop/Oliviacode-$VERSION-x64.$ext" release/; done
+          for ext in AppImage deb rpm; do cp "dist/desktop/Ragestar-$VERSION-x64.$ext" release/; done
           cp dist/desktop/latest-linux.yml release/
           gh release upload "$TAG" release/* --clobber
 
@@ -204,8 +204,8 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p release
-          cp "dist/desktop/Oliviacode-$VERSION-$ARCH.dmg" release/
-          cp "dist/desktop/Oliviacode-$VERSION-$ARCH.zip" release/
+          cp "dist/desktop/Ragestar-$VERSION-$ARCH.dmg" release/
+          cp "dist/desktop/Ragestar-$VERSION-$ARCH.zip" release/
           gh release upload "$TAG" release/* --clobber
 
   checksums:

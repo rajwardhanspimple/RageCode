@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "Файл",
   "desktop.menu.edit": "Правка",
   "desktop.menu.view": "Вид",
@@ -750,7 +750,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} другого",
   "settings.about.firstPublished": "Впервые опубликовано в Миссури, США.",
   "settings.about.firstIllustrated": "Впервые показано в Лондоне, Англия.",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode, агент кодирования с открытым исходным кодом.",
   "settings.about.trademark": "OpenCode является зарегистрированной торговой маркой Anomaly Innovations, Inc..",
   "settings.about.typeset": "Набор в Inter и IBM Plex Mono",

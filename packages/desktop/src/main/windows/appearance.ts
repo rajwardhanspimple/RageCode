@@ -26,7 +26,7 @@ let backgroundColor: string | undefined
 
 export function windowAppearance(path: Path.Path, paths: DesktopPaths.Resolved) {
   return {
-    title: "oliviacode",
+    title: "Ragestar",
     icon: iconPath(path, paths),
     backgroundColor: backgroundColor ?? storedBackgroundColor(),
     ...platformFrame(tone(), storedZoomLevel()),

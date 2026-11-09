@@ -12,12 +12,12 @@ param(
 
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
-if (-not $Installer) { $Installer = Join-Path $root "dist/desktop/Oliviacode-Setup-$Version.exe" }
+if (-not $Installer) { $Installer = Join-Path $root "dist/desktop/Ragestar-Setup-$Version.exe" }
 if (-not (Test-Path $Installer)) { throw "Missing $Installer" }
 
 $desktop = [Environment]::GetFolderPath("Desktop")
-$shortcut = Join-Path $desktop "Oliviacode.lnk"
-$startMenu = Join-Path $env:APPDATA "Microsoft\Windows\Start Menu\Programs\Oliviacode.lnk"
+$shortcut = Join-Path $desktop "Ragestar.lnk"
+$startMenu = Join-Path $env:APPDATA "Microsoft\Windows\Start Menu\Programs\Ragestar.lnk"
 
 Write-Host "installer   $Installer"
 Write-Host "sha256      $((Get-FileHash $Installer -Algorithm SHA256).Hash.ToLowerInvariant())"

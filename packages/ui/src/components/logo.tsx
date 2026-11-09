@@ -15,7 +15,7 @@ export const Mark = (props: { class?: string }) => {
   )
 }
 
-/** The oliviacode owl, sized for the boot splash. Same geometry as the in-app mark. */
+/** The Ragestar R sigil, sized for the boot splash. Same geometry as the in-app mark. */
 export const OwlSplash = (props: Pick<ComponentProps<"svg">, "ref" | "class">) => {
   return (
     <svg
@@ -26,28 +26,30 @@ export const OwlSplash = (props: Pick<ComponentProps<"svg">, "ref" | "class">) =
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M128 8 L40 34 L16 92 L30 172 L70 216 L128 250 L186 216 L226 172 L240 92 L216 34 Z" fill="#2b2258" />
-      <path d="M40 34 L16 92 L30 172 L70 216 L128 250 L128 128 Z" fill="#3a2e73" />
-      <path d="M216 34 L240 92 L226 172 L186 216 L128 250 L128 128 Z" fill="#1d1640" />
+      <path
+        d="M72 16 H184 A56 56 0 0 1 240 72 V184 A56 56 0 0 1 184 240 H72 A56 56 0 0 1 16 184 V72 A56 56 0 0 1 72 16 Z"
+        fill="#2a0e0b"
+      />
+      <path d="M128 16 H72 A56 56 0 0 0 16 72 V184 A56 56 0 0 0 72 240 H128 Z" fill="#3a120e" />
       {/* Rim light: on a near-black splash the dark facets alone lose their silhouette. */}
       <path
-        d="M128 8 L40 34 L16 92 L30 172 L70 216 L128 250 L186 216 L226 172 L240 92 L216 34 Z"
+        d="M72 16 H184 A56 56 0 0 1 240 72 V184 A56 56 0 0 1 184 240 H72 A56 56 0 0 1 16 184 V72 A56 56 0 0 1 72 16 Z"
         fill="none"
-        stroke="#8b63ff"
+        stroke="#f04430"
         stroke-width="6"
         stroke-linejoin="round"
         opacity="0.9"
       />
-      <path d="M40 34 L128 96 L216 34 L196 84 L128 128 L60 84 Z" fill="url(#owl-splash-brow)" />
-      <path d="M128 128 L150 168 L128 240 L106 168 Z" fill="#a97bff" />
-      <path d="M128 128 L128 240 L106 168 Z" fill="#4a31b3" opacity="0.55" />
-      <path d="M96 132 L64 164 L96 196 L96 178 L82 164 L96 150 Z" fill="#ffffff" />
-      <path d="M160 132 L192 164 L160 196 L160 178 L174 164 L160 150 Z" fill="#ffffff" />
+      <path
+        d="M76 52 H136 L170 60 Q196 70 196 100 Q196 128 172 136 L200 204 H158 L132 142 H116 V204 H76 Z M116 90 H142 Q156 90 156 106 Q156 122 142 122 H116 Z"
+        fill="url(#rage-splash-fill)"
+        fill-rule="evenodd"
+      />
       <defs>
-        <linearGradient id="owl-splash-brow" x1="40" y1="34" x2="216" y2="128" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#c0a3ff" />
-          <stop offset="0.5" stop-color="#7c4dff" />
-          <stop offset="1" stop-color="#5b2bd9" />
+        <linearGradient id="rage-splash-fill" x1="76" y1="52" x2="200" y2="204" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#ffb3a0" />
+          <stop offset="0.5" stop-color="#e02416" />
+          <stop offset="1" stop-color="#b91c0f" />
         </linearGradient>
       </defs>
     </svg>

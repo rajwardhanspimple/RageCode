@@ -9,7 +9,7 @@
 param(
   [string]$Version = "2.2.7",
   [string]$Token = $env:GH_TOKEN,
-  [string]$Repo = "9562295450/Oliviacode",
+  [string]$Repo = "9562295450/Ragestar",
   [switch]$SkipPush,
   [switch]$SkipRelease
 )
@@ -18,7 +18,7 @@ $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 Set-Location $root
 
-$installer = Join-Path $root "dist/desktop/Oliviacode-Setup-$Version.exe"
+$installer = Join-Path $root "dist/desktop/Ragestar-Setup-$Version.exe"
 if (-not (Test-Path $installer)) {
   throw "Missing $installer. Run: bun run pack; `$env:OPENCODE_DESKTOP_APP='dist/desktop/app'; bun run pack"
 }
@@ -49,7 +49,7 @@ Write-Host "size      $([math]::Round((Get-Item $installer).Length / 1MB, 1)) MB
 if (-not $Token) {
   throw @"
 No token. Create a fine-grained PAT at https://github.com/settings/tokens?type=beta
-  Repository access : 9562295450/Oliviacode
+  Repository access : 9562295450/Ragestar
   Permissions       : Contents = Read and write, Administration = Read and write
 Then, in this shell:
   `$env:GH_TOKEN = "github_pat_..."
@@ -61,7 +61,7 @@ $headers = @{
   Authorization          = "Bearer $Token"
   Accept                 = "application/vnd.github+json"
   "X-GitHub-Api-Version" = "2022-11-28"
-  "User-Agent"           = "oliviacode-release"
+  "User-Agent"           = "ragestar-release"
 }
 
 # 1. Commit and push the tree. The tag is created by the release API below: pushing it here would
@@ -109,7 +109,7 @@ if (-not $release) {
   $payload = @{
     tag_name         = $tag
     target_commitish = "main"
-    name             = "Oliviacode $Version"
+    name             = "Ragestar $Version"
     body             = [System.IO.File]::ReadAllText($notes)
     draft            = $false
     prerelease       = $false

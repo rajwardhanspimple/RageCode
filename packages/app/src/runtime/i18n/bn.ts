@@ -3,7 +3,7 @@ import en from "./en"
 type Keys = keyof typeof en
 
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "ফাইল",
   "desktop.menu.edit": "সম্পাদনা করুন",
   "desktop.menu.view": "দেখুন",
@@ -677,7 +677,7 @@ export const dict = {
   "settings.about.otherContributor.other": "অন্য {{count}} জন",
   "settings.about.firstPublished": "প্রথম প্রকাশিত মিসৌরি, যুক্তরাষ্ট্রে",
   "settings.about.firstIllustrated": "প্রথম অলংকৃত লন্ডন, ইংল্যান্ডে",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode, ওপেন সোর্স কোডিং এজেন্ট",
   "settings.about.trademark": "OpenCode, Anomaly Innovations, Inc.-এর নিবন্ধিত ট্রেডমার্ক।",
   "settings.about.typeset": "Inter এবং IBM Plex Mono-তে টাইপসেট",

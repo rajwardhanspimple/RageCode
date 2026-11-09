@@ -1,20 +1,43 @@
 import type { JSX } from "solid-js"
 
 /**
- * The oliviacode mark.
+ * The Ragestar mark.
  *
- * One faceted owl, drawn on a 256 grid so every size lands on whole pixels: the shield
- * silhouette, the brow chevron, two monospaced eyes, and a diamond beak. `tone="mono"`
- * drops the two inner facet fills to one colour, which is what the titlebar and the
- * installer icon want; `tone="brand"` keeps the violet gradient.
+ * One angular R on a faceted tile, drawn on a 256 grid so every size lands on whole
+ * pixels. `tone="mono"` drops the tile and renders the bare R in the current colour,
+ * which is what the titlebar and the installer icon want; `tone="brand"` keeps the
+ * crimson gradient on its dark tile.
  *
- * The geometry is deliberately sharper than the wordmark: at 16px the eyes still resolve,
- * and at 128px the facets read as a cut gem. No strokes: every edge is a filled polygon,
- * so the mark stays crisp at fractional device pixel ratios.
+ * The geometry is deliberately sharp: at 16px the leg still resolves, and at 128px the
+ * facets read as a cut gem. No strokes: every edge is a filled polygon, so the mark stays
+ * crisp at fractional device pixel ratios.
  */
+
+/** The R sigil: one filled polygon, counter cut with evenodd. */
+const R_SIGIL =
+  "M76 52 H136 L170 60 Q196 70 196 100 Q196 128 172 136 L200 204 H158 L132 142 H116 V204 H76 Z " +
+  "M116 90 H142 Q156 90 156 106 Q156 122 142 122 H116 Z"
+
 export function OwlMark(props: { size?: number; tone?: "brand" | "mono"; class?: string }) {
   const size = () => props.size ?? 24
   const mono = () => props.tone === "mono"
+
+  if (mono()) {
+    return (
+      <svg
+        viewBox="0 0 256 256"
+        width={size()}
+        height={size()}
+        class={props.class}
+        role="img"
+        aria-label="Ragestar"
+        data-slot="owl-mark"
+        data-tone="mono"
+      >
+        <path d={R_SIGIL} fill="currentColor" fill-rule="evenodd" />
+      </svg>
+    )
+  }
 
   return (
     <svg
@@ -23,44 +46,25 @@ export function OwlMark(props: { size?: number; tone?: "brand" | "mono"; class?:
       height={size()}
       class={props.class}
       role="img"
-      aria-label="oliviacode"
+      aria-label="Ragestar"
       data-slot="owl-mark"
       data-tone={props.tone ?? "brand"}
     >
-      {/* Silhouette: ears at the top corners, cheeks flaring, chin on the baseline. */}
+      {/* Tile: rounded square, split into two facets so the mark reads as a cut gem. */}
       <path
-        d="M128 8 L40 34 L16 92 L30 172 L70 216 L128 250 L186 216 L226 172 L240 92 L216 34 Z"
-        fill={mono() ? "currentColor" : "#1a1333"}
+        d="M72 16 H184 A56 56 0 0 1 240 72 V184 A56 56 0 0 1 184 240 H72 A56 56 0 0 1 16 184 V72 A56 56 0 0 1 72 16 Z"
+        fill="#1c100d"
       />
-      {!mono() && (
-        <>
-          {/* Left cheek facet: the darker half of the face, lit from the right. */}
-          <path d="M40 34 L16 92 L30 172 L70 216 L128 250 L128 128 Z" fill="#241a4d" opacity="0.9" />
-          {/* Right cheek facet. */}
-          <path d="M216 34 L240 92 L226 172 L186 216 L128 250 L128 128 Z" fill="#150f28" />
-        </>
-      )}
-      {/* Brow: one violet chevron from ear to ear, the widest bright shape in the mark. */}
-      <path
-        d="M40 34 L128 96 L216 34 L196 84 L128 128 L60 84 Z"
-        fill={mono() ? "currentColor" : "url(#owl-brow)"}
-        opacity={mono() ? "0.55" : "1"}
-      />
-      {/* Beak: a diamond that runs to the chin, split by a darker midline. */}
-      <path d="M128 128 L150 168 L128 240 L106 168 Z" fill="currentColor" opacity={mono() ? "0.75" : "1"} />
-      {!mono() && <path d="M128 128 L128 240 L106 168 Z" fill="#3a2691" opacity="0.55" />}
-      {/* Eyes: `<` and `>`, white, chunky, the same glyph the app uses for prompts. */}
-      <path d="M96 132 L64 164 L96 196 L96 178 L82 164 L96 150 Z" fill="#f4f1ff" />
-      <path d="M160 132 L192 164 L160 196 L160 178 L174 164 L160 150 Z" fill="#f4f1ff" />
-      {!mono() && (
-        <defs>
-          <linearGradient id="owl-brow" x1="40" y1="34" x2="216" y2="128" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#9a6bff" />
-            <stop offset="0.5" stop-color="#7c4dff" />
-            <stop offset="1" stop-color="#5b2bd9" />
-          </linearGradient>
-        </defs>
-      )}
+      <path d="M128 16 H72 A56 56 0 0 0 16 72 V184 A56 56 0 0 0 72 240 H128 Z" fill="#2e130f" opacity="0.9" />
+      {/* The R: crimson gradient, one polygon, sharp shoulder and kicked leg. */}
+      <path d={R_SIGIL} fill="url(#owl-mark-fill)" fill-rule="evenodd" />
+      <defs>
+        <linearGradient id="owl-mark-fill" x1="76" y1="52" x2="200" y2="204" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#ff8a70" />
+          <stop offset="0.5" stop-color="#e02416" />
+          <stop offset="1" stop-color="#b91c0f" />
+        </linearGradient>
+      </defs>
     </svg>
   )
 }
@@ -133,7 +137,7 @@ export function OwlLockup(props: { size?: number; class?: string }): JSX.Element
           color: "currentColor",
         }}
       >
-        oliviacode
+        Ragestar
       </span>
     </span>
   )

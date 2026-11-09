@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "Fails",
   "desktop.menu.edit": "Rediģēt",
   "desktop.menu.view": "Skats",
@@ -679,7 +679,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} citi",
   "settings.about.firstPublished": "Pirmo reizi publicēts Misūri štatā, ASV",
   "settings.about.firstIllustrated": "Pirmo reizi ilustrēts Londonā, Anglijā",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode, atvērtā koda kodēšanas aģents",
   "settings.about.trademark": "OpenCode ir Anomaly Innovations, Inc. reģistrēta preču zīme.",
   "settings.about.typeset": "Salikums Inter un IBM Plex Mono",

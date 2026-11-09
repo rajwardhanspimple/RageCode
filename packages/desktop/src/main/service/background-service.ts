@@ -17,6 +17,9 @@ export * as BackgroundService from "./background-service"
 
 const RegisteredService = Schema.Struct({ version: Schema.optional(Schema.String) })
 
+/** Isolated dev servers keep a fixed port, so a checkout never lands on an installed build's port. */
+const ISOLATED_SERVICE_PORT = 0x0c0c
+
 /**
  * This client's own managed-service port.
  *
@@ -24,11 +27,15 @@ const RegisteredService = Schema.Struct({ version: Schema.optional(Schema.String
  * OpenCode install on the same machine already holds. A separate product gets a separate port,
  * stable for this application id and overridable for tests or unusual setups.
  */
-function servicePort() {
-  const override = Number(process.env.OLIVIACODE_SERVICE_PORT)
+function servicePort(fallback = hashedServicePort()) {
+  const override = Number(process.env.RAGESTAR_SERVICE_PORT)
 
   if (Number.isInteger(override) && override > 0 && override < 65536) return override
 
+  return fallback
+}
+
+function hashedServicePort() {
   let hash = 0
 
   for (const char of APP_ID) hash = (hash * 31 + char.charCodeAt(0)) % 4096
@@ -89,7 +96,7 @@ const ensure = Effect.fn("BackgroundService.ensure")(function* (mode: Background
         "serve",
         "--service",
         ...(setup.isolated
-          ? ["--hostname", "0.0.0.0", "--port", String(0x0c0c)]
+          ? ["--hostname", "0.0.0.0", "--port", String(servicePort(ISOLATED_SERVICE_PORT))]
           : ["--port", String(servicePort())]),
       ],
       onStart: (reason, previousVersion) =>
@@ -130,7 +137,7 @@ const ensure = Effect.fn("BackgroundService.ensure")(function* (mode: Background
           userData: app.getPath("userData"),
           current: ready.runningVersion ?? setup.cli.version,
           channel: EngineUpdate.channelFor(CHANNEL),
-          pin: process.env.OLIVIACODE_ENGINE_PIN?.trim() || undefined,
+          pin: process.env.RAGESTAR_ENGINE_PIN?.trim() || undefined,
         }),
       ).pipe(
         Effect.tap((outcome) => Effect.logInfo("engine update check finished", outcome)),

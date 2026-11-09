@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "ფაილი",
   "desktop.menu.edit": "რედაქტირება",
   "desktop.menu.view": "ნახვა",
@@ -672,7 +672,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} სხვა",
   "settings.about.firstPublished": "პირველად გამოქვეყნდა მისურიში, აშშ",
   "settings.about.firstIllustrated": "პირველად ილუსტრირდა ლონდონში, ინგლისი",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode, ღია კოდის მქონე კოდირების აგენტი",
   "settings.about.trademark": "OpenCode არის Anomaly Innovations, Inc.-ის რეგისტრირებული სავაჭრო ნიშანი.",
   "settings.about.typeset": "აწყობილია Inter და IBM Plex Mono შრიფტებით",

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Ragestar
+Exec=/opt/ragestar/ai.ragestar.desktop %U
+Terminal=false
+Type=Application
+Icon=ai.ragestar.desktop
+StartupWMClass=ai.ragestar.desktop
+NoDisplay=true
+Comment=ragestar desktop
+Categories=Development;

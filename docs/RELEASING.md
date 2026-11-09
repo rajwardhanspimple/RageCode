@@ -8,7 +8,7 @@ The machine needs `git`, PowerShell, and a fine-grained token once. The token is
 a one-shot HTTP header; it is never written to `.git/config`, the remote URL, or a file.
 
 1. Create a classic token with `repo` and `workflow` scopes:
-   <https://github.com/settings/tokens/new?scopes=repo,workflow&description=Oliviacode-release>
+   <https://github.com/settings/tokens/new?scopes=repo,workflow&description=Ragestar-release>
    - `repo` covers contents, releases, and the About box.
    - `workflow` is required to push changes under `.github/workflows/*` and to dispatch the
      release workflow.
@@ -19,15 +19,15 @@ a one-shot HTTP header; it is never written to `.git/config`, the remote URL, or
    ```powershell
    cd packages/desktop
    $env:OPENCODE_CHANNEL = "prod"
-   $env:OLIVIACODE_CLI_VERSION = "2.2.6"
+   $env:RAGESTAR_CLI_VERSION = "2.2.6"
    bun run build
    bun run pack
    $env:OPENCODE_DESKTOP_APP = (Resolve-Path "../../dist/desktop/app").Path
    bun run pack
    ```
 
-   `OPENCODE_CHANNEL=prod` is what makes the installer say **Oliviacode** instead of
-   **oliviacode Dev**, and installs under appId `ai.oliviacode.desktop`. The engine pin is
+   `OPENCODE_CHANNEL=prod` is what makes the installer say **Ragestar** instead of
+   **ragestar Dev**, and installs under appId `ai.ragestar.desktop`. The engine pin is
    independent of the shell version: only raise it when the bundled CLI is meant to change.
 
 3. Publish:
@@ -54,7 +54,7 @@ Verify the installer before publishing, on a disposable profile:
 powershell -File scripts/verify-installer.ps1 -Version 2.2.7
 ```
 
-That installs silently, asserts `Desktop\Oliviacode.lnk` and the Start Menu entry exist and point
+That installs silently, asserts `Desktop\Ragestar.lnk` and the Start Menu entry exist and point
 at the installed executable, then uninstalls and asserts both are gone.
 
 ## Route B - the workflow
@@ -73,9 +73,9 @@ The workflow builds:
 
 | Job | Runner | Artifacts |
 | --- | --- | --- |
-| `windows` | `windows-latest` | `Oliviacode-Setup-<version>.exe`, `latest.yml`, blockmap |
-| `linux` | `ubuntu-latest` | `Oliviacode-<version>-x64.AppImage`, `.deb`, `.rpm`, `latest-linux.yml` |
-| `macos` | `macos-latest` (arm64), `macos-15-intel` (x64) | `Oliviacode-<version>-<arch>.dmg`, `.zip` |
+| `windows` | `windows-latest` | `Ragestar-Setup-<version>.exe`, `latest.yml`, blockmap |
+| `linux` | `ubuntu-latest` | `Ragestar-<version>-x64.AppImage`, `.deb`, `.rpm`, `latest-linux.yml` |
+| `macos` | `macos-latest` (arm64), `macos-15-intel` (x64) | `Ragestar-<version>-<arch>.dmg`, `.zip` |
 | `checksums` | `ubuntu-latest` | `SHA256SUMS.txt` over every published asset |
 
 Each build job skips when its artifact is already on the release, so a locally verified Windows
@@ -93,11 +93,11 @@ run, because the default branch had not been indexed yet. If the Actions tab sho
 
 ## What the installer does
 
-- Assisted flow: licence page with the disclaimer, progress page, Finish with **Run Oliviacode**
+- Assisted flow: licence page with the disclaimer, progress page, Finish with **Run Ragestar**
   ticked.
-- Per-user install under `%LOCALAPPDATA%\Programs\ai.oliviacode.desktop`, so it co-exists with a
+- Per-user install under `%LOCALAPPDATA%\Programs\ai.ragestar.desktop`, so it co-exists with a
   separate OpenCode install.
-- Desktop shortcut `Oliviacode.lnk` and Start Menu entry, created for the current user.
+- Desktop shortcut `Ragestar.lnk` and Start Menu entry, created for the current user.
   `createDesktopShortcut: "always"` recreates the desktop icon on update if it was removed.
 - Uninstall removes the app and shortcuts; user data is kept unless the user deletes it.
 
@@ -111,6 +111,6 @@ run, because the default branch had not been indexed yet. If the Actions tab sho
 
 ## Repository location
 
-The canonical repository is <https://github.com/9562295450/Oliviacode>. All links in the app,
+The canonical repository is <https://github.com/rajwardhanspimple/RageCode>. All links in the app,
 README, notices and release notes point there.
 

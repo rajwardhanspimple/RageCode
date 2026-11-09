@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "Файл",
   "desktop.menu.edit": "Таҳрир",
   "desktop.menu.view": "Намоиш",
@@ -676,7 +676,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} нафари дигар",
   "settings.about.firstPublished": "Бори аввал дар Миссури, ИМА нашр шудааст",
   "settings.about.firstIllustrated": "Бори аввал дар Лондон, Англия мусаввар шудааст",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode, агенти рамзнависии манбаи кушода",
   "settings.about.trademark": "OpenCode тамғаи тиҷории бақайдгирифтаи Anomaly Innovations, Inc. мебошад.",
   "settings.about.typeset": "Бо Inter ва IBM Plex Mono ҳуруфчинӣ шудааст",

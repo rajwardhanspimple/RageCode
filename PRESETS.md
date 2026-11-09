@@ -122,7 +122,7 @@ a URL is choosing to trust that document, and the client says so in the dialog.
 
 ## Affiliation and responsibility
 
-Oliviacode is an independent open-source client. It is not affiliated with, endorsed by, or
+Ragestar is an independent open-source client. It is not affiliated with, endorsed by, or
 operated by OpenCode or any provider named in a local file or registry. An add-on is a URL,
 not a partnership and not a permission slip: whoever connects an account is responsible for
 keeping that provider's terms, quotas, and acceptable-use rules. If a service forbids a client

@@ -1,20 +1,20 @@
-# Oliviacode
+# Ragestar
 
-> Oliviacode is an independent, MIT-licensed, provider-agnostic desktop AI client. It bundles
+> Ragestar is an independent, MIT-licensed, provider-agnostic desktop AI client. It bundles
 > no model provider, no base URL and no credential: you connect a provider or you do not.
 > Windows, macOS and Linux. Current release: 2.2.8.
 
-Oliviacode is a shell, not a service. The agent engine is a bundled open-source CLI; this
+Ragestar is a shell, not a service. The agent engine is a bundled open-source CLI; this
 project supplies the window, the session store and the egress layer. Nothing in it names an
 official or endorsed provider, and nothing telephones home.
 
 ## Canonical links
 
-- [Source repository](https://github.com/9562295450/Oliviacode)
-- [Project site](https://9562295450.github.io/Oliviacode/)
-- [Latest release](https://github.com/9562295450/Oliviacode/releases/tag/v2.2.8)
-- [Checksums and VirusTotal results](https://9562295450.github.io/Oliviacode/checksums.html)
-- [Installer SHA-256 list](https://github.com/9562295450/Oliviacode/releases/download/v2.2.8/SHA256SUMS.txt)
+- [Source repository](https://github.com/9562295450/Ragestar)
+- [Project site](https://9562295450.github.io/Ragestar/)
+- [Latest release](https://github.com/9562295450/Ragestar/releases/tag/v2.2.8)
+- [Checksums and VirusTotal results](https://9562295450.github.io/Ragestar/checksums.html)
+- [Installer SHA-256 list](https://github.com/9562295450/Ragestar/releases/download/v2.2.8/SHA256SUMS.txt)
 
 ## What it does
 
@@ -42,7 +42,7 @@ official or endorsed provider, and nothing telephones home.
 ## Attribution
 
 The bundled engine is derived from the OpenCode CLI (MIT). OpenCode is a community-supported
-engine configuration, not an official integration, and Oliviacode is not affiliated with,
+engine configuration, not an official integration, and Ragestar is not affiliated with,
 endorsed by or supported by the OpenCode project. See NOTICE.md in the repository for the full
 upstream attribution and the list of changes.
 

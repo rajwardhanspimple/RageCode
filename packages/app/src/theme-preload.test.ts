@@ -33,7 +33,7 @@ describe("theme preload", () => {
       if (stored) localStorage.setItem("opencode-color-scheme", stored)
       run()
 
-      expect(document.documentElement.dataset.theme).toBe("owl")
+      expect(document.documentElement.dataset.theme).toBe("rage")
       expect(document.documentElement.dataset.colorScheme).toBe(scheme)
       expect(document.documentElement.style.backgroundColor).toBe(background)
     },

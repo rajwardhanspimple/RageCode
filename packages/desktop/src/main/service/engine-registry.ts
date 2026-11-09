@@ -21,7 +21,7 @@ async function get(url: string): Promise<Response> {
   try {
     response = await fetch(url, {
       signal: AbortSignal.timeout(TIMEOUT_MS),
-      headers: { accept: "application/json", "user-agent": "oliviacode-desktop" },
+      headers: { accept: "application/json", "user-agent": "ragestar-desktop" },
     })
   } catch (error) {
     // A bare "operation timed out" says nothing about which request hung.

@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "ໄຟລ໌",
   "desktop.menu.edit": "ແກ້ໄຂ",
   "desktop.menu.view": "ເບິ່ງ",
@@ -673,7 +673,7 @@ export const dict = {
   "settings.about.otherContributor.other": "ອີກ {{count}} ຄົນ",
   "settings.about.firstPublished": "ພິມ​ເຜີຍ​ແຜ່​ຄັ້ງ​ທຳ​ອິດ​ຢູ່​ລັດ Missouri, ສະ​ຫະ​ລັດ",
   "settings.about.firstIllustrated": "ຮູບ​ພາບ​ຄັ້ງ​ທໍາ​ອິດ​ໃນ​ລອນ​ດອນ​, ປະ​ເທດ​ອັງ​ກິດ​",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode, ຕົວແທນລະຫັດແຫຼ່ງເປີດ",
   "settings.about.trademark": "OpenCode ເປັນເຄື່ອງໝາຍການຄ້າທີ່ຈົດທະບຽນຂອງ Anomaly Innovations, Inc.",
   "settings.about.typeset": "Typeset ໃນ Inter ແລະ IBM Plex Mono",

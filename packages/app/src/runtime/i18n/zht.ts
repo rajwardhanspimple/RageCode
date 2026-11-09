@@ -3,7 +3,7 @@ import en from "./en"
 type Keys = keyof typeof en
 
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "檔案",
   "desktop.menu.edit": "編輯",
   "desktop.menu.view": "檢視",
@@ -726,7 +726,7 @@ export const dict = {
   "settings.about.otherContributor.other": "其他{{count}}人",
   "settings.about.firstPublished": "首次在美國密蘇裏州發佈",
   "settings.about.firstIllustrated": "首次在英國倫敦展出",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode ，開源編碼代理",
   "settings.about.trademark": "OpenCode是Anomaly Innovations, Inc.的註冊商標。",
   "settings.about.typeset": "Inter和IBM Plex Mono中的排版",

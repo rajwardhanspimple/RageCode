@@ -14,7 +14,7 @@ That is 227 characters, inside GitHub's 350-character limit.
 ## About — website
 
 ```
-https://github.com/9562295450/Oliviacode
+https://github.com/rajwardhanspimple/RageCode
 ```
 
 ## Topics
@@ -38,13 +38,13 @@ mit-license
 ## Social preview
 
 Use `packages/desktop/resources/icons/icon.png` on a dark background, with the wordmark
-`oliviacode` and the line `a generic AI client — bring your own provider`. Recommended size
+`ragestar` and the line `a generic AI client — bring your own provider`. Recommended size
 1280×640. Upload at **Settings → General → Social preview**.
 
 ## First release body
 
 ```markdown
-## Oliviacode 2.2.7
+## Ragestar 2.2.7
 
 A privacy-focused desktop AI client. Nothing is preconfigured: no provider, no endpoint in the
 code, no credential. A community template gives you one-click setup if you want it.
@@ -52,10 +52,10 @@ code, no credential. A community template gives you one-click setup if you want 
 ### Downloads
 | Platform | File |
 | --- | --- |
-| Windows 10/11 x64 | `Oliviacode-Setup-2.2.7.exe` |
-| macOS Apple Silicon (arm64) | `Oliviacode-2.2.7-arm64.dmg` |
-| macOS Intel (x64) | `Oliviacode-2.2.7-x64.dmg` |
-| Linux x64 | `Oliviacode-2.2.7-x64.AppImage`, `.deb`, `.rpm` |
+| Windows 10/11 x64 | `Ragestar-Setup-2.2.7.exe` |
+| macOS Apple Silicon (arm64) | `Ragestar-2.2.7-arm64.dmg` |
+| macOS Intel (x64) | `Ragestar-2.2.7-x64.dmg` |
+| Linux x64 | `Ragestar-2.2.7-x64.AppImage`, `.deb`, `.rpm` |
 
 ### Verify before you run
 - SHA-256 for every artifact is in `SHA256SUMS.txt` below.
@@ -74,7 +74,7 @@ code, no credential. A community template gives you one-click setup if you want 
 - Branded Windows installer: license page, desktop shortcut, launch after install.
 
 ### Notes
-- Oliviacode is not affiliated with OpenCode. See `NOTICE.md` and `PRESETS.md`.
+- Ragestar is not affiliated with OpenCode. See `NOTICE.md` and `PRESETS.md`.
 - The engine is downloaded from npm at build time; the version shipped is listed in the
   release assets.
 ```
@@ -82,7 +82,7 @@ code, no credential. A community template gives you one-click setup if you want 
 ## Pinned issue / first-run note
 
 > **Where do the providers come from?**
-> Oliviacode ships none. Open the model chip in the composer → **Community Templates** → press
+> Ragestar ships none. Open the model chip in the composer → **Community Templates** → press
 > the OpenCode Zen entry to apply its base URL, then paste the key that endpoint accepts
 > (`public` for its free tier). For anything else, **Browse community add-ons**, paste a registry
 > URL, and pick an entry; or add your own provider id, base URL and token by hand. Applying an

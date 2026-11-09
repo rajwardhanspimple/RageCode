@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "Αρχείο",
   "desktop.menu.edit": "Επεξεργασία",
   "desktop.menu.view": "Προβολή",
@@ -682,7 +682,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} άλλοι",
   "settings.about.firstPublished": "Πρωτοδημοσιεύτηκε στο Μιζούρι των Η.Π.Α",
   "settings.about.firstIllustrated": "Εικονογραφήθηκε για πρώτη φορά στο Λονδίνο της Αγγλίας",
-  "settings.about.website": "github.com/9562295450/Oliviacode",
+  "settings.about.website": "github.com/ragestar/Ragestar",
   "settings.about.description": "OpenCode, ο παράγοντας κωδικοποίησης ανοιχτού κώδικα",
   "settings.about.trademark": "Το OpenCode είναι σήμα κατατεθέν της Anomaly Innovations, Inc.",
   "settings.about.typeset": "Δακτυλογράφηση σε Inter και IBM Plex Mono",

@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "oliviacode",
+  "desktop.menu.app": "Ragestar",
   "desktop.menu.file": "ملف",
   "desktop.menu.edit": "تحرير",
   "desktop.menu.view": "عرض",
@@ -724,7 +724,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} مساهم آخر",
   "settings.about.firstPublished": "نُشر أول مرة في \u2068Missouri, USA\u2069",
   "settings.about.firstIllustrated": "رُسم أول مرة في \u2068London, England\u2069",
-  "settings.about.website": "\u2068github.com/9562295450/Oliviacode\u2069",
+  "settings.about.website": "\u2068github.com/ragestar/Ragestar\u2069",
   "settings.about.description": "\u2068OpenCode\u2069، وكيل البرمجة مفتوح المصدر",
   "settings.about.trademark": "\u2068OpenCode\u2069 علامة تجارية مسجلة لشركة \u2068Anomaly Innovations, Inc.\u2069",
   "settings.about.typeset": "منضّد بخطي \u2068Inter\u2069 و\u2068IBM Plex Mono\u2069",

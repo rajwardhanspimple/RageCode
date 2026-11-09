@@ -6,7 +6,7 @@ import { useCurrentRoute } from "@/shell/state/layout"
 import { tabKey, useTabs, type Tab } from "@/shell/tabs/tabs"
 import { sessionTabTitle } from "@/shell/titlebar/tab-title"
 import { OwlMark } from "./owl"
-import "./olivia.css"
+import "./ragestar.css"
 import "./owl-tokens.css"
 
 /**
@@ -17,7 +17,7 @@ import "./owl-tokens.css"
  * one the eye wants at the top. Sessions come from the tab store, so a row opens exactly
  * what the tab strip opens.
  */
-export function OliviaSidebar() {
+export function RagestarSidebar() {
   // The build channel, not a fixed word: a release build carries no channel badge at all.
   const channel = import.meta.env.VITE_OPENCODE_CHANNEL ?? "dev"
   const tabs = useTabs()
@@ -51,43 +51,43 @@ export function OliviaSidebar() {
   }
 
   return (
-    <aside data-slot="olivia-sidebar">
-      <header data-slot="olivia-head">
-        <span data-slot="olivia-logo">
+    <aside data-slot="ragestar-sidebar">
+      <header data-slot="ragestar-head">
+        <span data-slot="ragestar-logo">
           <OwlMark size={20} />
         </span>
-        <span data-slot="olivia-wordmark">oliviacode</span>
+        <span data-slot="ragestar-wordmark">Ragestar</span>
         <Show when={channel !== "prod"}>
-          <span data-slot="olivia-beta">{channel === "beta" ? "Beta" : "Dev"}</span>
+          <span data-slot="ragestar-beta">{channel === "beta" ? "Beta" : "Dev"}</span>
         </Show>
       </header>
 
-      <div data-slot="olivia-actions">
-        <button type="button" data-slot="olivia-new" onClick={() => command.trigger("tab.new")}>
+      <div data-slot="ragestar-actions">
+        <button type="button" data-slot="ragestar-new" onClick={() => command.trigger("tab.new")}>
           <Icon name="plus" />
           <span>New session</span>
         </button>
-        <button type="button" data-slot="olivia-search" onClick={() => command.trigger("sessions.search")}>
+        <button type="button" data-slot="ragestar-search" onClick={() => command.trigger("sessions.search")}>
           <Icon name="magnifying-glass" />
           <span>Search</span>
           <kbd>{command.keybind("sessions.search")}</kbd>
         </button>
       </div>
 
-      <div data-slot="olivia-section-head">
+      <div data-slot="ragestar-section-head">
         <button
           type="button"
-          data-slot="olivia-section-grow"
+          data-slot="ragestar-section-grow"
           data-open={open() ? "" : undefined}
           onClick={() => setOpen(!open())}
         >
           <Icon name="chevron-down" />
           <span>Queue</span>
         </button>
-        <span data-slot="olivia-count">{rows().length}</span>
+        <span data-slot="ragestar-count">{rows().length}</span>
         <button
           type="button"
-          data-slot="olivia-icon"
+          data-slot="ragestar-icon"
           title="Filter sessions"
           aria-label="Filter sessions"
           onClick={() => command.trigger("sessions.search")}
@@ -97,11 +97,11 @@ export function OliviaSidebar() {
       </div>
 
       <Show when={open()}>
-        <div data-slot="olivia-sessions">
+        <div data-slot="ragestar-sessions">
           <For each={rows()}>
             {(tab, index) => (
               <div
-                data-slot="olivia-row"
+                data-slot="ragestar-row"
                 data-active={active(tab) ? "" : undefined}
                 data-owl-talon={active(tab) ? "" : undefined}
                 role="button"
@@ -114,16 +114,16 @@ export function OliviaSidebar() {
                   select(tab)
                 }}
               >
-                <span data-slot="olivia-row-index" aria-hidden="true">
+                <span data-slot="ragestar-row-index" aria-hidden="true">
                   {String(index() + 1).padStart(2, "0")}
                 </span>
-                <span data-slot="olivia-row-dot" data-active={active(tab) ? "" : undefined} aria-hidden="true" />
-                <span data-slot="olivia-row-title" title={label(tab)}>
+                <span data-slot="ragestar-row-dot" data-active={active(tab) ? "" : undefined} aria-hidden="true" />
+                <span data-slot="ragestar-row-title" title={label(tab)}>
                   {label(tab)}
                 </span>
                 <button
                   type="button"
-                  data-slot="olivia-row-close"
+                  data-slot="ragestar-row-close"
                   title="Close session"
                   aria-label={`Close ${label(tab)}`}
                   onClick={(event) => {
@@ -137,13 +137,13 @@ export function OliviaSidebar() {
             )}
           </For>
           <Show when={rows().length === 0}>
-            <p data-slot="olivia-empty">Nothing open. Start a session and it lands here.</p>
+            <p data-slot="ragestar-empty">Nothing open. Start a session and it lands here.</p>
           </Show>
         </div>
       </Show>
 
-      <div data-slot="olivia-sidebar-bottom">
-        <span data-slot="olivia-queue-foot">
+      <div data-slot="ragestar-sidebar-bottom">
+        <span data-slot="ragestar-queue-foot">
           <span>{narrow() ? "" : `${rows().length} open`}</span>
           <span data-mono="">{tabs.closed.length} recent</span>
         </span>

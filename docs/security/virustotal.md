@@ -7,7 +7,7 @@ exists so the evidence is easy to verify and easy to replace when a release is p
 scanned, and neither was flagged — **installer 0/50**, **application binary 0/68**.
 
 ```
-file    Oliviacode-Setup-2.2.7.exe  (installer)
+file    Ragestar-Setup-2.2.7.exe  (installer)
 sha256  4fe3199ec3090b91454d2d3822b0b907bcb90f4ba106b4b983c6aa3631db0d6a
 size    257,940,413 bytes
 result  0/50 engines, scanned 9 November 2026
@@ -15,7 +15,7 @@ report  https://www.virustotal.com/gui/file/4fe3199ec3090b91454d2d3822b0b907bcb9
 ```
 
 ```
-file    Oliviacode.exe  (application binary inside the installer)
+file    Ragestar.exe  (application binary inside the installer)
 sha256  3dda8e6a3d82634e5f7c749238ca5701cd3cb7b60f9ee85e122295c55d93bb1d
 size    246,924,288 bytes
 result  0/68 engines, scanned 9 November 2026
@@ -34,11 +34,11 @@ Do not trust a screenshot. Hash the file you actually downloaded and compare it 
 published in the release notes:
 
 ```powershell
-Get-FileHash .\Oliviacode-Setup-2.2.7.exe -Algorithm SHA256
+Get-FileHash .\Ragestar-Setup-2.2.7.exe -Algorithm SHA256
 ```
 
 ```bash
-sha256sum Oliviacode-Setup-2.2.7.exe
+sha256sum Ragestar-Setup-2.2.7.exe
 ```
 
 `SHA256SUMS.txt` is written next to every packaged artifact by
@@ -52,10 +52,10 @@ the download builds reputation. To run it: **More info -> Run anyway**. Before y
 hash:
 
 ```powershell
-(Get-FileHash .\Oliviacode-Setup-2.2.7.exe -Algorithm SHA256).Hash.ToLowerInvariant()
+(Get-FileHash .\Ragestar-Setup-2.2.7.exe -Algorithm SHA256).Hash.ToLowerInvariant()
 ```
 
-The value must match the line for `Oliviacode-Setup-2.2.7.exe` in `SHA256SUMS.txt` on the
+The value must match the line for `Ragestar-Setup-2.2.7.exe` in `SHA256SUMS.txt` on the
 release. A signed build replaces this section with the certificate subject.
 
 ## Filling in the report (maintainer, once per release)
@@ -81,5 +81,5 @@ A screenshot alone can be edited; a hash cannot be made to match a different fil
 - A report is not a warranty. It records what a set of engines said about one file at one
   moment. The SHA-256 and the source in this repository are the durable evidence.
 - The engine binary is downloaded from the npm registry at build time and is covered by the
-  same installer hash. Its version is pinned by `OLIVIACODE_CLI_VERSION` and recorded in
+  same installer hash. Its version is pinned by `RAGESTAR_CLI_VERSION` and recorded in
   `packages/desktop/resources/opencode-cli.version`.

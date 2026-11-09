@@ -4,8 +4,8 @@ import { usePlatform } from "@/runtime/platform/platform"
 import { useCurrentRoute } from "@/shell/state/layout"
 import { tabKey, useTabs } from "@/shell/tabs/tabs"
 import { sessionTabTitle } from "@/shell/titlebar/tab-title"
-import { OliviaEgress } from "./egress-block"
-import { OliviaTheme } from "./theme-block"
+import { RagestarEgress } from "./egress-block"
+import { RagestarTheme } from "./theme-block"
 import { OwlMark } from "./owl"
 
 const surfaceLabel = {
@@ -22,7 +22,7 @@ const surfaceLabel = {
  * and the theme engine. Everything here is a reading rather than a route, so the
  * transcript keeps the full plane and the controls keep a fixed home.
  */
-export function OliviaInspector(props: { onClose: () => void }) {
+export function RagestarInspector(props: { onClose: () => void }) {
   const platform = usePlatform()
   const route = useCurrentRoute()
   const tabs = useTabs()
@@ -52,13 +52,13 @@ export function OliviaInspector(props: { onClose: () => void }) {
   }
 
   return (
-    <aside data-slot="olivia-inspector" aria-label="Inspector">
-      <header data-slot="olivia-inspector-head">
+    <aside data-slot="ragestar-inspector" aria-label="Inspector">
+      <header data-slot="ragestar-inspector-head">
         <OwlMark size={14} />
         <span>Inspector</span>
         <button
           type="button"
-          data-slot="olivia-icon"
+          data-slot="ragestar-icon"
           data-push=""
           title="Hide inspector"
           aria-label="Hide inspector"
@@ -68,15 +68,15 @@ export function OliviaInspector(props: { onClose: () => void }) {
         </button>
       </header>
 
-      <div data-slot="olivia-inspector-scroll">
-        <section data-slot="olivia-block">
-          <header data-slot="olivia-block-head">
-            <span data-slot="olivia-block-label">Surface</span>
+      <div data-slot="ragestar-inspector-scroll">
+        <section data-slot="ragestar-block">
+          <header data-slot="ragestar-block-head">
+            <span data-slot="ragestar-block-label">Surface</span>
           </header>
-          <p data-slot="olivia-route-title" title={title()}>
+          <p data-slot="ragestar-route-title" title={title()}>
             {title()}
           </p>
-          <dl data-slot="olivia-kv">
+          <dl data-slot="ragestar-kv">
             <div>
               <dt>Kind</dt>
               <dd data-mono="">{surfaceLabel[route().type]}</dd>
@@ -102,11 +102,11 @@ export function OliviaInspector(props: { onClose: () => void }) {
           </dl>
         </section>
 
-        <OliviaEgress />
-        <OliviaTheme />
+        <RagestarEgress />
+        <RagestarTheme />
 
-        <footer data-slot="olivia-inspector-foot">
-          <span>oliviacode</span>
+        <footer data-slot="ragestar-inspector-foot">
+          <span>Ragestar</span>
           <span data-mono="">{platform.version ? `v${platform.version}` : "dev"}</span>
         </footer>
       </div>

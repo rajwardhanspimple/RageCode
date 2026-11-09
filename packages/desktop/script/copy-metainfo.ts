@@ -5,15 +5,15 @@ const arg = process.argv[2]
 const channel = arg === "dev" || arg === "beta" || arg === "prod" ? arg : resolveChannel()
 
 const APP_IDS = {
-  dev: "ai.oliviacode.desktop.dev",
-  beta: "ai.oliviacode.desktop.beta",
-  prod: "ai.oliviacode.desktop",
+  dev: "ai.ragestar.desktop.dev",
+  beta: "ai.ragestar.desktop.beta",
+  prod: "ai.ragestar.desktop",
 } as const
 
 const PRODUCT_NAMES = {
-  dev: "oliviacode Dev",
-  beta: "oliviacode Beta",
-  prod: "oliviacode",
+  dev: "ragestar Dev",
+  beta: "ragestar Beta",
+  prod: "ragestar",
 } as const
 
 const appId = APP_IDS[channel]
@@ -32,13 +32,13 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
   <name>${productName}</name>
   <summary>${summary}</summary>
 
-  <developer id="ai.oliviacode">
-    <name>oliviacode</name>
+  <developer id="ai.ragestar">
+    <name>ragestar</name>
   </developer>
 
   <description>
     <p>
-      oliviacode is a fork of OpenCode, the open source agent that helps you write and run code with any AI model.
+      ragestar is a fork of OpenCode, the open source agent that helps you write and run code with any AI model.
       It adds a sidebar egress manager for direct, WARP, Tor and proxy lanes with rotation, and a theme engine.
     </p>
   </description>

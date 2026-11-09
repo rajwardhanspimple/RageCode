@@ -2,7 +2,7 @@
 
 ## Threat model
 
-Oliviacode is a local desktop client. It starts a bundled engine as a sidecar process and talks
+Ragestar is a local desktop client. It starts a bundled engine as a sidecar process and talks
 to it over a loopback HTTP port. The engine runs with the same privileges as your user account.
 
 ### No sandbox
@@ -21,7 +21,7 @@ data directory, and inherited `OPENCODE_CONFIG`, `OPENCODE_CONFIG_CONTENT`, and
 `OPENCODE_CONFIG_DIR` values are cleared before it starts. A fresh install therefore does not
 read or write another OpenCode installation's config, history, plugins, or credential store.
 
-Provider credentials you enter in Oliviacode are stored by the engine in that isolated profile.
+Provider credentials you enter in Ragestar are stored by the engine in that isolated profile.
 Removing the app's user data directory removes them.
 
 ### Add-ons are data

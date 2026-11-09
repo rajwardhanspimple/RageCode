@@ -1,4 +1,4 @@
-/* oliviacode design tokens — the shell reads these, the theme system reads --v2-*.
+/* ragestar design tokens — the shell reads these, the theme system reads --v2-*.
    Everything here is a primitive. Components never hard-code a hex, a radius or a duration. */
 
 :root {
@@ -45,14 +45,14 @@
   --owl-slow: 240ms;
 
   /* Brand, independent of theme so the mark is identical everywhere. */
-  --owl-violet: #7c4dff;
-  --owl-violet-deep: #5b2bd9;
-  --owl-violet-soft: #9a6bff;
-  --owl-lime: #c8ff3d;
-  --owl-ink: #0b0a10;
-  --owl-ink-2: #121019;
-  --owl-ink-3: #191623;
-  --owl-line: #262133;
+  --owl-violet: #e02416;
+  --owl-violet-deep: #b91c0f;
+  --owl-violet-soft: #ff6a4d;
+  --owl-lime: #ffb03d;
+  --owl-ink: #0e0a09;
+  --owl-ink-2: #120c0b;
+  --owl-ink-3: #191110;
+  --owl-line: #261816;
   --owl-fang: #f4f1ff;
   --owl-mute: #8e87a8;
 }

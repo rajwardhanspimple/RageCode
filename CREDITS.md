@@ -1,6 +1,6 @@
 # Credits
 
-oliviacode is a community fork of [OpenCode](https://github.com/anomalyco/opencode)
+ragestar is a community fork of [OpenCode](https://github.com/anomalyco/opencode)
 by anomalyco, released under the same MIT license.
 
 ## Upstream
@@ -20,13 +20,13 @@ by anomalyco, released under the same MIT license.
 
 ## Icons and UI
 
-- The Olivia visual language and theme are original to this fork.
+- The Ragestar visual language and theme are original to this fork.
 - UI components (`@opencode/ui/*`) are from the upstream OpenCode codebase, retained under
   the same MIT license.
 
 ## Trademarks
 
-OpenCode and the OpenCode logo are trademarks of anomalyco. oliviacode is not affiliated
+OpenCode and the OpenCode logo are trademarks of anomalyco. ragestar is not affiliated
 with, endorsed by, or sponsored by anomalyco. The OpenCode update endpoint is consulted
-only to determine whether a newer CLI engine is available; the Olivia UI and desktop shell
+only to determine whether a newer CLI engine is available; the Ragestar UI and desktop shell
 are never replaced by it.

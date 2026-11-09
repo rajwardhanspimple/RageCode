@@ -40,6 +40,19 @@ export function fallback() {
   return join(process.env["XDG_STATE_HOME"] ?? join(homedir(), ".local", "state"), "opencode", "service.json")
 }
 
+/**
+ * A wildcard listen address is not a dialable host everywhere. Some runtimes refuse `0.0.0.0`
+ * outright, so health checks and the endpoint handed to clients use loopback instead.
+ */
+function reachable(url: string) {
+  const parsed = new URL(url)
+
+  if (parsed.hostname !== "0.0.0.0" && parsed.hostname !== "[::]" && parsed.hostname !== "::") return url
+  parsed.hostname = "127.0.0.1"
+
+  return parsed.toString().replace(/\/$/, "")
+}
+
 /** Whether two registrations describe the same service instance. */
 export function same(left: Info, right: Info) {
   return left.id === right.id && left.version === right.version && left.url === right.url && left.pid === right.pid
@@ -48,11 +61,11 @@ export function same(left: Info, right: Info) {
 /** Ask a registered owner for its health and classify the answer. */
 export async function probeResult(info: Info, timeout = defaultEnsureTiming.requestTimeout) {
   const endpoint = {
-    url: info.url,
+    url: reachable(info.url),
     auth: info.password === undefined ? undefined : { type: "basic", username: "opencode", password: info.password },
   } satisfies Endpoint
   const signal = AbortSignal.timeout(timeout)
-  const result = await fetch(new URL("/api/info", info.url), { headers: headers(endpoint), signal })
+  const result = await fetch(new URL("/api/info", endpoint.url), { headers: headers(endpoint), signal })
     .then(async (response) => ({
       response,
       body: response.status === 404 ? undefined : ((await response.json()) as unknown),

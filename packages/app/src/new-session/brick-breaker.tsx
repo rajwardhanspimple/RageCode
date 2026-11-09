@@ -103,7 +103,6 @@ function mountGame(
   const panel = parts.panel
   const wrap = panel.querySelector<HTMLElement>('[data-slot="new-session-composer"]')
   const form = wrap?.querySelector<HTMLElement>('[data-component="composer"]')
-  const tip = panel.querySelector<HTMLElement>('[data-component="new-session-tip"]')
   const surface = form ? getComputedStyle(form).backgroundColor : ""
   // The arena is exactly as wide as the wordmark, like Arkanoid's tall, narrow playfield.
   const view = { left: 0, top: 0, w: 0, h: 0, l: 0, r: 0 }
@@ -401,7 +400,6 @@ function mountGame(
 
     if (wrap) wrap.style.opacity = ""
 
-    if (tip) tip.style.opacity = ""
     parts.paddle.style.opacity = "0"
   }
 
@@ -487,12 +485,6 @@ function mountGame(
   parts.paddle.style.boxShadow = "var(--v2-elevation-raised)"
   parts.paddle.style.transition = "opacity 180ms ease-out, background-color 360ms ease-out"
 
-  // The provider tip sits where the paddle plays, so it steps aside for the game.
-  if (tip) {
-    tip.style.transition = "opacity 200ms ease-out"
-    tip.style.opacity = "0"
-  }
-
   draw(start.composer, 0)
 
   if (wrap) {
@@ -525,11 +517,6 @@ function mountGame(
     window.removeEventListener("keyup", onKey, { capture: true })
     window.removeEventListener("blur", onBlur)
     panel.style.cursor = ""
-
-    if (tip) {
-      tip.style.opacity = ""
-      tip.style.transition = ""
-    }
 
     if (!wrap) return
     wrap.style.opacity = ""
