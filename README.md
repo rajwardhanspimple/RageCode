@@ -7,10 +7,9 @@ preconfigured, with multi-lane egress and isolated sessions built into the UI in
 
 [**Download**](https://github.com/rajwardhanspimple/RageCode/releases/tag/v2.2.9) ·
 [Windows](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/Ragestar-Setup-2.2.9.exe) ·
+[macOS](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/Ragestar-2.2.9-arm64.dmg) ·
+[Linux](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/Ragestar-2.2.9-x64.AppImage) ·
 [All releases](https://github.com/rajwardhanspimple/RageCode/releases)
-
-macOS and Linux build from source: see [Run from source](#run-from-source) and
-[Build a release](#build-a-release).
 
 - **Multi-lane egress** — Direct, WARP, Tor and proxy lanes, each with health, latency and
   rotation. Rotate on demand, or arm a lane and let it rotate.
@@ -19,8 +18,8 @@ macOS and Linux build from source: see [Run from source](#run-from-source) and
   community template, add your own preset, or paste a registry URL.
 - **One engine** — the shell drives the upstream CLI engine as a sidecar process, so tool
   execution, permissions and MCP servers behave the same as the CLI.
-- **Windows installer, source for the rest** — the 2.2.9 release ships an NSIS installer for
-  Windows 10/11 x64. macOS 14+ and glibc Linux x64 build from source with the commands below.
+- **Packages for all three** — the 2.2.9 release ships an NSIS installer for Windows 10/11 x64,
+  a dmg and zip for macOS 14+ (arm64 and x64), and an AppImage, deb and rpm for glibc Linux x64.
 - **No telemetry endpoint** — the app contacts the endpoints you configured, the registry URL
   you loaded, and nothing else.
 
@@ -51,13 +50,13 @@ Grab the installer from [Releases](https://github.com/rajwardhanspimple/RageCode
 
 - **Windows** - `Ragestar-Setup-<version>.exe`. Assisted installer: accept the license,
   press Install. A desktop shortcut and Start menu entry are created for the current user.
-- **macOS / Linux** — no packages are attached to 2.2.9 yet. Build from source with the
-  commands below; the packaging scripts and the release workflow in
-  `.github/workflows/publish.yml` produce `.dmg`, `.AppImage`, `.deb` and `.rpm` on their
-  native runners.
+- **macOS** - `Ragestar-<version>-arm64.dmg` for Apple Silicon or
+  `Ragestar-<version>-x64.dmg` for Intel. Open the dmg and drag Ragestar to Applications.
+- **Linux** - `Ragestar-<version>-x64.AppImage`, a `.deb`, or an `.rpm`. The AppImage runs after
+  `chmod +x`; the packages install the same app.
 
-The Windows build is unsigned. SmartScreen may ask you to confirm the publisher; the release
-attaches `SHA256SUMS.txt` so you can check the file you downloaded instead of trusting the
+Every build is unsigned. SmartScreen and Gatekeeper may ask you to confirm the publisher; the
+release attaches `SHA256SUMS.txt` so you can check the file you downloaded instead of trusting the
 filename. The 2.2.7 installer is scanned and clean (0/50), as is the application binary inside it
 (0/68); both reports and hashes are in [docs/security/virustotal.md](./docs/security/virustotal.md).
 

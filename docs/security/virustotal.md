@@ -7,7 +7,7 @@ exists so the evidence is easy to verify and easy to replace when a release is p
 scanned, and neither was flagged — **installer 0/50**, **application binary 0/68**.
 
 **2.2.9:** the published installer has not been scanned yet. Its SHA-256 is
-`df9b43c1a557044d10302e3b5a7f9d973963ee2f3c84e269bdf430521b39f480` (257,684,368 bytes); the
+`0f69bf599cdb1b7c39d5092fac8df597d816d98e043cd36cdfc7c0b85d6455a9` (257,682,369 bytes); the
 release attaches `SHA256SUMS.txt` so you can verify the download before running it, and you can
 upload the file to VirusTotal yourself.
 
@@ -46,9 +46,9 @@ Get-FileHash .\Ragestar-Setup-2.2.7.exe -Algorithm SHA256
 sha256sum Ragestar-Setup-2.2.7.exe
 ```
 
-`SHA256SUMS.txt` is written next to every packaged artifact by
-`packages/desktop/script/checksums.ts`, and is attached to the release together with the
-installer. If the hashes differ, the file is not the file that was published.
+`SHA256SUMS.txt` is written over every attached artifact by the release workflow, so it covers
+Windows, macOS and Linux packages as well as the update feeds. If the hashes differ, the file is
+not the file that was published.
 
 ## SmartScreen and the unsigned installer
 

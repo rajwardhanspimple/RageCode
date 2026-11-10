@@ -9,12 +9,15 @@ A provider-agnostic, open-source desktop AI client. Nothing is preconfigured: no
 endpoint in the code, no credential. You connect an account, or you don't.
 
 ### Downloads
-| Platform | File |
+| Platform | Files |
 | --- | --- |
 | Windows 10/11 x64 | `Ragestar-Setup-2.2.9.exe` |
+| macOS 14+ Apple Silicon | `Ragestar-2.2.9-arm64.dmg`, `Ragestar-2.2.9-arm64.zip` |
+| macOS 14+ Intel | `Ragestar-2.2.9-x64.dmg` |
+| Linux x64 (glibc) | `.AppImage`, `.deb`, `.rpm` |
 
-macOS and Linux packages are not part of this release. Build them from source with the commands
-in the README; the release workflow produces them on native runners when dispatched.
+Every asset is built from this tag on a clean GitHub runner. Windows also publishes `latest.yml`
+and a blockmap for the built-in updater; Linux publishes `latest-linux.yml`.
 
 ### What's new
 - **Links resolve.** `github.com/ragestar/*` was never a real repository. Every destination now
@@ -30,25 +33,28 @@ in the README; the release workflow produces them on native runners when dispatc
   page points at the new notices file.
 
 ### Verify before you run
-- `SHA256SUMS.txt` carries the SHA-256 for the Windows installer, `latest.yml` and the blockmap.
-  Compare it with the file you downloaded; the value is release-specific.
+- `SHA256SUMS.txt` carries the SHA-256 for every attached artifact, written from the files GitHub
+  stores. Compare it with the file you downloaded; the value is release-specific.
 - The 2.2.7 installer was scanned at VirusTotal with **0/50 detections** and the application
   binary with **0/68**; those reports are on the
   [checksums page](https://rajwardhanspimple.github.io/RageCode/checksums.html). The 2.2.9 installer
   is pending its first scan.
-- The Windows installer is unsigned. SmartScreen asks you to confirm the publisher; check the
-  hash against this release before you do.
+- No build is code-signed. SmartScreen on Windows and Gatekeeper on macOS ask you to confirm the
+  publisher; check the hash against this release before you do.
 
 ### Installing this one
-- 2.2.8 installs can take this release through the built-in updater. The engine stays at 2.2.8
-  until a newer one passes the gate.
+- 2.2.8 installs can take this release through the built-in updater.
+- This build bundles engine 2.2.6, the version pinned in the release workflow. From 2.2.9 the app
+  may adopt a newer engine on its own, but only after the candidate verifies its published
+  integrity, boots in a throwaway data directory, serves every route the window calls, and
+  survives a session round trip; a failed launch reverts to the bundled engine.
 
 ### Platform notes
 - **Windows:** the installer is per-user and does not require an administrator.
-- **macOS and Linux:** build from source. The packaging scripts target those platforms, but this
-  release attaches no packages for them.
+- **macOS:** open the dmg and drag Ragestar to Applications. The build is unsigned and not
+  notarized, so the first launch needs right-click -> Open.
+- **Linux:** the AppImage runs after `chmod +x`; the deb and rpm install the same app.
 
 ### Notes
 - Ragestar is not affiliated with OpenCode. See `NOTICE.md` and `PRESETS.md`.
-- The engine is downloaded from npm at build time; the version shipped is listed in the release
-  assets.
+- The engine is downloaded from npm at build time; this release bundles 2.2.6.

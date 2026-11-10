@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ragestar — a provider-agnostic desktop AI client</title>
-<meta name="description" content="Ragestar is an independent, MIT-licensed desktop AI client for developers. Provider-agnostic, with multi-lane egress (Direct, WARP, Tor, proxy) and isolated sessions. Windows installer; macOS and Linux build from source.">
+<meta name="description" content="Ragestar is an independent, MIT-licensed desktop AI client for developers. Provider-agnostic, with multi-lane egress (Direct, WARP, Tor, proxy) and isolated sessions. Installers for Windows, macOS and Linux.">
 <meta name="theme-color" content="#0b0b0d">
 <link rel="canonical" href="https://rajwardhanspimple.github.io/RageCode/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ragestar">
 <meta property="og:url" content="https://rajwardhanspimple.github.io/RageCode/">
 <meta property="og:title" content="Ragestar — a provider-agnostic desktop AI client">
-<meta property="og:description" content="An open-source AI client for developers. Multi-lane egress, isolated sessions, MIT. Windows installer, source for macOS and Linux.">
+<meta property="og:description" content="An open-source AI client for developers. Multi-lane egress, isolated sessions, MIT. Installers for Windows, macOS and Linux.">
 <meta property="og:image" content="https://rajwardhanspimple.github.io/RageCode/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ragestar — a provider-agnostic desktop AI client">
@@ -130,7 +130,7 @@
 </header>
 
 <div class="wrap hero">
-  <div class="tag">MIT · Windows installer · macOS &amp; Linux from source</div>
+  <div class="tag">MIT · Windows, macOS &amp; Linux installers</div>
   <h1>A provider-agnostic<br><span class="grad">desktop AI client.</span></h1>
   <p class="sub">An open-source AI client for developers. Nothing is preconfigured — you bring a provider, pick an egress lane, and each session keeps its own workspace, model, and agent.</p>
   <div class="cta">
@@ -171,8 +171,8 @@
         <p>The app contacts the endpoints you configured, the registry URL you loaded, and nothing else. Credentials stay in the engine's config under your user data directory.</p>
       </div>
       <div class="card">
-        <h3>Windows installer, source for the rest</h3>
-        <p>The 2.2.9 release ships the NSIS installer for Windows. macOS and Linux build from source with the commands in the README; their packages are not part of this release yet.</p>
+        <h3>Installers for all three</h3>
+        <p>The 2.2.9 release ships the NSIS installer for Windows, a dmg and zip for macOS on arm64 and x64, and an AppImage, deb and rpm for Linux x64.</p>
       </div>
     </div>
 
@@ -186,7 +186,7 @@
 <section id="download">
   <div class="wrap">
     <h2>Download 2.2.9</h2>
-    <p class="lead">Unsigned builds. Check the hash against <code>SHA256SUMS.txt</code> before running the Windows installer.</p>
+    <p class="lead">Unsigned builds. Check the hash against <code>SHA256SUMS.txt</code> before running any installer.</p>
     <div class="dl">
       <div class="card">
         <h3>Windows 10/11 x64</h3>
@@ -195,10 +195,18 @@
         </ul>
       </div>
       <div class="card">
-        <h3>macOS 14+ and Linux x64</h3>
+        <h3>macOS 14+</h3>
         <ul>
-          <li><a href="https://github.com/rajwardhanspimple/RageCode/blob/main/README.md#build-a-release">Build from source</a></li>
-          <li><a href="https://github.com/rajwardhanspimple/RageCode/blob/main/README.md#run-from-source">Run from source</a></li>
+          <li><a href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/Ragestar-2.2.9-arm64.dmg">Ragestar-2.2.9-arm64.dmg</a> · Apple Silicon</li>
+          <li><a href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/Ragestar-2.2.9-x64.dmg">Ragestar-2.2.9-x64.dmg</a> · Intel</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Linux x64 (glibc)</h3>
+        <ul>
+          <li><a href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/Ragestar-2.2.9-x64.AppImage">Ragestar-2.2.9-x64.AppImage</a> · 298 MB</li>
+          <li><a href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/Ragestar-2.2.9-x64.deb">Ragestar-2.2.9-x64.deb</a> · 239 MB</li>
+          <li><a href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/Ragestar-2.2.9-x64.rpm">Ragestar-2.2.9-x64.rpm</a> · 213 MB</li>
         </ul>
       </div>
     </div>
@@ -235,6 +243,11 @@
     <details>
       <summary>Why does Windows SmartScreen warn me?</summary>
       <p>The installer is not code-signed, so SmartScreen shows the standard "unknown publisher" prompt. The 2.2.7 installer was scanned at VirusTotal with 0/50 detections; the 2.2.9 build is pending its first scan. Every artifact here has a SHA-256 in <code>SHA256SUMS.txt</code>. Check with <code>Get-FileHash .\Ragestar-Setup-2.2.9.exe -Algorithm SHA256</code>.</p>
+    </details>
+
+    <details>
+      <summary>Why does macOS refuse to open the app?</summary>
+      <p>The build is unsigned and not notarized, so Gatekeeper blocks the first launch. Open the dmg, drag Ragestar to Applications, then right-click (or Control-click) the app and choose Open, or allow it under System Settings › Privacy &amp; Security. Check the dmg's SHA-256 against <code>SHA256SUMS.txt</code> first.</p>
     </details>
 
     <details>

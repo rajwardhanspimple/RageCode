@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ragestar 2.2.9 — checksums and scans</title>
-<meta name="description" content="SHA-256 checksums for the Ragestar 2.2.9 Windows artifacts, plus the VirusTotal reports for the 2.2.7 installer and application binary.">
+<meta name="description" content="SHA-256 checksums for every Ragestar 2.2.9 Windows, macOS and Linux artifact, plus the VirusTotal reports for the 2.2.7 installer and application binary.">
 <link rel="icon" type="image/svg+xml" href="assets/owl-mark.svg">
 <style>
   :root{--bg:#08080a;--panel:#101014;--line:#24242c;--text:#ececf1;--muted:#9b9ba6;--accent:#6ee7c8;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Inter,sans-serif}
@@ -30,6 +30,7 @@
   th{text-align:left;font-weight:600;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding:8px 10px;border-bottom:1px solid var(--line)}
   td{padding:9px 10px;border-bottom:1px solid #1b1b22;font-family:var(--mono);font-size:12.4px;word-break:break-all;vertical-align:top}
   td.name{font-family:var(--sans);font-size:13px;white-space:nowrap}
+  td.size{font-family:var(--mono);font-size:12.4px;white-space:nowrap;color:var(--muted)}
   code{font-family:var(--mono);font-size:12.6px;background:#1b1b23;border:1px solid var(--line);border-radius:5px;padding:2px 6px}
   pre{background:#0d0d12;border:1px solid var(--line);border-radius:9px;padding:14px;overflow:auto;font-family:var(--mono);font-size:12.5px}
   footer{border-top:1px solid var(--line);margin-top:60px;padding:28px 0;color:#71717d;font-size:12.5px}
@@ -39,7 +40,7 @@
 <header><div class="wrap"><img src="assets/owl-mark.svg" alt="Ragestar owl mark"><span class="name">Ragestar</span><a class="back" href="./">← back to overview</a></div></header>
 <div class="wrap">
   <h1>Checksums and scans — 2.2.9</h1>
-  <p class="lead">Every file below is attached to the <a href="https://github.com/rajwardhanspimple/RageCode/releases/tag/v2.2.9">v2.2.9 release</a>. Hashes are the published <a href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/SHA256SUMS.txt">SHA256SUMS.txt</a>, unedited. This release ships Windows x64 only; macOS and Linux builds come from source.</p>
+  <p class="lead">Every file below is attached to the <a href="https://github.com/rajwardhanspimple/RageCode/releases/tag/v2.2.9">v2.2.9 release</a>. Hashes are the published <a href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/SHA256SUMS.txt">SHA256SUMS.txt</a>, unedited. This release ships Windows x64, macOS 14+ on arm64 and x64, and glibc Linux x64.</p>
 
   <div class="row">
     <span class="pill"><span class="ok"></span><b>2.2.7 installer 0/50</b> · VirusTotal</span>
@@ -61,19 +62,28 @@
 
   <h2>Verify a download</h2>
   <pre>Get-FileHash .\Ragestar-Setup-2.2.9.exe -Algorithm SHA256</pre>
+  <pre>sha256sum Ragestar-2.2.9-x64.AppImage</pre>
 
   <h2>All artifacts</h2>
   <table>
-    <thead><tr><th>File</th><th>SHA-256</th></tr></thead>
+    <thead><tr><th>File</th><th>Size</th><th>SHA-256</th></tr></thead>
     <tbody>
-      <tr><td class="name">Ragestar-Setup-2.2.9.exe</td><td>df9b43c1a557044d10302e3b5a7f9d973963ee2f3c84e269bdf430521b39f480</td></tr>
-      <tr><td class="name">Ragestar-Setup-2.2.9.exe.blockmap</td><td>e92548f3d6bb1beeef782a298c1859adf5957849149375f1e32db0cf45b6936a</td></tr>
-      <tr><td class="name">latest.yml</td><td>979e5eb59baf2a8f56d736d6c8aa0b608adb252ce79d4bed0be7d92e763c8785</td></tr>
+      <tr><td class="name">Ragestar-Setup-2.2.9.exe</td><td class="size">257,682,369</td><td>0f69bf599cdb1b7c39d5092fac8df597d816d98e043cd36cdfc7c0b85d6455a9</td></tr>
+      <tr><td class="name">Ragestar-Setup-2.2.9.exe.blockmap</td><td class="size">270,988</td><td>67b52214557b1b85db03a8627a3de135010ce5f6073261406f1e76d7aa8927bb</td></tr>
+      <tr><td class="name">latest.yml</td><td class="size">345</td><td>0c1900b0bced2386d14e93617f724f967d67cfa8b78331fdfb14fb375e28e736</td></tr>
+      <tr><td class="name">Ragestar-2.2.9-arm64.dmg</td><td class="size">287,800,894</td><td>f1d850c55804487e50ef7174361cc7b208a8e0c306d7437196664512068ee640</td></tr>
+      <tr><td class="name">Ragestar-2.2.9-arm64.zip</td><td class="size">279,409,796</td><td>37d0cc359101cafaa1f3badd1550d32f0b4f475a7304b54c6a534dc5650614ce</td></tr>
+      <tr><td class="name">Ragestar-2.2.9-x64.dmg</td><td class="size">294,819,520</td><td>9fe365d1f3885029c7ed52ded7839a56264509073c316a6b8d2b1d7d088478d0</td></tr>
+      <tr><td class="name">Ragestar-2.2.9-x64.zip</td><td class="size">286,439,609</td><td>3c8d51aba533efd13fc7a6be107c2e6f747478eb517000593f9a2e2e3c8e869e</td></tr>
+      <tr><td class="name">Ragestar-2.2.9-x64.AppImage</td><td class="size">298,363,019</td><td>5ccb2025a5498ba281e6bfba76676afdd2918df79c500d09fc0f52f0ebf9ff6a</td></tr>
+      <tr><td class="name">Ragestar-2.2.9-x64.deb</td><td class="size">238,980,136</td><td>2fa16f04533034df20efdb743a2dd69d54b77265f94b4a4bdcf5779082a71934</td></tr>
+      <tr><td class="name">Ragestar-2.2.9-x64.rpm</td><td class="size">212,746,849</td><td>f18c788b9d717f2ec044bb63db79c766da90689a575c2cb09e78fea7619edfc8</td></tr>
+      <tr><td class="name">latest-linux.yml</td><td class="size">351</td><td>15a21f247dd0e61d775c58f89e3629799074105aab53856807999a715ebb6ceb</td></tr>
     </tbody>
   </table>
 
   <footer>
-    The installer is not code-signed; SmartScreen may warn about an unknown publisher. The 2.2.7 VirusTotal reports above identify those files by SHA-256 and stay valid even though that build is no longer attached to a release. Ragestar is not affiliated with OpenCode or any provider named in a preset or community registry.
+    No build is code-signed; SmartScreen on Windows and Gatekeeper on macOS may warn about an unknown publisher. The 2.2.7 VirusTotal reports above identify those files by SHA-256 and stay valid even though that build is no longer attached to a release. Ragestar is not affiliated with OpenCode or any provider named in a preset or community registry.
   </footer>
 </div>
 </body>
