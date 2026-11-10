@@ -87,7 +87,7 @@ $topics = @(
 )
 $body = @{
   description = $description
-  homepage    = "https://github.com/$Repo"
+  homepage    = "https://rajwardhanspimple.github.io/RageCode/"
 } | ConvertTo-Json
 Invoke-RestMethod -Method Patch -Uri "https://api.github.com/repos/$Repo" -Headers $headers -Body $body | Out-Null
 $topicBody = @{ names = $topics } | ConvertTo-Json
