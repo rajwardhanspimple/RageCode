@@ -39,11 +39,11 @@ Do not trust a screenshot. Hash the file you actually downloaded and compare it 
 published in the release notes:
 
 ```powershell
-Get-FileHash .\Ragestar-Setup-2.2.7.exe -Algorithm SHA256
+Get-FileHash .\Ragestar-Setup-2.2.9.exe -Algorithm SHA256
 ```
 
 ```bash
-sha256sum Ragestar-Setup-2.2.7.exe
+sha256sum Ragestar-Setup-2.2.9.exe
 ```
 
 `SHA256SUMS.txt` is written over every attached artifact by the release workflow, so it covers
@@ -52,15 +52,15 @@ not the file that was published.
 
 ## SmartScreen and the unsigned installer
 
-The installer is not code-signed. SmartScreen therefore shows "Windows protected your PC" until
+No build is code-signed. SmartScreen therefore shows "Windows protected your PC" until
 the download builds reputation. To run it: **More info -> Run anyway**. Before you do, check the
 hash:
 
 ```powershell
-(Get-FileHash .\Ragestar-Setup-2.2.7.exe -Algorithm SHA256).Hash.ToLowerInvariant()
+(Get-FileHash .\Ragestar-Setup-2.2.9.exe -Algorithm SHA256).Hash.ToLowerInvariant()
 ```
 
-The value must match the line for `Ragestar-Setup-2.2.7.exe` in `SHA256SUMS.txt` on the
+The value must match the line for `Ragestar-Setup-2.2.9.exe` in `SHA256SUMS.txt` on the
 release. A signed build replaces this section with the certificate subject.
 
 ## Filling in the report (maintainer, once per release)
