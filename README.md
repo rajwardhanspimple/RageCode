@@ -5,8 +5,8 @@
 **A provider-agnostic desktop AI client.** An open-source AI client for developers: nothing
 preconfigured, with multi-lane egress and isolated sessions built into the UI instead of bolted on.
 
-[**Download**](https://github.com/rajwardhanspimple/RageCode/releases/tag/v2.2.8) ·
-[Windows](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-Setup-2.2.8.exe) ·
+[**Download**](https://github.com/rajwardhanspimple/RageCode/releases/tag/v2.2.9) ·
+[Windows](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/Ragestar-Setup-2.2.9.exe) ·
 [All releases](https://github.com/rajwardhanspimple/RageCode/releases)
 
 macOS and Linux build from source: see [Run from source](#run-from-source) and
@@ -19,7 +19,7 @@ macOS and Linux build from source: see [Run from source](#run-from-source) and
   community template, add your own preset, or paste a registry URL.
 - **One engine** — the shell drives the upstream CLI engine as a sidecar process, so tool
   execution, permissions and MCP servers behave the same as the CLI.
-- **Windows installer, source for the rest** — the 2.2.8 release ships an NSIS installer for
+- **Windows installer, source for the rest** — the 2.2.9 release ships an NSIS installer for
   Windows 10/11 x64. macOS 14+ and glibc Linux x64 build from source with the commands below.
 - **No telemetry endpoint** — the app contacts the endpoints you configured, the registry URL
   you loaded, and nothing else.
@@ -51,7 +51,7 @@ Grab the installer from [Releases](https://github.com/rajwardhanspimple/RageCode
 
 - **Windows** - `Ragestar-Setup-<version>.exe`. Assisted installer: accept the license,
   press Install. A desktop shortcut and Start menu entry are created for the current user.
-- **macOS / Linux** — no packages are attached to 2.2.8 yet. Build from source with the
+- **macOS / Linux** — no packages are attached to 2.2.9 yet. Build from source with the
   commands below; the packaging scripts and the release workflow in
   `.github/workflows/publish.yml` produce `.dmg`, `.AppImage`, `.deb` and `.rpm` on their
   native runners.
@@ -168,7 +168,7 @@ makes the updater report `unsupported` and stop checking.
 ### Engine updates
 
 The desktop and the engine (`@opencode/cli`) are separate releases, so the app can keep the engine
-current without shipping a new desktop build. Starting with 2.2.8, a production
+current without shipping a new desktop build. Starting with 2.2.9, a production
 build checks npm's `latest` dist-tag once per launch and may adopt a newer engine **only after it
 proves itself**:
 

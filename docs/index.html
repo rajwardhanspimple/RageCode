@@ -99,10 +99,10 @@
   "name": "Ragestar",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Windows 10, Windows 11, macOS 14, Linux",
-  "softwareVersion": "2.2.8",
+  "softwareVersion": "2.2.9",
   "license": "https://opensource.org/licenses/MIT",
   "url": "https://rajwardhanspimple.github.io/RageCode/",
-  "downloadUrl": "https://github.com/rajwardhanspimple/RageCode/releases/tag/v2.2.8",
+  "downloadUrl": "https://github.com/rajwardhanspimple/RageCode/releases/tag/v2.2.9",
   "codeRepository": "https://github.com/rajwardhanspimple/RageCode",
   "description": "Independent, provider-agnostic desktop AI client for developers, with multi-lane egress (Direct, WARP, Tor, proxy) and isolated sessions.",
   "offers": {
@@ -134,13 +134,13 @@
   <h1>A provider-agnostic<br><span class="grad">desktop AI client.</span></h1>
   <p class="sub">An open-source AI client for developers. Nothing is preconfigured — you bring a provider, pick an egress lane, and each session keeps its own workspace, model, and agent.</p>
   <div class="cta">
-    <a class="btn primary" href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-Setup-2.2.8.exe">Download for Windows <small>· 258 MB</small></a>
+    <a class="btn primary" href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/Ragestar-Setup-2.2.9.exe">Download for Windows <small>· 258 MB</small></a>
     <a class="btn" href="https://github.com/rajwardhanspimple/RageCode">Source on GitHub</a>
   </div>
-  <p class="meta">All builds: <a href="https://github.com/rajwardhanspimple/RageCode/releases/tag/v2.2.8">releases/tag/v2.2.8</a> · <a href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/SHA256SUMS.txt">SHA256SUMS.txt</a> · <a href="checksums.html">VirusTotal: 2.2.7 installer 0/50</a></p>
+  <p class="meta">All builds: <a href="https://github.com/rajwardhanspimple/RageCode/releases/tag/v2.2.9">releases/tag/v2.2.9</a> · <a href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/SHA256SUMS.txt">SHA256SUMS.txt</a> · <a href="checksums.html">VirusTotal: 2.2.7 installer 0/50</a></p>
 
   <div class="shot">
-    <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span>Ragestar 2.2.8</span></div>
+    <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span>Ragestar 2.2.9</span></div>
     <img src="screenshots/hero.png" alt="Ragestar session view with the egress lane picker and theme palette in the inspector" loading="lazy">
   </div>
 </div>
@@ -172,7 +172,7 @@
       </div>
       <div class="card">
         <h3>Windows installer, source for the rest</h3>
-        <p>The 2.2.8 release ships the NSIS installer for Windows. macOS and Linux build from source with the commands in the README; their packages are not part of this release yet.</p>
+        <p>The 2.2.9 release ships the NSIS installer for Windows. macOS and Linux build from source with the commands in the README; their packages are not part of this release yet.</p>
       </div>
     </div>
 
@@ -185,13 +185,13 @@
 
 <section id="download">
   <div class="wrap">
-    <h2>Download 2.2.8</h2>
+    <h2>Download 2.2.9</h2>
     <p class="lead">Unsigned builds. Check the hash against <code>SHA256SUMS.txt</code> before running the Windows installer.</p>
     <div class="dl">
       <div class="card">
         <h3>Windows 10/11 x64</h3>
         <ul>
-          <li><a href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-Setup-2.2.8.exe">Ragestar-Setup-2.2.8.exe</a> · 258 MB</li>
+          <li><a href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.9/Ragestar-Setup-2.2.9.exe">Ragestar-Setup-2.2.9.exe</a> · 258 MB</li>
         </ul>
       </div>
       <div class="card">
@@ -234,7 +234,7 @@
 
     <details>
       <summary>Why does Windows SmartScreen warn me?</summary>
-      <p>The installer is not code-signed, so SmartScreen shows the standard "unknown publisher" prompt. The 2.2.7 installer was scanned at VirusTotal with 0/50 detections; the 2.2.8 build is pending its first scan. Every artifact here has a SHA-256 in <code>SHA256SUMS.txt</code>. Check with <code>Get-FileHash .\Ragestar-Setup-2.2.8.exe -Algorithm SHA256</code>.</p>
+      <p>The installer is not code-signed, so SmartScreen shows the standard "unknown publisher" prompt. The 2.2.7 installer was scanned at VirusTotal with 0/50 detections; the 2.2.9 build is pending its first scan. Every artifact here has a SHA-256 in <code>SHA256SUMS.txt</code>. Check with <code>Get-FileHash .\Ragestar-Setup-2.2.9.exe -Algorithm SHA256</code>.</p>
     </details>
 
     <details>
@@ -249,7 +249,7 @@
 
     <details>
       <summary>Does it auto-update?</summary>
-      <p>Release builds from 2.2.6 on carry an <code>app-update.yml</code> that points at this repository's own releases and check every four hours; nothing downloads until you ask. From 2.2.8 the engine underneath can advance on its own too, but only after the candidate verifies its published integrity, boots in a throwaway data directory, serves all 25 routes the window calls, and survives a real session round trip — and a launch that never reaches its sidecar reverts to the bundled engine. Builds packaged without <code>RAGESTAR_UPDATE_REPO</code> — everything before 2.2.6, dev checkouts and forks — write no feed, so <code>electron-updater</code> stays inert. Set the variable to point a fork at its own releases.</p>
+      <p>Release builds from 2.2.6 on carry an <code>app-update.yml</code> that points at this repository's own releases and check every four hours; nothing downloads until you ask. From 2.2.9 the engine underneath can advance on its own too, but only after the candidate verifies its published integrity, boots in a throwaway data directory, serves all 25 routes the window calls, and survives a real session round trip — and a launch that never reaches its sidecar reverts to the bundled engine. Builds packaged without <code>RAGESTAR_UPDATE_REPO</code> — everything before 2.2.6, dev checkouts and forks — write no feed, so <code>electron-updater</code> stays inert. Set the variable to point a fork at its own releases.</p>
     </details>
 
     <details>
@@ -261,7 +261,7 @@
 
 <footer>
   <div class="wrap">
-    <span>Ragestar 2.2.8 · MIT</span>
+    <span>Ragestar 2.2.9 · MIT</span>
     <a href="https://github.com/rajwardhanspimple/RageCode">GitHub</a>
     <a href="https://github.com/rajwardhanspimple/RageCode/issues">Issues</a>
     <a href="https://github.com/rajwardhanspimple/RageCode/blob/main/PRESETS.md">Preset schema</a>

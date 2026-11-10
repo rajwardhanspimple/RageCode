@@ -6,8 +6,8 @@ exists so the evidence is easy to verify and easy to replace when a release is p
 **Current status:** both the 2.2.7 installer and the application executable it writes have been
 scanned, and neither was flagged — **installer 0/50**, **application binary 0/68**.
 
-**2.2.8:** the published installer has not been scanned yet. Its SHA-256 is
-`7c17c963bd366e2117f0524df1485225dbbec4b668d6ac16e48a5c31361b2752` (257,673,578 bytes); the
+**2.2.9:** the published installer has not been scanned yet. Its SHA-256 is
+`df9b43c1a557044d10302e3b5a7f9d973963ee2f3c84e269bdf430521b39f480` (257,684,368 bytes); the
 release attaches `SHA256SUMS.txt` so you can verify the download before running it, and you can
 upload the file to VirusTotal yourself.
 

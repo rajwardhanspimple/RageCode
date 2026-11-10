@@ -2,7 +2,7 @@
 
 > Ragestar is an independent, MIT-licensed, provider-agnostic desktop AI client. It bundles
 > no model provider, no base URL and no credential: you connect a provider or you do not.
-> The 2.2.8 release ships a Windows installer; macOS and Linux build from source.
+> The 2.2.9 release ships a Windows installer; macOS and Linux build from source.
 
 Ragestar is a shell, not a service. The agent engine is a bundled open-source CLI; this
 project supplies the window, the session store and the egress layer. Nothing in it names an
