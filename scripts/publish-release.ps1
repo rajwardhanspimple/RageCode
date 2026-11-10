@@ -9,7 +9,7 @@
 param(
   [string]$Version = "2.2.7",
   [string]$Token = $env:GH_TOKEN,
-  [string]$Repo = "9562295450/Ragestar",
+  [string]$Repo = "rajwardhanspimple/RageCode",
   [switch]$SkipPush,
   [switch]$SkipRelease
 )
@@ -49,7 +49,7 @@ Write-Host "size      $([math]::Round((Get-Item $installer).Length / 1MB, 1)) MB
 if (-not $Token) {
   throw @"
 No token. Create a fine-grained PAT at https://github.com/settings/tokens?type=beta
-  Repository access : 9562295450/Ragestar
+  Repository access : rajwardhanspimple/RageCode
   Permissions       : Contents = Read and write, Administration = Read and write
 Then, in this shell:
   `$env:GH_TOKEN = "github_pat_..."
@@ -80,7 +80,7 @@ if (-not $SkipPush) {
 }
 
 # 2. About box: description, homepage, topics.
-$description = "A privacy-focused desktop AI client. Bring your own provider: nothing is preconfigured, no endpoint is bundled, and provider add-ons are community data you choose to load. Multi-lane egress, session isolation, MIT licensed."
+$description = "Ragestar — a provider-agnostic desktop AI client. Bring your own provider: nothing is preconfigured, no endpoint is bundled, and provider add-ons are community data you choose to load. Multi-lane egress, session isolation, MIT licensed."
 $topics = @(
   "ai-client", "desktop-app", "electron", "privacy", "byok", "bring-your-own-key",
   "multi-provider", "egress", "tor", "wireguard", "typescript", "solidjs", "mit-license"

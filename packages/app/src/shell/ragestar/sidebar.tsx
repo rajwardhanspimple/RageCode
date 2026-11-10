@@ -5,6 +5,7 @@ import { useCommand } from "@/shell/commands/command"
 import { useCurrentRoute } from "@/shell/state/layout"
 import { tabKey, useTabs, type Tab } from "@/shell/tabs/tabs"
 import { sessionTabTitle } from "@/shell/titlebar/tab-title"
+import { useLanguage } from "@/runtime/i18n/language"
 import { OwlMark } from "./owl"
 import "./ragestar.css"
 import "./owl-tokens.css"
@@ -23,6 +24,7 @@ export function RagestarSidebar() {
   const tabs = useTabs()
   const command = useCommand()
   const route = useCurrentRoute()
+  const language = useLanguage()
 
   const [open, setOpen] = createSignal(true)
   const narrow = createMediaQuery("(max-width: 860px)")
@@ -40,7 +42,10 @@ export function RagestarSidebar() {
   }
 
   const label = (tab: Tab) =>
-    sessionTabTitle(tabs.info[tabKey(tab)]?.title, tab.type === "draft" ? "New session" : "Untitled session")
+    sessionTabTitle(
+      tabs.info[tabKey(tab)]?.title,
+      language.t(tab.type === "draft" ? "command.session.new" : "shell.session.untitled"),
+    )
 
   const select = (tab: Tab) => tabs.select(tab)
 
@@ -58,18 +63,20 @@ export function RagestarSidebar() {
         </span>
         <span data-slot="ragestar-wordmark">Ragestar</span>
         <Show when={channel !== "prod"}>
-          <span data-slot="ragestar-beta">{channel === "beta" ? "Beta" : "Dev"}</span>
+          <span data-slot="ragestar-beta">
+            {language.t(channel === "beta" ? "shell.channel.beta" : "shell.channel.dev")}
+          </span>
         </Show>
       </header>
 
       <div data-slot="ragestar-actions">
         <button type="button" data-slot="ragestar-new" onClick={() => command.trigger("tab.new")}>
           <Icon name="plus" />
-          <span>New session</span>
+          <span>{language.t("shell.sidebar.new")}</span>
         </button>
         <button type="button" data-slot="ragestar-search" onClick={() => command.trigger("sessions.search")}>
           <Icon name="magnifying-glass" />
-          <span>Search</span>
+          <span>{language.t("shell.sidebar.search")}</span>
           <kbd>{command.keybind("sessions.search")}</kbd>
         </button>
       </div>
@@ -82,14 +89,14 @@ export function RagestarSidebar() {
           onClick={() => setOpen(!open())}
         >
           <Icon name="chevron-down" />
-          <span>Queue</span>
+          <span>{language.t("shell.sidebar.queue")}</span>
         </button>
         <span data-slot="ragestar-count">{rows().length}</span>
         <button
           type="button"
           data-slot="ragestar-icon"
-          title="Filter sessions"
-          aria-label="Filter sessions"
+          title={language.t("shell.sidebar.filter")}
+          aria-label={language.t("shell.sidebar.filter")}
           onClick={() => command.trigger("sessions.search")}
         >
           <Icon name="sliders" />
@@ -124,8 +131,8 @@ export function RagestarSidebar() {
                 <button
                   type="button"
                   data-slot="ragestar-row-close"
-                  title="Close session"
-                  aria-label={`Close ${label(tab)}`}
+                  title={language.t("shell.sidebar.closeTitle")}
+                  aria-label={language.t("shell.sidebar.close", { title: label(tab) })}
                   onClick={(event) => {
                     event.stopPropagation()
                     close(tab)
@@ -137,15 +144,15 @@ export function RagestarSidebar() {
             )}
           </For>
           <Show when={rows().length === 0}>
-            <p data-slot="ragestar-empty">Nothing open. Start a session and it lands here.</p>
+            <p data-slot="ragestar-empty">{language.t("shell.sidebar.empty")}</p>
           </Show>
         </div>
       </Show>
 
       <div data-slot="ragestar-sidebar-bottom">
         <span data-slot="ragestar-queue-foot">
-          <span>{narrow() ? "" : `${rows().length} open`}</span>
-          <span data-mono="">{tabs.closed.length} recent</span>
+          <span>{narrow() ? "" : language.plural("shell.sidebar.open", rows().length)}</span>
+          <span data-mono="">{language.plural("shell.sidebar.recent", tabs.closed.length)}</span>
         </span>
       </div>
     </aside>

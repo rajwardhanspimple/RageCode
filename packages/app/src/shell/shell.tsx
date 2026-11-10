@@ -132,7 +132,11 @@ export default function Layout(props: ParentProps) {
     >
       <Titlebar minimal />
       <div class="flex flex-1 min-h-0 min-w-0 flex-row">
-        <RagestarRail queueOpen={queueOpen()} onToggleQueue={toggleSidebar} />
+        <RagestarRail
+          queueOpen={queueOpen()}
+          onToggleQueue={toggleSidebar}
+          inspector={narrow() ? undefined : { open: inspectorOpen(), toggle: toggleInspector }}
+        />
         <Show when={queueOpen() && !mobile()}>
           <RagestarSidebar />
         </Show>

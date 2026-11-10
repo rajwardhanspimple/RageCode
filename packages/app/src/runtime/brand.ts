@@ -6,10 +6,13 @@
  */
 export const BRAND = {
   name: "Ragestar",
-  repo: "https://github.com/ragestar/Ragestar",
-  issues: "https://github.com/ragestar/Ragestar/issues",
-  discussions: "https://github.com/ragestar/Ragestar/discussions",
-  docs: "https://github.com/ragestar/Ragestar/blob/main/README.md",
-  addons: "https://github.com/ragestar/Ragestar/blob/main/PRESETS.md",
-  security: "https://github.com/ragestar/Ragestar/blob/main/docs/security/virustotal.md",
+  repo: "https://github.com/rajwardhanspimple/RageCode",
+  issues: "https://github.com/rajwardhanspimple/RageCode/issues",
+  discussions: "https://github.com/rajwardhanspimple/RageCode/discussions",
+  releases: "https://github.com/rajwardhanspimple/RageCode/releases/latest",
+  docs: "https://github.com/rajwardhanspimple/RageCode/blob/main/README.md",
+  addons: "https://github.com/rajwardhanspimple/RageCode/blob/main/PRESETS.md",
+  security: "https://github.com/rajwardhanspimple/RageCode/blob/main/docs/security/virustotal.md",
+  bugReport: "https://github.com/rajwardhanspimple/RageCode/issues/new?template=bug-report.yml",
+  featureRequest: "https://github.com/rajwardhanspimple/RageCode/issues/new?template=feature-request.yml",
 } as const

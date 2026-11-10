@@ -3,6 +3,7 @@ import { Icon } from "@opencode/ui/icon"
 import { Loader } from "@opencode/ui/loader"
 import { useDialog } from "@opencode/ui/context/dialog"
 import { usePlatform } from "@/runtime/platform/platform"
+import { useLanguage } from "@/runtime/i18n/language"
 import { infiniteLanes, laneLabel, phaseLabel, type InfiniteLane } from "@/egress"
 import { EgressPanel } from "@/shell/egress/panel"
 
@@ -16,6 +17,7 @@ import { EgressPanel } from "@/shell/egress/panel"
 export function RagestarEgress() {
   const platform = usePlatform()
   const dialog = useDialog()
+  const language = useLanguage()
   const [busy, setBusy] = createSignal(false)
   const [started, setStarted] = createSignal(0)
   const [tick, setTick] = createSignal(0)
@@ -31,12 +33,15 @@ export function RagestarEgress() {
   createEffect(() => {
     if (!working()) {
       setStarted(0)
+
       return
     }
+
     if (!started()) {
       setStarted(Date.now())
       setTick(Date.now())
     }
+
     const timer = setInterval(() => setTick(Date.now()), 1000)
     onCleanup(() => clearInterval(timer))
   })
@@ -45,6 +50,7 @@ export function RagestarEgress() {
   const dot = (target: InfiniteLane) => {
     if (target === lane()) {
       if (working()) return "busy"
+
       return state()?.phase === "error" ? "down" : "current"
     }
 
@@ -72,17 +78,17 @@ export function RagestarEgress() {
       <section data-slot="ragestar-egress" data-phase={state()?.phase ?? "idle"}>
         <header data-slot="ragestar-block-head">
           <span data-slot="ragestar-phase-dot" data-phase={state()?.phase ?? "idle"} aria-hidden="true" />
-          <span>Egress</span>
+          <span>{language.t("shell.egress.title")}</span>
           <span data-slot="ragestar-block-note" data-truncate="">
-            {state() ? phaseLabel(state()!) : "loading"}
+            {state() ? phaseLabel(state()!) : language.t("shell.egress.loading")}
             {working() && elapsed() > 0 ? ` ${elapsed()}s` : ""}
           </span>
           <button
             type="button"
             data-slot="ragestar-icon"
             data-push=""
-            title="Open the egress panel"
-            aria-label="Open the egress panel"
+            title={language.t("shell.egress.open")}
+            aria-label={language.t("shell.egress.open")}
             onClick={() => void dialog.show(() => <EgressPanel />)}
           >
             <Icon name="sliders" />
@@ -92,7 +98,11 @@ export function RagestarEgress() {
         <div data-slot="ragestar-egress-trace">
           <Show
             when={state()?.trace}
-            fallback={<span data-slot="ragestar-egress-ip" data-muted="">no route yet</span>}
+            fallback={
+              <span data-slot="ragestar-egress-ip" data-muted="">
+                {language.t("shell.egress.empty")}
+              </span>
+            }
           >
             {(trace) => (
               <>
@@ -107,7 +117,7 @@ export function RagestarEgress() {
           </Show>
         </div>
 
-        <div data-slot="ragestar-lanes" role="group" aria-label="Egress lane">
+        <div data-slot="ragestar-lanes" role="group" aria-label={language.t("shell.egress.lane")}>
           <For each={infiniteLanes}>
             {(target) => (
               <button
@@ -115,7 +125,7 @@ export function RagestarEgress() {
                 data-slot="ragestar-lane"
                 data-active={target === lane() ? "" : undefined}
                 aria-pressed={target === lane()}
-                title={`Route through ${laneLabel(target)}`}
+                title={language.t("shell.egress.laneHint", { lane: laneLabel(target) })}
                 onClick={() => void engine()?.setLane(target)}
               >
                 <span data-slot="ragestar-live-dot" data-state={dot(target)} aria-hidden="true" />
@@ -130,24 +140,24 @@ export function RagestarEgress() {
             type="button"
             data-slot="ragestar-rotate"
             disabled={busy() || working() || !state()}
-            title="Get a new exit address on this lane"
+            title={language.t("shell.egress.rotateHint")}
             onClick={() => void rotate()}
           >
             <Show when={busy() || working()} fallback={<Icon name="refresh" />}>
               <Loader width={12} height={12} />
             </Show>
-            <span>Rotate</span>
+            <span>{language.t("shell.egress.rotate")}</span>
           </button>
           <button
             type="button"
             data-slot="ragestar-arm"
             data-armed={state()?.armed ? "" : undefined}
             aria-pressed={state()?.armed ?? false}
-            title="Rotate automatically when the sidecar reports a limit"
+            title={language.t("shell.egress.armHint")}
             onClick={() => void engine()?.arm(!state()?.armed)}
           >
             <Icon name="lock" />
-            <span>{state()?.armed ? "Armed" : "Arm"}</span>
+            <span>{language.t(state()?.armed ? "shell.egress.armed" : "shell.egress.arm")}</span>
           </button>
         </div>
 

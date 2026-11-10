@@ -36,7 +36,7 @@ const FIELD = "\x1f"
 
 const RECORD = "\x1e"
 
-const REPOSITORY = { owner: "anomalyco", name: "opencode" }
+const REPOSITORY = { owner: "rajwardhanspimple", name: "RageCode" }
 
 /** Pull requests per GitHub query; the newest 200 commits take at most two. */
 const BATCH = 100

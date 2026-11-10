@@ -13,7 +13,7 @@ const text = `Click, double-click, drag, right-click, or Ctrl/Shift+click the li
 
 **Long bare URL:** https://www.rockauto.com/en/catalog/dodge,2004,ram+1500,4.7l+v8,1432463,brake+&+wheel+hub,brake+pad,1684
 
-**Named link:** read [the OpenTUI terminal capabilities guide](https://github.com/anomalyco/opentui/blob/main/packages/core/docs/terminal-capabilities.mdx) for details.
+**Named link:** read [the OpenTUI terminal capabilities guide](https://github.com/anomalyco/opentui/blob/main/packages/core/README.md) for details.
 
 **URL in inline code (not linked):** \`https://github.com/anomalyco/opencode/issues/51727#issuecomment-wrapped-link\`
 

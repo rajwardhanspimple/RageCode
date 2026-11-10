@@ -1,6 +1,7 @@
 import { Show, createMemo } from "solid-js"
 import { Icon } from "@opencode/ui/icon"
 import { usePlatform } from "@/runtime/platform/platform"
+import { useLanguage } from "@/runtime/i18n/language"
 import { useCurrentRoute } from "@/shell/state/layout"
 import { tabKey, useTabs } from "@/shell/tabs/tabs"
 import { sessionTabTitle } from "@/shell/titlebar/tab-title"
@@ -9,12 +10,12 @@ import { RagestarTheme } from "./theme-block"
 import { OwlMark } from "./owl"
 
 const surfaceLabel = {
-  home: "Home",
-  settings: "Settings",
-  connect: "Connect",
-  components: "Components",
-  draft: "Draft",
-  session: "Session",
+  home: "shell.surface.home",
+  settings: "shell.surface.settings",
+  connect: "shell.surface.connect",
+  components: "shell.surface.components",
+  draft: "shell.surface.draft",
+  session: "shell.surface.session",
 } as const
 
 /**
@@ -26,6 +27,9 @@ export function RagestarInspector(props: { onClose: () => void }) {
   const platform = usePlatform()
   const route = useCurrentRoute()
   const tabs = useTabs()
+  const language = useLanguage()
+
+  const surface = () => language.t(surfaceLabel[route().type])
 
   const current = createMemo(() => {
     const value = route()
@@ -42,26 +46,28 @@ export function RagestarInspector(props: { onClose: () => void }) {
   const title = createMemo(() => {
     const tab = current()
 
-    if (!tab) return surfaceLabel[route().type]
-    return sessionTabTitle(tabs.info[tabKey(tab)]?.title, "Untitled session")
+    if (!tab) return surface()
+
+    return sessionTabTitle(tabs.info[tabKey(tab)]?.title, language.t("shell.session.untitled"))
   })
 
   const server = () => {
     const value = route()
+
     return value.type === "session" ? value.server : undefined
   }
 
   return (
-    <aside data-slot="ragestar-inspector" aria-label="Inspector">
+    <aside data-slot="ragestar-inspector" aria-label={language.t("shell.inspector.title")}>
       <header data-slot="ragestar-inspector-head">
         <OwlMark size={14} />
-        <span>Inspector</span>
+        <span>{language.t("shell.inspector.title")}</span>
         <button
           type="button"
           data-slot="ragestar-icon"
           data-push=""
-          title="Hide inspector"
-          aria-label="Hide inspector"
+          title={language.t("shell.inspector.hide")}
+          aria-label={language.t("shell.inspector.hide")}
           onClick={props.onClose}
         >
           <Icon name="xmark-small" />
@@ -71,20 +77,20 @@ export function RagestarInspector(props: { onClose: () => void }) {
       <div data-slot="ragestar-inspector-scroll">
         <section data-slot="ragestar-block">
           <header data-slot="ragestar-block-head">
-            <span data-slot="ragestar-block-label">Surface</span>
+            <span data-slot="ragestar-block-label">{language.t("shell.inspector.surface")}</span>
           </header>
           <p data-slot="ragestar-route-title" title={title()}>
             {title()}
           </p>
           <dl data-slot="ragestar-kv">
             <div>
-              <dt>Kind</dt>
-              <dd data-mono="">{surfaceLabel[route().type]}</dd>
+              <dt>{language.t("shell.inspector.kind")}</dt>
+              <dd data-mono="">{surface()}</dd>
             </div>
             <Show when={server()}>
               {(value) => (
                 <div>
-                  <dt>Server</dt>
+                  <dt>{language.t("shell.inspector.server")}</dt>
                   <dd data-mono="" title={value()}>
                     {value()}
                   </dd>
@@ -92,11 +98,11 @@ export function RagestarInspector(props: { onClose: () => void }) {
               )}
             </Show>
             <div>
-              <dt>Queue</dt>
+              <dt>{language.t("shell.inspector.queue")}</dt>
               <dd data-mono="">{tabs.store.length}</dd>
             </div>
             <div>
-              <dt>Recent</dt>
+              <dt>{language.t("shell.inspector.recent")}</dt>
               <dd data-mono="">{tabs.closed.length}</dd>
             </div>
           </dl>

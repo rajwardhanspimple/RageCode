@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ragestar 2.2.8 — checksums and scans</title>
-<meta name="description" content="SHA-256 checksums for every Ragestar 2.2.8 artifact, plus the VirusTotal reports for the 2.2.7 installer and application binary.">
+<meta name="description" content="SHA-256 checksums for the Ragestar 2.2.8 Windows artifacts, plus the VirusTotal reports for the 2.2.7 installer and application binary.">
 <link rel="icon" type="image/svg+xml" href="assets/owl-mark.svg">
 <style>
   :root{--bg:#08080a;--panel:#101014;--line:#24242c;--text:#ececf1;--muted:#9b9ba6;--accent:#6ee7c8;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Inter,sans-serif}
@@ -39,7 +39,7 @@
 <header><div class="wrap"><img src="assets/owl-mark.svg" alt="Ragestar owl mark"><span class="name">Ragestar</span><a class="back" href="./">← back to overview</a></div></header>
 <div class="wrap">
   <h1>Checksums and scans — 2.2.8</h1>
-  <p class="lead">Every artifact below is attached to the <a href="https://github.com/rajwardhanspimple/RageCode/releases/tag/v2.2.8">v2.2.8 release</a>. Hashes are the published <a href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/SHA256SUMS.txt">SHA256SUMS.txt</a>, unedited.</p>
+  <p class="lead">Every file below is attached to the <a href="https://github.com/rajwardhanspimple/RageCode/releases/tag/v2.2.8">v2.2.8 release</a>. Hashes are the published <a href="https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/SHA256SUMS.txt">SHA256SUMS.txt</a>, unedited. This release ships Windows x64 only; macOS and Linux builds come from source.</p>
 
   <div class="row">
     <span class="pill"><span class="ok"></span><b>2.2.7 installer 0/50</b> · VirusTotal</span>
@@ -60,35 +60,20 @@
   </div>
 
   <h2>Verify a download</h2>
-  <pre># Windows
-Get-FileHash .\Ragestar-Setup-2.2.8.exe -Algorithm SHA256
-
-# macOS
-shasum -a 256 Ragestar-2.2.8-arm64.dmg
-
-# Linux
-sha256sum Ragestar-2.2.8-x64.AppImage</pre>
+  <pre>Get-FileHash .\Ragestar-Setup-2.2.8.exe -Algorithm SHA256</pre>
 
   <h2>All artifacts</h2>
   <table>
     <thead><tr><th>File</th><th>SHA-256</th></tr></thead>
     <tbody>
-      <tr><td class="name">Ragestar-2.2.8-arm64.dmg</td><td>02e7072d159164627f9edf9609f911b1df0038ddd0c185c1f47bd58569cd84e4</td></tr>
-      <tr><td class="name">Ragestar-2.2.8-arm64.zip</td><td>a183979992c3d0f3c3a156b9a2ed5c0d9404ef3c46a31bc5700f1360d348f397</td></tr>
-      <tr><td class="name">Ragestar-2.2.8-x64.AppImage</td><td>d629b06086d0fd93ada24c74fd25955f23492ee4a56f43e35227ce7aeadd07a5</td></tr>
-      <tr><td class="name">Ragestar-2.2.8-x64.deb</td><td>f57b2b1368c11aa92fd76f59ce53549b03cc0035b1cda7ce79b75ac6873fc00f</td></tr>
-      <tr><td class="name">Ragestar-2.2.8-x64.dmg</td><td>22a16621eb82f9666aa1df8c505557609c6e0cb70135ae8841283db573ae14eb</td></tr>
-      <tr><td class="name">Ragestar-2.2.8-x64.rpm</td><td>c183549ed9b260ead02737479a3a32b43447451bbebab7336c573f710133c6b6</td></tr>
-      <tr><td class="name">Ragestar-2.2.8-x64.zip</td><td>13674c947aaed2fdf0b06f8cbf01265aa1af1ee3bae20e56300f3f903db64c6b</td></tr>
-      <tr><td class="name">Ragestar-Setup-2.2.8.exe</td><td>f554941e2437a0d8643488d543ec082322091e3c9dd054748a806d00f1f41934</td></tr>
-      <tr><td class="name">Ragestar-Setup-2.2.8.exe.blockmap</td><td>dd19110b1a5a57a9308dffb137e365dd7ade9a63a3d6150255ce7dc047c066eb</td></tr>
-      <tr><td class="name">latest-linux.yml</td><td>8985d2dbb3764f3ccfd3f7b16ee18b01437d253e2644536413093c11202f0b90</td></tr>
-      <tr><td class="name">latest.yml</td><td>2033ca14f5a051eab8e141700078d2f585387771d33532d9c5e6126e6dd912f7</td></tr>
+      <tr><td class="name">Ragestar-Setup-2.2.8.exe</td><td>7c17c963bd366e2117f0524df1485225dbbec4b668d6ac16e48a5c31361b2752</td></tr>
+      <tr><td class="name">Ragestar-Setup-2.2.8.exe.blockmap</td><td>5a0afe0bfd5195d584fdcd927461ae7b812c76d48391c7f5db6427a3bc6df280</td></tr>
+      <tr><td class="name">latest.yml</td><td>d309bbb1adab94a2a6f760ffba6e8c1c0e3ef082030d676f5093a5257e84a0af</td></tr>
     </tbody>
   </table>
 
   <footer>
-    The installer is not code-signed. The application binary's hash is different from the installer's on purpose: the installer is an NSIS container and the executable is one file inside it. Ragestar is not affiliated with OpenCode or any provider named in a preset or community registry.
+    The installer is not code-signed; SmartScreen may warn about an unknown publisher. The 2.2.7 VirusTotal reports above identify those files by SHA-256 and stay valid even though that build is no longer attached to a release. Ragestar is not affiliated with OpenCode or any provider named in a preset or community registry.
   </footer>
 </div>
 </body>

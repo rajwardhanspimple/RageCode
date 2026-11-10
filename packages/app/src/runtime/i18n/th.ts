@@ -736,7 +736,7 @@ export const dict = {
   "settings.about.otherContributor.other": "อีก {{count}} คน",
   "settings.about.firstPublished": "ตีพิมพ์ครั้งแรกในรัฐมิสซูรี สหรัฐอเมริกา",
   "settings.about.firstIllustrated": "ภาพประกอบครั้งแรกในลอนดอน ประเทศอังกฤษ",
-  "settings.about.website": "github.com/ragestar/Ragestar",
+  "settings.about.website": "github.com/rajwardhanspimple/RageCode",
   "settings.about.description": "OpenCode เอเจนต์การเข้ารหัสโอเพ่นซอร์ส",
   "settings.about.trademark": "OpenCode เป็นเครื่องหมายการค้าจดทะเบียนของ Anomaly Innovations, Inc.",
   "settings.about.typeset": "เรียงพิมพ์ใน Inter และ IBM Plex Mono",

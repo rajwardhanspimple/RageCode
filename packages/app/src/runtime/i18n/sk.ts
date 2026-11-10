@@ -699,7 +699,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} ďalších",
   "settings.about.firstPublished": "Prvýkrát publikované v Missouri, USA",
   "settings.about.firstIllustrated": "Prvýkrát ilustrovaný v Londýne, Anglicko",
-  "settings.about.website": "github.com/ragestar/Ragestar",
+  "settings.about.website": "github.com/rajwardhanspimple/RageCode",
   "settings.about.description": "OpenCode, kódovací agent s otvoreným zdrojovým kódom",
   "settings.about.trademark": "OpenCode je registrovaná ochranná známka spoločnosti Anomaly Innovations, Inc.",
   "settings.about.typeset": "typová súprava v Inter a IBM Plex Mono",

@@ -135,9 +135,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ragestar/ragestar"
+    "url": "https://github.com/rajwardhanspimple/RageCode"
   },
-  "homepage": "https://github.com/ragestar/ragestar",
+  "homepage": "https://github.com/rajwardhanspimple/RageCode",
+  "bugs": {
+    "url": "https://github.com/rajwardhanspimple/RageCode/issues"
+  },
   "author": {
     "name": "ragestar"
   },

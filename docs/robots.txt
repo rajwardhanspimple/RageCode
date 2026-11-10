@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://9562295450.github.io/Ragestar/sitemap.xml
+Sitemap: https://rajwardhanspimple.github.io/RageCode/sitemap.xml

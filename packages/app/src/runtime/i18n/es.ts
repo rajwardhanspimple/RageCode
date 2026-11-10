@@ -155,7 +155,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} más",
   "settings.about.firstPublished": "Publicado por primera vez en Misuri, EE. UU.",
   "settings.about.firstIllustrated": "Ilustrado por primera vez en Londres, Inglaterra",
-  "settings.about.website": "github.com/ragestar/Ragestar",
+  "settings.about.website": "github.com/rajwardhanspimple/RageCode",
   "settings.about.description": "OpenCode, el agente de programación de código abierto",
   "settings.about.trademark": "OpenCode es una marca registrada de Anomaly Innovations, Inc.",
   "settings.about.typeset": "Compuesto con Inter e IBM Plex Mono",

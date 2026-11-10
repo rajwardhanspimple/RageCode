@@ -8,6 +8,7 @@ import { useLanguage } from "@/runtime/i18n/language"
 import { usePlatform, type PresetInfo } from "@/runtime/platform/platform"
 import { ExternalLink } from "@/runtime/platform/external-link"
 import { refreshProviderAddons } from "@/providers/catalog/addons"
+import { BRAND } from "@/runtime/brand"
 
 /**
  * Add-ons dialog.
@@ -17,7 +18,14 @@ import { refreshProviderAddons } from "@/providers/catalog/addons"
  * only write is a provider base URL.
  */
 
-const REGISTRY_FORMAT_URL = "https://github.com/ragestar/Ragestar/blob/main/PRESETS.md"
+const REGISTRY_FORMAT_URL = BRAND.addons
+
+/** Where each entry came from, as the badge on its row shows it. */
+const ORIGIN = {
+  community: "dialog.provider.addons.origin.community",
+  starter: "dialog.provider.addons.origin.starter",
+  local: "dialog.provider.addons.origin.local",
+} as const
 
 /**
  * Loads a registry of community add-ons and applies one entry.
@@ -44,6 +52,7 @@ export function DialogCommunityAddons(props: { onApplied?: () => void }) {
       platform.presets.list().catch(() => []),
       platform.presets.starter().catch(() => []),
     ])
+
     const known = new Set(installed.map((entry) => entry.id))
 
     setAddons([...installed, ...starter.filter((entry) => !known.has(entry.id))])
@@ -66,6 +75,7 @@ export function DialogCommunityAddons(props: { onApplied?: () => void }) {
 
       if (!result.ok) {
         setNotice({ kind: "error", text: result.error ?? "Registry could not be read." })
+
         return
       }
 
@@ -90,6 +100,7 @@ export function DialogCommunityAddons(props: { onApplied?: () => void }) {
 
       if (!result.ok) {
         setNotice({ kind: "error", text: language.t("dialog.provider.addons.failed", { error: result.error ?? "" }) })
+
         return
       }
 
@@ -168,11 +179,7 @@ export function DialogCommunityAddons(props: { onApplied?: () => void }) {
                           <span class="flex min-w-0 items-baseline gap-2">
                             <span class="truncate text-[13px] font-medium text-v2-text-text-base">{addon.label}</span>
                             <span class="shrink-0 rounded-sm border border-v2-border-border-base px-1 text-[10px] font-[530] uppercase leading-4 tracking-[0.04px] text-v2-text-text-faint">
-                              {addon.origin === "community"
-                                ? language.t("dialog.provider.addons.origin.community")
-                                : addon.origin === "starter"
-                                  ? language.t("dialog.provider.addons.origin.starter")
-                                  : language.t("dialog.provider.addons.origin.local")}
+                              {language.t(ORIGIN[addon.origin ?? "local"])}
                             </span>
                           </span>
                           <span class="truncate text-[12px] leading-4 text-v2-text-text-muted">

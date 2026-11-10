@@ -1,10 +1,10 @@
-import { useLanguage } from "@opencode/app/desktop"
+import { BRAND, useLanguage } from "@opencode/app/desktop"
 import { createEffect, createSignal, onCleanup, onMount, Show } from "solid-js"
 import type { UpdateStatus } from "../shared/ipc-rpc/updates"
 import type { ElectronAPI } from "./api-types"
 
 /** The fork's release page; the same feed the packaged app updates from. */
-const RELEASES = "https://github.com/ragestar/ragestar/releases/latest"
+const RELEASES = BRAND.releases
 
 /**
  * The shell updater's only face. It shows the version the installed app already has, announces a release
@@ -19,6 +19,7 @@ export function DesktopUpdater(props: { api: ElectronAPI; version: string }) {
 
   const receive = (next: UpdateStatus) => {
     setStatus(next)
+
     if (next.state === "available") setOpen(true)
   }
 
@@ -33,16 +34,23 @@ export function DesktopUpdater(props: { api: ElectronAPI; version: string }) {
     if (status().state === "ready") setOpen(true)
   })
 
-  const visible = () => status().state !== "unsupported"
+  // The corner stays empty until there is something to install or report. The app menu already owns the
+  // manual check, so a build with no release shows no update chrome at all.
+  const visible = () =>
+    open() || status().state === "available" || status().state === "downloading" || status().state === "ready"
 
   const label = () => {
     const state = status()
 
     if (state.state === "available") return language.t("desktop.update.available", { version: state.version ?? "" })
+
     if (state.state === "downloading")
       return language.t("desktop.update.downloading", { percent: String(Math.round(state.percent ?? 0)) })
+
     if (state.state === "ready") return language.t("desktop.update.ready")
+
     if (state.state === "checking") return language.t("desktop.update.checking")
+
     if (state.state === "error") return language.t("desktop.update.failed")
 
     return language.t("desktop.update.check")
@@ -61,9 +69,12 @@ export function DesktopUpdater(props: { api: ElectronAPI; version: string }) {
   }
 
   const check = () => run(props.api.updateCheck)
+
   const download = () => run(props.api.updateDownload)
+
   const install = () => {
     if (busy()) return
+
     setBusy(true)
     void props.api.updateInstall().catch(() => setBusy(false))
   }

@@ -741,7 +741,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} drugih",
   "settings.about.firstPublished": "Prvi put objavljeno u Missouriju, SAD",
   "settings.about.firstIllustrated": "Prvi put ilustrovan u Londonu, Engleska",
-  "settings.about.website": "github.com/ragestar/Ragestar",
+  "settings.about.website": "github.com/rajwardhanspimple/RageCode",
   "settings.about.description": "OpenCode, agent za kodiranje otvorenog koda",
   "settings.about.trademark": "OpenCode je registrovani zaštitni znak Anomaly Innovations, Inc.",
   "settings.about.typeset": "Postavljen u Inter i IBM Plex Mono",

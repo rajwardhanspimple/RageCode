@@ -142,7 +142,7 @@ export const dict = {
   "settings.about.otherContributor.other": "{{count}} andre",
   "settings.about.firstPublished": "Først udgivet i Missouri, USA",
   "settings.about.firstIllustrated": "Først illustreret i London, England",
-  "settings.about.website": "github.com/ragestar/Ragestar",
+  "settings.about.website": "github.com/rajwardhanspimple/RageCode",
   "settings.about.description": "OpenCode, open source-kodningsagenten",
   "settings.about.trademark": "OpenCode er et registreret varemærke tilhørende Anomaly Innovations, Inc.",
   "settings.about.typeset": "Sat med Inter og IBM Plex Mono",

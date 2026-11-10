@@ -5,6 +5,7 @@ import { useCommand } from "@/shell/commands/command"
 import { useCurrentRoute } from "@/shell/state/layout"
 import { useSettingsDialog } from "@/settings/command"
 import { usePlatform } from "@/runtime/platform/platform"
+import { useLanguage } from "@/runtime/i18n/language"
 import { OwlMark } from "./owl"
 
 type RailItem = {
@@ -20,29 +21,35 @@ type RailItem = {
  * queue toggle, and the exit reading. It never collapses, so the window always has a
  * fixed left edge and the queue beside it is free to close.
  */
-export function RagestarRail(props: { queueOpen: boolean; onToggleQueue: () => void }) {
+export function RagestarRail(props: {
+  queueOpen: boolean
+  onToggleQueue: () => void
+  /** Absent while the window is too narrow to hold the inspector, so the rail never offers a dead control. */
+  inspector?: { open: boolean; toggle: () => void }
+}) {
   const command = useCommand()
   const route = useCurrentRoute()
   const platform = usePlatform()
   const openSettings = useSettingsDialog()
   const navigate = useNavigate()
+  const language = useLanguage()
 
   const items = (): RailItem[] => [
     {
       id: "new",
-      label: "New session",
+      label: language.t("shell.rail.new"),
       icon: "plus",
       run: () => command.trigger("tab.new"),
     },
     {
       id: "search",
-      label: "Search sessions",
+      label: language.t("shell.rail.search"),
       icon: "magnifying-glass",
       run: () => command.trigger("sessions.search"),
     },
     {
       id: "home",
-      label: "Home",
+      label: language.t("shell.rail.home"),
       icon: "grid-plus",
       run: () => navigate("/"),
       active: () => route().type === "home",
@@ -52,7 +59,7 @@ export function RagestarRail(props: { queueOpen: boolean; onToggleQueue: () => v
   const phase = () => platform.egress?.state()?.phase ?? "idle"
 
   return (
-    <nav data-slot="ragestar-rail" aria-label="Primary">
+    <nav data-slot="ragestar-rail" aria-label={language.t("shell.rail.primary")}>
       <button
         type="button"
         data-slot="ragestar-rail-brand"
@@ -86,13 +93,31 @@ export function RagestarRail(props: { queueOpen: boolean; onToggleQueue: () => v
         data-slot="ragestar-rail-item"
         data-active={props.queueOpen ? "" : undefined}
         data-rail-toggle=""
-        title={props.queueOpen ? "Hide queue" : "Show queue"}
-        aria-label={props.queueOpen ? "Hide queue" : "Show queue"}
+        title={props.queueOpen ? language.t("shell.rail.queue.hide") : language.t("shell.rail.queue.show")}
+        aria-label={props.queueOpen ? language.t("shell.rail.queue.hide") : language.t("shell.rail.queue.show")}
         aria-pressed={props.queueOpen}
         onClick={props.onToggleQueue}
       >
         <Icon name="sidebar" />
       </button>
+
+      <Show when={props.inspector}>
+        {(inspector) => (
+          <button
+            type="button"
+            data-slot="ragestar-rail-item"
+            data-active={inspector().open ? "" : undefined}
+            data-rail-toggle=""
+            data-flip=""
+            title={language.t(inspector().open ? "shell.inspector.hide" : "shell.inspector.show")}
+            aria-label={language.t(inspector().open ? "shell.inspector.hide" : "shell.inspector.show")}
+            aria-pressed={inspector().open}
+            onClick={() => inspector().toggle()}
+          >
+            <Icon name="sidebar" />
+          </button>
+        )}
+      </Show>
 
       <div data-slot="ragestar-rail-spacer" />
 
@@ -100,7 +125,7 @@ export function RagestarRail(props: { queueOpen: boolean; onToggleQueue: () => v
         <span
           data-slot="ragestar-rail-phase"
           data-phase={phase()}
-          title={`Egress ${phase()}`}
+          title={language.t("shell.rail.egress", { phase: phase() })}
           aria-hidden="true"
         />
       </Show>
@@ -108,8 +133,8 @@ export function RagestarRail(props: { queueOpen: boolean; onToggleQueue: () => v
       <button
         type="button"
         data-slot="ragestar-rail-item"
-        title="Settings"
-        aria-label="Settings"
+        title={language.t("shell.rail.settings")}
+        aria-label={language.t("shell.rail.settings")}
         onClick={() => openSettings()}
       >
         <Icon name="settings-gear" />

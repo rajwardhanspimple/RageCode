@@ -107,6 +107,6 @@ Examples:
 
 ## Issues
 
-Bug reports and feature requests must use their issue templates. Blank issues are not allowed; ask support and how-to questions in the [Discord community](https://discord.gg/opencode).
+Bug reports and feature requests must use their issue templates. Blank issues are not allowed; ask support and how-to questions in [GitHub Discussions](https://github.com/rajwardhanspimple/RageCode/discussions).
 
 Automated checks flag missing templates, placeholder text, AI-generated walls of text, and missing meaningful content. You have two hours to correct a flagged issue before it closes automatically. Ask a maintainer if an issue was flagged incorrectly.

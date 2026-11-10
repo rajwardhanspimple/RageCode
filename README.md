@@ -7,11 +7,10 @@ preconfigured, with multi-lane egress and isolated sessions built into the UI in
 
 [**Download**](https://github.com/rajwardhanspimple/RageCode/releases/tag/v2.2.8) ·
 [Windows](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-Setup-2.2.8.exe) ·
-[macOS arm64](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-2.2.8-arm64.dmg) ·
-[macOS x64](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-2.2.8-x64.dmg) ·
-[Linux AppImage](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-2.2.8-x64.AppImage) ·
-[deb](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-2.2.8-x64.deb) ·
-[rpm](https://github.com/rajwardhanspimple/RageCode/releases/download/v2.2.8/Ragestar-2.2.8-x64.rpm)
+[All releases](https://github.com/rajwardhanspimple/RageCode/releases)
+
+macOS and Linux build from source: see [Run from source](#run-from-source) and
+[Build a release](#build-a-release).
 
 - **Multi-lane egress** — Direct, WARP, Tor and proxy lanes, each with health, latency and
   rotation. Rotate on demand, or arm a lane and let it rotate.
@@ -20,8 +19,8 @@ preconfigured, with multi-lane egress and isolated sessions built into the UI in
   community template, add your own preset, or paste a registry URL.
 - **One engine** — the shell drives the upstream CLI engine as a sidecar process, so tool
   execution, permissions and MCP servers behave the same as the CLI.
-- **Three platforms, real packages** — NSIS installer, `.dmg` for Apple Silicon and Intel,
-  `.AppImage` / `.deb` / `.rpm` for x64 Linux, built on native runners.
+- **Windows installer, source for the rest** — the 2.2.8 release ships an NSIS installer for
+  Windows 10/11 x64. macOS 14+ and glibc Linux x64 build from source with the commands below.
 - **No telemetry endpoint** — the app contacts the endpoints you configured, the registry URL
   you loaded, and nothing else.
 
@@ -52,9 +51,10 @@ Grab the installer from [Releases](https://github.com/rajwardhanspimple/RageCode
 
 - **Windows** - `Ragestar-Setup-<version>.exe`. Assisted installer: accept the license,
   press Install. A desktop shortcut and Start menu entry are created for the current user.
-- **macOS / Linux** — `Ragestar-<version>-arm64.dmg` and `-x64.dmg` for Apple Silicon and
-  Intel, and `.AppImage`, `.deb` and `.rpm` for x64 Linux, attached to the same release. You can
-  still build from source with the commands below.
+- **macOS / Linux** — no packages are attached to 2.2.8 yet. Build from source with the
+  commands below; the packaging scripts and the release workflow in
+  `.github/workflows/publish.yml` produce `.dmg`, `.AppImage`, `.deb` and `.rpm` on their
+  native runners.
 
 The Windows build is unsigned. SmartScreen may ask you to confirm the publisher; the release
 attaches `SHA256SUMS.txt` so you can check the file you downloaded instead of trusting the
@@ -148,7 +148,7 @@ rotation is never retried behind your back.
 ## Updates
 
 Release builds from 2.2.6 on ship an update feed that points at **this repository's own
-releases** and nothing else: `https://github.com/rajwardhanspimple/RageCode/releases/latest/download`.
+releases** and nothing else: `https://github.com/rajwardhanspimple/RageCode/releases/latest/download/latest.yml`.
 `electron-updater` reads it from `resources/app-update.yml`, checks five seconds after launch and
 every four hours after that, and shows you the version before anything is fetched.
 `autoDownload` is off, so a check never installs on its own; a version you download and defer

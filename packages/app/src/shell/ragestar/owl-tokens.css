@@ -2,10 +2,12 @@
    Everything here is a primitive. Components never hard-code a hex, a radius or a duration. */
 
 :root {
-  /* Type. Display is a grotesk with a wide aperture; body is the UI sans; meta is mono. */
-  --owl-font-display: "Albert Sans", "Space Grotesk", "Inter", system-ui, sans-serif;
-  --owl-font-body: "Inter", system-ui, sans-serif;
-  --owl-font-mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, monospace;
+  /* Type follows the user's Appearance setting. `--v2-*` alias the same
+     `--font-family-*` variables the settings panel writes, so a chosen face reaches
+     every surface instead of only the ones that never opted into the design system. */
+  --owl-font-display: var(--v2-font-family-sans);
+  --owl-font-body: var(--v2-font-family-sans);
+  --owl-font-mono: var(--v2-font-family-code);
 
   --owl-text-xs: 11px;
   --owl-text-sm: 12px;

@@ -117,7 +117,7 @@
   align-items: center;
   gap: 6px;
   min-width: 0;
-  font-family: var(--v2-font-family-mono);
+  font-family: var(--v2-font-family-code);
   font-size: 11px;
 }
 
@@ -168,7 +168,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   color: var(--v2-state-fg-danger);
-  font-family: var(--v2-font-family-mono);
+  font-family: var(--v2-font-family-code);
 }
 
 [data-slot="egress-button"] {
@@ -382,7 +382,7 @@
 }
 
 [data-slot="egress-mono"] {
-  font-family: var(--v2-font-family-mono);
+  font-family: var(--v2-font-family-code);
   font-size: 11px !important;
 }
 
@@ -405,7 +405,7 @@
   border-radius: 7px;
   border: 1px solid color-mix(in srgb, var(--v2-state-fg-warning) 35%, transparent);
   background: color-mix(in srgb, var(--v2-state-fg-warning) 8%, transparent);
-  font-family: var(--v2-font-family-mono);
+  font-family: var(--v2-font-family-code);
   font-size: 11px;
   line-height: 1.5;
   color: var(--v2-text-text-muted);
@@ -463,7 +463,7 @@
 
 [data-slot="egress-card"] p {
   margin: 0;
-  font-family: var(--v2-font-family-mono);
+  font-family: var(--v2-font-family-code);
   font-size: 11px;
   color: var(--v2-text-text-muted);
 }
@@ -515,7 +515,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: var(--v2-font-family-mono);
+  font-family: var(--v2-font-family-code);
   color: var(--v2-text-text-base);
 }
 
@@ -576,7 +576,7 @@
   background: var(--v2-background-bg-layer-01);
   color: var(--v2-text-text-base);
   font: inherit;
-  font-family: var(--v2-font-family-mono);
+  font-family: var(--v2-font-family-code);
   font-size: 12px;
 }
 

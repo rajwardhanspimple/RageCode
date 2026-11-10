@@ -171,11 +171,13 @@ export function SettingsAbout(props: { active: boolean }) {
       </p>
 
       <p class="settings-about-faint">
-        <span>Ragestar is a fork of </span>
-        <ExternalLink href="https://github.com/anomalyco/opencode">
-          <bdi dir="ltr">OpenCode</bdi>
-        </ExternalLink>
-        <span>, redistributed under the MIT license.</span>
+        {language.rich("settings.about.fork", {
+          upstream: (
+            <ExternalLink href="https://github.com/anomalyco/opencode">
+              <bdi dir="ltr">OpenCode</bdi>
+            </ExternalLink>
+          ),
+        })}
       </p>
 
       <div class="settings-about-details">

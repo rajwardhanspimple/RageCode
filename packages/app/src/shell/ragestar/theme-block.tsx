@@ -2,13 +2,13 @@ import { For, onMount } from "solid-js"
 import { Icon } from "@opencode/ui/icon"
 import { useTheme } from "@opencode/ui/theme/context"
 import { useSettingsDialog } from "@/settings/command"
-import type { ColorScheme } from "@opencode/ui/theme/context"
+import { useLanguage } from "@/runtime/i18n/language"
 
-const schemes: { id: ColorScheme; label: string }[] = [
-  { id: "system", label: "Auto" },
-  { id: "light", label: "Light" },
-  { id: "dark", label: "Dark" },
-]
+const schemes = [
+  { id: "system", label: "shell.theme.scheme.auto" },
+  { id: "light", label: "theme.scheme.light" },
+  { id: "dark", label: "theme.scheme.dark" },
+] as const
 
 /**
  * The theme engine in one row: the active theme's name, a swatch strip that changes it on
@@ -18,6 +18,7 @@ const schemes: { id: ColorScheme; label: string }[] = [
 export function RagestarTheme() {
   const theme = useTheme()
   const openAppearance = useSettingsDialog("appearance")
+  const language = useLanguage()
 
   onMount(() => void theme.loadThemes())
 
@@ -40,7 +41,7 @@ export function RagestarTheme() {
         <span data-slot="ragestar-theme-glyph" aria-hidden="true">
           <Icon name="edit" />
         </span>
-        <span>Theme</span>
+        <span>{language.t("shell.theme.title")}</span>
         <span data-slot="ragestar-block-note" data-truncate="" title={theme.name(theme.themeId())}>
           {theme.name(theme.themeId())}
         </span>
@@ -48,15 +49,15 @@ export function RagestarTheme() {
           type="button"
           data-slot="ragestar-icon"
           data-push=""
-          title="Open the theme settings"
-          aria-label="Open the theme settings"
+          title={language.t("shell.theme.open")}
+          aria-label={language.t("shell.theme.open")}
           onClick={() => openAppearance()}
         >
           <Icon name="settings-gear" />
         </button>
       </header>
 
-      <div data-slot="ragestar-swatches" role="listbox" aria-label="Theme">
+      <div data-slot="ragestar-swatches" role="listbox" aria-label={language.t("shell.theme.title")}>
         <For each={theme.ids()}>
           {(id) => (
             <button
@@ -74,7 +75,7 @@ export function RagestarTheme() {
         </For>
       </div>
 
-      <div data-slot="ragestar-schemes" role="group" aria-label="Color scheme">
+      <div data-slot="ragestar-schemes" role="group" aria-label={language.t("shell.theme.scheme")}>
         <For each={schemes}>
           {(scheme) => (
             <button
@@ -84,7 +85,7 @@ export function RagestarTheme() {
               aria-pressed={theme.colorScheme() === scheme.id}
               onClick={() => theme.setColorScheme(scheme.id)}
             >
-              {scheme.label}
+              {language.t(scheme.label)}
             </button>
           )}
         </For>

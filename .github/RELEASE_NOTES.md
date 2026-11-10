@@ -12,12 +12,9 @@ endpoint in the code, no credential. You connect an account, or you don't.
 | Platform | File |
 | --- | --- |
 | Windows 10/11 x64 | `Ragestar-Setup-2.2.8.exe` |
-| macOS Apple Silicon (arm64) | `Ragestar-2.2.8-arm64.dmg` |
-| macOS Intel (x64) | `Ragestar-2.2.8-x64.dmg` |
-| Linux x64 | `Ragestar-2.2.8-x64.AppImage`, `Ragestar-2.2.8-x64.deb`, `Ragestar-2.2.8-x64.rpm` |
 
-macOS and Linux packages are built by the release workflow on native runners. They are unsigned;
-see the platform notes below.
+macOS and Linux packages are not part of this release. Build them from source with the commands
+in the README; the release workflow produces them on native runners when dispatched.
 
 ### What's new
 - **Compatibility-gated engine updates.** Once per launch a production build consults npm's
@@ -36,8 +33,8 @@ see the platform notes below.
 
 ### Verify before you run
 - `SHA256SUMS.txt` carries the SHA-256 for the Windows installer, `latest.yml` and the blockmap.
-- Windows installer SHA-256:
-  `f554941e2437a0d8643488d543ec082322091e3c9dd054748a806d00f1f41934` (257,956,222 bytes).
+  Compare it with the file you downloaded; the value is release-specific, so always take it from
+  this release rather than from a copy of these notes.
 - The 2.2.7 installer was scanned at VirusTotal with **0/50 detections** and the application
   binary with **0/68**; those reports are on the
   [checksums page](https://rajwardhanspimple.github.io/RageCode/checksums.html). The 2.2.8 installer
@@ -48,17 +45,11 @@ see the platform notes below.
 ### Installing this one
 - 2.2.7 installs can take this release through the built-in updater. The engine stays at 2.2.6
   until a newer one passes the gate.
-- macOS builds are unsigned, so automatic updates are not enabled there; download new versions
-  from this page until the app is signed and notarized.
-- Linux AppImage installs can check `latest-linux.yml`; deb and rpm installs update through the
-  package manager.
 
 ### Platform notes
-- **macOS:** the app is not notarized. First launch: right-click the app, choose **Open**, then
-  confirm. Drag it to Applications from the dmg.
-- **Linux AppImage:** `chmod +x Ragestar-2.2.8-x64.AppImage` then run it. The deb and rpm
-  packages install the same app for your package manager.
 - **Windows:** the installer is per-user and does not require an administrator.
+- **macOS and Linux:** build from source. The packaging scripts target those platforms, but this
+  release attaches no packages for them.
 
 ### Notes
 - Ragestar is not affiliated with OpenCode. See `NOTICE.md` and `PRESETS.md`.
