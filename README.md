@@ -1,7 +1,5 @@
 # Ragestar
 
-[![Ragestar — a provider-agnostic desktop AI client](docs/og.png)](https://rajwardhanspimple.github.io/RageCode/)
-
 **A provider-agnostic desktop AI client.** An open-source AI client for developers: nothing
 preconfigured, with multi-lane egress and isolated sessions built into the UI instead of bolted on.
 
@@ -28,8 +26,6 @@ preconfigured, with multi-lane egress and isolated sessions built into the UI in
 | Installer (2.2.7 scan) | [VirusTotal **0/50**](https://www.virustotal.com/gui/file/4fe3199ec3090b91454d2d3822b0b907bcb90f4ba106b4b983c6aa3631db0d6a) · SHA-256 `4fe3199e…` |
 | App binary (2.2.7 scan) | [VirusTotal **0/68**](https://www.virustotal.com/gui/file/3dda8e6a3d82634e5f7c749238ca5701cd3cb7b60f9ee85e122295c55d93bb1d) · SHA-256 `3dda8e6a…` |
 | License | MIT · [checksums and scans](https://rajwardhanspimple.github.io/RageCode/checksums.html) |
-
-![The Ragestar session view, with the egress lanes and theme picker in the inspector](docs/screenshots/hero.png)
 
 ## Is this the official OpenCode app?
 
@@ -97,8 +93,6 @@ Ragestar is a generic client: nothing is connected on first run and no provider 
 compiled into the app. Open the provider picker from the model chip in the composer. You can pick
 a provider from the engine's catalogue and supply your own credential, or apply a community
 template, which fills in a base URL for you.
-
-![The model picker on a fresh profile: no provider, no results, nothing preselected](docs/screenshots/02-model-picker.png)
 
 The shipped starter template includes one entry, **OpenCode Zen**, as a convenience for the
 community. It is data, not a built-in feature and not an endorsement: the app never signs in for
@@ -198,8 +192,6 @@ machine, not uploaded to any Ragestar-operated service. There is no Ragestar tel
 endpoint.
 
 ## Security
-
-[![VirusTotal report](./docs/security/virustotal-badge.svg)](https://www.virustotal.com/gui/file/4fe3199ec3090b91454d2d3822b0b907bcb90f4ba106b4b983c6aa3631db0d6a)
 
 - Every release publishes `SHA256SUMS.txt`; check a download with
   `Get-FileHash .\Ragestar-Setup-*.exe -Algorithm SHA256` (PowerShell) or

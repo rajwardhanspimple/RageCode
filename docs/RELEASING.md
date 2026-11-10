@@ -105,9 +105,7 @@ run, because the default branch had not been indexed yet. If the Actions tab sho
 
 1. Scan the exact installer on <https://www.virustotal.com/gui/home/upload>.
 2. Copy the report URL into `docs/security/virustotal.md` and the release body.
-3. Bump the badge text in `docs/security/virustotal-badge.svg` from `no release scanned yet` to
-   the version and detection count.
-4. Paste the About text and topics from `.github/REPO.md` if the script was not used.
+3. Paste the About text and topics from `.github/REPO.md` if the script was not used.
 
 ## Repository location
 
