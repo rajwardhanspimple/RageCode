@@ -80,7 +80,7 @@ if (-not $SkipPush) {
 }
 
 # 2. About box: description, homepage, topics.
-$description = "Ragestar — a provider-agnostic desktop AI client. Bring your own provider: nothing is preconfigured, no endpoint is bundled, and provider add-ons are community data you choose to load. Multi-lane egress, session isolation, MIT licensed."
+$description = "Ragestar - a provider-agnostic desktop AI client. Bring your own provider: nothing is preconfigured, no endpoint is bundled, and provider add-ons are community data you choose to load. Multi-lane egress, session isolation, MIT licensed."
 $topics = @(
   "ai-client", "desktop-app", "electron", "privacy", "byok", "bring-your-own-key",
   "multi-provider", "egress", "tor", "wireguard", "typescript", "solidjs", "mit-license"
